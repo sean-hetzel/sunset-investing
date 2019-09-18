@@ -12,7 +12,7 @@ body {
 }
 
 #logo_text {
-    color: white;
+    color: cyan;
     font-size: 40px;
     text-decoration: none;
     text-transform: uppercase;
@@ -45,4 +45,10 @@ body {
     margin-top: 1.75em;
     margin-right: 1em;
     float: right;
+}
+
+#signup{
+  color: yellow;
+  border: 2px solid white;
+
 }

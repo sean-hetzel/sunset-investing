@@ -5,8 +5,8 @@ class Home extends React.Component {
     render() {
         return (
             <>
-                <img src={TempImg} alt="suburbs" width="100%" />
-                <h2>Home</h2>
+                {/* <img src={TempImg} alt="suburbs" width="100%" />
+                <h2>Home</h2> */}
             </>
         );
     }

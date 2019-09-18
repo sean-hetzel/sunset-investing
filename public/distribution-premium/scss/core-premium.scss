@@ -1,0 +1,42 @@
+/*
+==============================================================
+==============================================================
+
+Dark Admin Bootstrap Template by Bootstrapious.com
+
+PREMIUM VERSION
+
+==============================================================
+==============================================================
+ */
+
+ // functions.scss - Bootstrap functions
+@import "modules/functions";
+// variables-custom.scss - to change colour variant, rounded corners, etc.
+@import "modules/variables-custom";
+// bootstrap mixins
+@import "modules/mixins";
+// custom mixins
+@import "modules/mixins-custom";
+// general styling
+@import "modules/general";
+// form elements styling
+@import "modules/forms";
+// premium form elements styling
+@import "modules/forms-premium";
+// pages
+@import "modules/pages";
+// DropzoneJs
+@import "modules/forms-dropzone";
+// charts styling
+@import "modules/charts";
+// tables styling
+@import "modules/tables";
+// other components styling
+@import "modules/components";
+// Spinkit preloaders
+@import "modules/spinkit";
+// demo styling
+@import "modules/demo";
+// bootstrap base stylesheet overrides
+@import "theme";
