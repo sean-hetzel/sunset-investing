@@ -1,28 +1,48 @@
+body {
+    background-color: #323033;
+}
+
 #nav_bar {
-  background-color: black;
+    background-color: black;
+    height: 7em;
 }
 
-#logo_text{
-  color: white;
-  font-size: 40px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-body{
-  background-color: #323033;
+#logo_img {
+    float: left;
 }
 
-.nav_button{
-  color: white;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  background: none;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid white;
-  border-radius: 5px;
-  padding: 0.5em 1em;
-  margin-left: 1em;
-  margin-right: 1em;
+#logo_text {
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    float: left;
+    margin-top: .75em;
+}
+
+.nav_button {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    background: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    position: relative;
+    float: left;
+    margin-top: 1.75em;
+}
+
+#login,
+#logout,
+#signup,
+#shopping_cart {
+    margin-top: 1.75em;
+    margin-right: 1em;
+    float: right;
 }
