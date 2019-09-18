@@ -1,5 +1,5 @@
 import React from "react";
-import TempImg from "../images/placeholder_welcome_image.jpg";
+// import TempImg from "../images/placeholder_welcome_image.jpg";
 
 class Home extends React.Component {
     render() {
