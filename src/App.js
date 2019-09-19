@@ -38,8 +38,8 @@ class App extends React.Component {
                     <Route path="/signup" component={SignUp} />
                     <Route path="/dashboard" component={DashBoard} />
                     <Route path="/cart" component={Cart} />
-                    <Footer />
                 </div>
+                    <Footer />
             </Router>
         );
     }
