@@ -1,5 +1,4 @@
 import React from "react";
-import tempHouse from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
 
 const PropertyCard = props => {
     const { property } = props;
@@ -8,15 +7,12 @@ const PropertyCard = props => {
             <div className="col-md-6 col-lg-3">
                 <div className="card">
                     <img
-                        src={tempHouse}
+                        src={[props.tempHouseImage]}
                         alt="Card cap"
                         className="card-img-top img-fluid"
                     />
                     <div className="card-body">
                         <h5 className="card-title">${property.price.toLocaleString()}</h5>
-                        {/* <p className="card-text">
-                            Golden Nugget Award of Merit custom Contemporary home on 5+ private acres w/panoramic views. Architectural features: floating roofs, curvilinear elements expressed in the desert vernacular of Arizona brown schist, treated copper fascias, walls of glass and polished aggregate floors. 
-                            </p> */}
                     </div>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">Rent: ${property.rent.toLocaleString()}</li>
@@ -24,10 +20,10 @@ const PropertyCard = props => {
                             Leased for the next {property.lease_length / 12} years.
                         </li>
                         <li className="list-group-item">
-                            Appreciated by {property.last_year_appreciation}% in the last year.
-                        </li>{" "}
+                            Appreciated by {property.last_year_appreciation}% last year.
+                        </li>
                         <li className="list-group-item">
-                            Appreciation is predicted to be {property.next_year_appreciation}% over the next
+                            Appreciation is predicted to be {property.next_year_appreciation}% next
                             year.
                         </li>
                         <li className="list-group-item">
