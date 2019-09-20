@@ -9,10 +9,10 @@ export default class SideBar extends Component {
 <nav id="sidebar">
   {/* Sidebar Header*/}
   <div className="sidebar-header d-flex align-items-center"><a href="pages-profile.html">
-      <div className="avatar"><img src="img/avatar-6.jpg" alt="..." className="img-fluid rounded-circle" /></div></a>
+      <div className="avatar"><img src="img/avatar-11.jpg" alt="..." className="img-fluid rounded-circle" /></div></a>
     <div className="title">
-      <h1 className="h5">Mark Stephen</h1>
-      <p>Web Designer</p>
+      <h1 className="h5">Michael Bluth</h1>
+      <p>CEO of the Bluth Company</p>
     </div>
   </div>
   {/* Sidebar Navidation Menus*/}<span className="heading">Main</span>
