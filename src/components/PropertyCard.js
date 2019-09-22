@@ -21,7 +21,7 @@ class PropertyCard extends React.Component {
             beds_baths_sqft,
             address
         } = this.props.property;
-        
+
         return (
             <>
                 <div className="col-md-6 col-lg-3">
@@ -33,10 +33,7 @@ class PropertyCard extends React.Component {
                             className="card-img-top img-fluid"
                         />
                         <div className="card-body">
-                            <h5
-                                className="card-title"
-                                style={{ color: "#37cfdc" }}
-                            >
+                            <h5 className="card-title text-primary">
                                 ${price.toLocaleString()}
                             </h5>
                         </div>
@@ -52,7 +49,7 @@ class PropertyCard extends React.Component {
                                 year.
                             </li>
                             <li className="list-group-item">
-                                Appreciation is predicted to be
+                                Appreciation is predicted to be{" "}
                                 {next_year_appreciation}% next year.
                             </li>
                             <li className="list-group-item">

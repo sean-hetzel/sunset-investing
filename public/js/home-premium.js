@@ -8,7 +8,7 @@ $(function () {
         }
     }
     Messenger().post({
-        message: 'Hey, how are you?<br>Welcome to the Dark Admin Premium template by Bootstrapious.',
+        message: 'Hey Sarah!<br>Your portfolio grew by 5.6% or $25,751 since your last visit!',
         type: 'success'
     });
 });

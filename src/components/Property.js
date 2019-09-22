@@ -20,13 +20,16 @@ class Property extends React.Component {
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
                         <div className="container-fluid">
-                            <h2 className="h5 no-margin-bottom">Properties</h2>
+                            <h2 className="h5 no-margin-bottom">Property</h2>
                         </div>
                     </div>
                     <div className="container-fluid">
                         <ul className="breadcrumb">
                             <li className="breadcrumb-item">
                                 <Link to="/">Home</Link>
+                            </li>
+                            <li className="breadcrumb-item">
+                                <Link to="/properties">Properties</Link>
                             </li>
                             <li className="breadcrumb-item active">Property</li>
                         </ul>
@@ -40,37 +43,36 @@ class Property extends React.Component {
 
                         <div className="col-md-6" style={{ float: "right" }}>
                             <h1 className="card-title">This is a property</h1>
-                        <Link to="/cart" className="btn btn-primary ">
+                            <Link to="/cart" className="btn btn-primary ">
                                 Add to Cart
                             </Link>
                         </div>
 
-                        {/* <div className="col-6 col-md-4 col-lg-3 col-xl-2"> */}
+                        <div style={{ marginTop: "2rem" }}></div>
                         <div class="container-fluid">
                             <div className="row">
-                                {" "}
-                                <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <div className="col-6 col-md-4 col-lg-3 col-xl-1">
                                     <img
                                         src={tempHouse1}
                                         alt="temp img"
                                         className="img-fluid"
                                     ></img>
                                 </div>
-                                <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <div className="col-6 col-md-4 col-lg-3 col-xl-1">
                                     <img
                                         src={tempHouse1}
                                         alt="temp img"
                                         className="img-fluid"
                                     ></img>
                                 </div>
-                                <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <div className="col-6 col-md-4 col-lg-3 col-xl-1">
                                     <img
                                         src={tempHouse1}
                                         alt="temp img"
                                         className="img-fluid"
                                     ></img>
                                 </div>
-                                <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <div className="col-6 col-md-4 col-lg-3 col-xl-1">
                                     <img
                                         src={tempHouse1}
                                         alt="temp img"
@@ -78,6 +80,27 @@ class Property extends React.Component {
                                     ></img>
                                 </div>
                             </div>
+
+{/* <div>
+  <div id="map-3" style={{height: 400}} className="map">                                                                    </div>
+  <div className="block">
+  </div></div>
+    
+      {$(function map() {
+          // coordinates for the center of the map and the marker
+          let lat = 40.732346;
+          let long = -74.0014247;
+          // if using with other than default style, change the path to the colour letiant 
+          // of the marker. E.g. to img/map-marker-violet.png.
+          let markerImage = 'img/map-marker-default.png';
+          // id of the map DOM element
+          let id = 'map-3';
+      
+          map = createSimpleMap(id, lat, long, markerImage);
+      })}; */}
+      
+
+
                         </div>
                     </section>
                 </div>
