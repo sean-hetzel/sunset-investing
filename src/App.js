@@ -4,7 +4,6 @@ import Home from "./components/Home.js";
 import Properties from "./components/Properties.js";
 import SignUp from "./components/SignUp.js";
 import Login from "./components/Login.js";
-import Learn from "./components/Learn.js";
 import Cart from "./components/Cart.js";
 import DashBoard from "./components/DashBoard.js";
 import LogOut from "./components/LogOut";
@@ -58,7 +57,6 @@ class App extends React.Component {
                             <Property property={this.state.property} />
                         )}
                     /> */}
-                    <Route path="/learn" component={Learn} />
                     <Route path="/login" component={Login} />
                     <Route path="/logout" component={LogOut} />
                     <Route path="/signup" component={SignUp} />

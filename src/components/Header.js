@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-
+import logo from "/Users/flatironschool/Development/sunset-investing/src/images/sunset-investing-logo.png";
 
 export default class Header extends Component {
     render() {
@@ -22,6 +22,7 @@ export default class Header extends Component {
     <div className="container-fluid d-flex align-items-center justify-content-between">
       <div className="navbar-header">
         {/* Navbar Header*/}<Link to="/" className="navbar-brand">
+          <img src={logo} alt="sunset investing logo" className="img-fluid" style={{height:"60px", width:"60px", marginRight:"10px", display:"inline"}}></img>
           <div className="brand-text brand-big visible text-uppercase"><strong className="text-primary">SUNSET</strong><strong>INVESTING</strong></div>
           <div className="brand-text brand-sm"><strong className="text-primary">D</strong><strong>A</strong></div></Link>
         {/* Sidebar Toggle Btn*/}

@@ -427,7 +427,7 @@ nav.navbar .brand-text {
 }
 
 nav.navbar .brand-text.visible {
-  display: block;
+  display: inline;
 }
 
 nav.navbar a.nav-link {
@@ -682,7 +682,7 @@ nav.navbar .dropdown .dropdown-menu.active {
     display: none !important;
   }
   nav.navbar .brand-text.brand-sm {
-    display: block !important;
+    display: inline !important;
   }
   nav.navbar .sidebar-toggle {
     -webkit-transform: rotateY(180deg);

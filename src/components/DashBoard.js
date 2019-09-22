@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class DashBoard extends React.Component {
     render() {
@@ -8,16 +9,16 @@ class DashBoard extends React.Component {
                     {/* Page Header*/}
                     <div className="page-header no-margin-bottom">
                         <div className="container-fluid">
-                            <h2 className="h5 no-margin-bottom">Charts</h2>
+                            <h2 className="h5 no-margin-bottom">DashBoard</h2>
                         </div>
                     </div>
                     {/* Breadcrumb*/}
                     <div className="container-fluid">
                         <ul className="breadcrumb">
                             <li className="breadcrumb-item">
-                                <a href="index.html">Home</a>
+                            <Link to="/">Home</Link>
                             </li>
-                            <li className="breadcrumb-item active">Charts </li>
+                            <li className="breadcrumb-item active">DashBoard </li>
                         </ul>
                     </div>
                     <section>
