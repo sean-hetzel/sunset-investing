@@ -427,7 +427,7 @@ nav.navbar .brand-text {
 }
 
 nav.navbar .brand-text.visible {
-  display: block;
+  display: inline;
 }
 
 nav.navbar a.nav-link {
