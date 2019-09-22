@@ -11,6 +11,9 @@ import LogOut from "./components/LogOut";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import SideBar from "./components/SideBar.js";
+import Property from "./components/Property.js";
+
+// blue reference: #37cfdc
 
 const API = "http://localhost:3000/api/v1/properties";
 
@@ -38,9 +41,7 @@ class App extends React.Component {
             <Router>
                 <Header />
                 <div className="d-flex align-items-stretch">
-                    {/* <NavBar /> */}
                     <SideBar />
-                    {/* <DashBoard /> */}
                     <Route path="/" exact component={Home} />
                     <Route
                         path="/properties"
@@ -49,6 +50,14 @@ class App extends React.Component {
                             <Properties properties={this.state.properties} />
                         )}
                     />
+                    <Route path="/property" component={Property} />
+                    {/* <Route
+                        path="/property"
+                        exact
+                        render={props => (
+                            <Property property={this.state.property} />
+                        )}
+                    /> */}
                     <Route path="/learn" component={Learn} />
                     <Route path="/login" component={Login} />
                     <Route path="/logout" component={LogOut} />

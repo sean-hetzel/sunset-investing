@@ -1,12 +1,12 @@
 import React from "react";
-// import TempImg from "../images/placeholder_welcome_image.jpg";
+import tempHomeImage from "/Users/flatironschool/Development/sunset-investing/src/images/acg-orange-county-2880x1200.jpg";
 
 class Home extends React.Component {
     render() {
         return (
             <>
-                {/* <img src={TempImg} alt="suburbs" width="100%" />
-                <h2>Home</h2> */}
+                <img src={tempHomeImage} alt="home" width="100%"></img>
+
             </>
         );
     }
