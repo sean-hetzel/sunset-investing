@@ -32,15 +32,52 @@ class Property extends React.Component {
                         </ul>
                     </div>
                     <section>
-                        <div className="container-fluid">
-                            <img
-                                src={tempHouse1}
-                                alt="temp img"
-                                className="col-md-6"
-                            ></img>
+                        <img
+                            src={tempHouse1}
+                            alt="temp img"
+                            className="col-md-6 img-fluid"
+                        ></img>
+
+                        <div className="col-md-6" style={{ float: "right" }}>
+                            <h1 className="card-title">This is a property</h1>
+                        <Link to="/cart" className="btn btn-primary ">
+                                Add to Cart
+                            </Link>
                         </div>
-                        <div className="col-md-6">
-                            <h1>This is a property</h1>
+
+                        {/* <div className="col-6 col-md-4 col-lg-3 col-xl-2"> */}
+                        <div class="container-fluid">
+                            <div className="row">
+                                {" "}
+                                <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+                                    <img
+                                        src={tempHouse1}
+                                        alt="temp img"
+                                        className="img-fluid"
+                                    ></img>
+                                </div>
+                                <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+                                    <img
+                                        src={tempHouse1}
+                                        alt="temp img"
+                                        className="img-fluid"
+                                    ></img>
+                                </div>
+                                <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+                                    <img
+                                        src={tempHouse1}
+                                        alt="temp img"
+                                        className="img-fluid"
+                                    ></img>
+                                </div>
+                                <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+                                    <img
+                                        src={tempHouse1}
+                                        alt="temp img"
+                                        className="img-fluid"
+                                    ></img>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>
