@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
+
 
 export default class Header extends Component {
     render() {
@@ -19,9 +21,9 @@ export default class Header extends Component {
     </div>
     <div className="container-fluid d-flex align-items-center justify-content-between">
       <div className="navbar-header">
-        {/* Navbar Header*/}<a href="index.html" className="navbar-brand">
+        {/* Navbar Header*/}<Link to="/" className="navbar-brand">
           <div className="brand-text brand-big visible text-uppercase"><strong className="text-primary">SUNSET</strong><strong>INVESTING</strong></div>
-          <div className="brand-text brand-sm"><strong className="text-primary">D</strong><strong>A</strong></div></a>
+          <div className="brand-text brand-sm"><strong className="text-primary">D</strong><strong>A</strong></div></Link>
         {/* Sidebar Toggle Btn*/}
         <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button>
       </div>

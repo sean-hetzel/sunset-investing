@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropertyCard from "./PropertyCard";
+// import Property from "./Property";
 import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
 import tempHouse2 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Estrella-Altamira_Front-Elevation_920.jpg";
 import tempHouse3 from "/Users/flatironschool/Development/sunset-investing/src/images/01-Palisades-Santee_Front-Elevation-Twilight_920.jpg";
@@ -37,12 +38,20 @@ class Properties extends React.Component {
                             <div className="row">
                                 {this.props.properties.map(property => {
                                     return (
+                                        <>
                                         <PropertyCard
                                             key={property.id}
                                             property={property}
                                             tempHouseImage={tempHouseArray[i]}
                                             {...i++}
-                                        />
+                                            />
+                                        {/* <Property
+                                            key={property.id}
+                                            property={property}
+                                            tempHouseImage={tempHouseArray[i]}
+                                            {...i++}
+                                        /> */}
+                                        </>
                                     );
                                 })}
                             </div>
