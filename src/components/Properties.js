@@ -8,15 +8,22 @@ import tempHouse3 from "/Users/flatironschool/Development/sunset-investing/src/i
 import tempHouse4 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Solano-Artemis_Front-Elevation_1920.jpg";
 import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
 import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
+import SideBar from "./SideBar";
 
 const tempHouseArray = [tempHouse1, tempHouse2, tempHouse6, tempHouse3, tempHouse4, tempHouse5]
 let i = 0;
 
 class Properties extends React.Component {
-    
+    constructor(){
+        super()
+        this.state = {
+            sideBarStatus: ["", "active"]
+        }
+    }
     render() {
         return (
             <>
+            <SideBar/>
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
                         <div className="container-fluid">
