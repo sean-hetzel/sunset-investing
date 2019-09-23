@@ -206,7 +206,6 @@ function drawInfobox(infoboxContent, json, i) {
     return ibContent;
 }
 
-
-
+export { createBasicMap, createSimpleMap, createAdvancedMap }
 
 

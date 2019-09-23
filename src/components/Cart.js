@@ -30,7 +30,6 @@ class Cart extends React.Component {
                     <section>
                         <div className="container-fluid"></div>
                         <h1 className="col-11 text-primary">Checkout</h1>
-
                     </section>
                 </div>
             </>
