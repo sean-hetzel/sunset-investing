@@ -10,20 +10,27 @@ import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/i
 import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
 import SideBar from "./SideBar";
 
-const tempHouseArray = [tempHouse1, tempHouse2, tempHouse6, tempHouse3, tempHouse4, tempHouse5]
+const tempHouseArray = [
+    tempHouse1,
+    tempHouse2,
+    tempHouse6,
+    tempHouse3,
+    tempHouse4,
+    tempHouse5
+];
 let i = 0;
 
 class Properties extends React.Component {
-    constructor(){
-        super()
+    constructor() {
+        super();
         this.state = {
             sideBarStatus: { properties: "active", dashboard: "", holdings: "" }
-        }
+        };
     }
     render() {
         return (
             <>
-            <SideBar sideBarStatus={this.state.sideBarStatus}/>
+                <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
                         <div className="container-fluid">
@@ -46,18 +53,21 @@ class Properties extends React.Component {
                                 {this.props.properties.map(property => {
                                     return (
                                         <>
-                                        <PropertyCard
-                                            key={property.id}
-                                            property={property}
-                                            tempHouseImage={tempHouseArray[i]}
-                                            {...i++}
-                                            />
-                                        {/* <Property
-                                            key={property.id}
-                                            property={property}
-                                            tempHouseImage={tempHouseArray[i]}
-                                            {...i++}
-                                        /> */}
+                                            <div className="col-md-6 col-lg-3">
+                                                <Link
+                                                    to={`/property/${property.id}`}
+                                                    className="property-card"
+                                                >
+                                                    <PropertyCard
+                                                        key={property.id}
+                                                        property={property}
+                                                        tempHouseImage={
+                                                            tempHouseArray[i]
+                                                        }
+                                                        {...i++}
+                                                    />
+                                                </Link>
+                                            </div>
                                         </>
                                     );
                                 })}

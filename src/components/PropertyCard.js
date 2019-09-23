@@ -26,9 +26,8 @@ class PropertyCard extends React.Component {
 
         return (
             <>
-                <div className="col-md-6 col-lg-3">
                     {/* <Link to="/property"> */}
-                    <div className="card">
+                    <div className="card property-card">
                         <img
                             src={[this.props.tempHouseImage]}
                             alt="Card cap"
@@ -75,12 +74,11 @@ class PropertyCard extends React.Component {
                                 className="btn btn-outline-primary"
                                 style={{ marginLeft: "1.5em" }}
                             >
-                                Temp Button
+                                Add to Watchlist
                             </Link>
                         </div>
                     </div>
                     {/* </Link> */}
-                </div>
             </>
         );
     }
