@@ -9,7 +9,7 @@ import DashBoard from "./components/DashBoard.js";
 import LogOut from "./components/LogOut";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
-import SideBar from "./components/SideBar.js";
+// import SideBar from "./components/SideBar.js";
 import Property from "./components/Property.js";
 import Profile from "./components/Profile.js";
 import Holdings from "./components/Holdings.js";
