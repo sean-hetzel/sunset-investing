@@ -11,8 +11,10 @@ import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import SideBar from "./components/SideBar.js";
 import Property from "./components/Property.js";
+import Profile from "./components/Profile.js";
 
 // blue reference: #37cfdc
+// API key= AIzaSyAeXRNUoDujYVkiyawNAFhf7oFDe8vcFn8
 
 const API = "http://localhost:3000/api/v1/properties";
 
@@ -23,7 +25,7 @@ class App extends React.Component {
             investors: [],
             holdings: [],
             properties: [],
-            cartProperties: []
+            cart: []
         };
     }
 
@@ -40,7 +42,7 @@ class App extends React.Component {
             <Router>
                 <Header />
                 <div className="d-flex align-items-stretch">
-                    <SideBar />
+                    {/* <SideBar /> */}
                     <Route path="/" exact component={Home} />
                     <Route
                         path="/properties"
@@ -60,8 +62,15 @@ class App extends React.Component {
                     <Route path="/login" component={Login} />
                     <Route path="/logout" component={LogOut} />
                     <Route path="/signup" component={SignUp} />
-                    <Route path="/dashboard" component={DashBoard} />
+                    <Route
+                        path="/dashboard"
+                        exact
+                        render={props => (
+                            <DashBoard holdings={this.state.holdings} />
+                        )}
+                    />
                     <Route path="/cart" component={Cart} />
+                    <Route path="/profile" component={Profile} />
                 </div>
                 <Footer />
             </Router>

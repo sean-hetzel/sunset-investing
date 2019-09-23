@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SideBar from "./SideBar";
 
 class Cart extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            sideBarStatus: ["", "active"]
+        }
+    }
     render() {
         return (
             <>
+            <SideBar/>
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
                         <div className="container-fluid">
@@ -22,12 +30,13 @@ class Cart extends React.Component {
                             <li className="breadcrumb-item">
                                 <Link to="/property">Property</Link>
                             </li>
-                            <li className="breadcrumb-item active">
-                                Cart
-                            </li>
+                            <li className="breadcrumb-item active">Cart</li>
                         </ul>
                     </div>
-                    </div>
+                    <section>
+                        <div className="container-fluid"></div>
+                    </section>
+                </div>
             </>
         );
     }

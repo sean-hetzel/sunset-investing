@@ -1,10 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SideBar from "./SideBar";
 
 class DashBoard extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            sideBarStatus: ["", "active"]
+        }
+    }
     render() {
+        console.log("State", this.state)
         return (
             <>
+            <SideBar sideBarStatus={this.state.sideBarStatus}/>
                 <div className="page-content">
                     {/* Page Header*/}
                     <div className="page-header no-margin-bottom">
