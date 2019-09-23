@@ -20,7 +20,7 @@ const SideBar = props => {
   <span className="heading">Main</span>
   <ul className="list-unstyled">
   
-    <li className={props.sideBarStatus[0]}><a href="#propertiesDropdown" aria-expanded="false" data-toggle="collapse"> <i className="icon-home" />Properties </a>
+    <li className={props.sideBarStatus["properties"]}><a href="#propertiesDropdown" aria-expanded="false" data-toggle="collapse"> <i className="icon-home" />Properties </a>
       <ul id="propertiesDropdown" className="collapse list-unstyled ">
         <li ><Link to="/properties">All</Link></li>
         <li ><Link to="/properties">Residencial</Link></li>        
@@ -30,7 +30,7 @@ const SideBar = props => {
         </ul>
     </li>
     
-    <li className={props.sideBarStatus[1]}><Link to="/dashboard"> <i className="fa fa-bar-chart" />Dashboard </Link>
+    <li className={props.sideBarStatus["dashboard"]}><Link to="/dashboard"> <i className="fa fa-bar-chart" />Dashboard </Link>
     </li>
 
   </ul>

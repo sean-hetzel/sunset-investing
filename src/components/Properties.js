@@ -17,13 +17,13 @@ class Properties extends React.Component {
     constructor(){
         super()
         this.state = {
-            sideBarStatus: ["", "active"]
+            sideBarStatus: { properties: "active", dashboard: "" }
         }
     }
     render() {
         return (
             <>
-            <SideBar/>
+            <SideBar sideBarStatus={this.state.sideBarStatus}/>
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
                         <div className="container-fluid">
