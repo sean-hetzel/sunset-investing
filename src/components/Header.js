@@ -8,7 +8,7 @@ export default class Header extends Component {
             <>
 <header className="header">   
   <nav className="navbar navbar-expand-lg">
-    <div className="search-panel">
+    {/* <div className="search-panel">
       <div className="search-inner d-flex align-items-center justify-content-center">
         <div className="close-btn">Close <i className="fa fa-close" /></div>
         <form id="searchForm" action="#">
@@ -18,7 +18,7 @@ export default class Header extends Component {
           </div>
         </form>
       </div>
-    </div>
+    </div> */}
     <div className="container-fluid d-flex align-items-center justify-content-between">
       <div className="navbar-header">
         {/* Navbar Header*/}<Link to="/" className="navbar-brand">
@@ -29,7 +29,9 @@ export default class Header extends Component {
         <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button>
       </div>
       <div className="right-menu list-inline no-margin-bottom">    
-        <div className="list-inline-item"><a href="fake_url" className="search-open nav-link"><i className="icon-magnifying-glass-browser" /></a></div>
+      <div className="list-inline-item"><Link to="/cart" className="nav-link"><i className="icon-contract" /><span className="badge dashbg-2">2</span></Link></div>
+
+        {/* <div className="list-inline-item"><a href="fake_url" className="nav-link"><i className="icon-magnifying-glass-browser" /></a></div> */}
         <div className="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="fake_url" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="nav-link messages-toggle"><i className="icon-email" /><span className="badge dashbg-2">5</span></a>
           <div aria-labelledby="navbarDropdownMenuLink1" className="dropdown-menu messages"><a href="fake_url" className="dropdown-item message d-flex align-items-center">
               <div className="profile"><img src="img/avatar-3.jpg" alt="..." className="img-fluid" />
