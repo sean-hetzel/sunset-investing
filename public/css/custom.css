@@ -10,3 +10,8 @@ a:hover {
 /* .owned-bar{
     background-color: #37cfdc;
 } */
+
+.progress {
+    height: 2px;
+    background: #393c43;
+}
