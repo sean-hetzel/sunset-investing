@@ -58,16 +58,27 @@ class PropertyCard extends React.Component {
                                 {beds_baths_sqft}
                             </li>
                             <li className="list-group-item">{address}</li>
+
+                            <li className="list-group-item">
+
+                            {/* <a href="#" className="dropdown-item list-inline-item dropdown"> */}
+                  <div className="text d-flex justify-content-between"><span>70% Owned</span></div>
+                  <div className="progress">
+                    <div role="progressbar" style={{width: "70%"}} aria-valuenow={70} aria-valuemin={0} aria-valuemax="100" className="progress-bar dashbg-1 owned-bar"></div>
+                  </div>
+                                </li>
+
                         </ul>
+
+                        {/* <a href="#" className="dropdown-item list-inline-item dropdown">
+                  <div className="text d-flex justify-content-between"><strong>Task 3</strong><span>70% complete</span></div>
+                  <div className="progress">
+                    <div role="progressbar" style={{width: "70%"}} aria-valuenow={70} aria-valuemin={0} aria-valuemax="100" className="progress-bar dashbg-1 owned-bar"></div>
+                  </div></a> */}
+
                         <div className="card-body">
-                            {/* <a href="fake_url" className="card-link">
-                                Card link
-                            </a>
-                            <a href="fake_url" className="card-link">
-                                Another link here
-                            </a><br/> */}
                             <Link to="/property" className="btn btn-primary">
-                                View Property
+                                Temp Button
                             </Link>
                             <Link
                                 to="/property"
