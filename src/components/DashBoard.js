@@ -6,7 +6,7 @@ class DashBoard extends React.Component {
     constructor(){
         super()
         this.state = {
-            sideBarStatus: ["", "active"]
+            sideBarStatus: { properties: "", dashboard: "active" }
         }
     }
     render() {
