@@ -6,7 +6,7 @@ class Profile extends React.Component {
     constructor(){
         super()
         this.state = {
-            sideBarStatus: { properties: "", dashboard: "active" }
+            sideBarStatus: { properties: "", dashboard: "", holdings: "" }
         }
     }
     render() {

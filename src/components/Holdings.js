@@ -1,18 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SideBar from "./SideBar";
 
-class Cart extends React.Component {
+class Holdings extends Component {
     constructor(){
         super()
         this.state = {
-            sideBarStatus: { properties: "", dashboard: "", holdings: "" }
+            sideBarStatus: { properties: "", dashboard: "", holdings: "active" }
         }
     }
     render() {
         return (
             <>
-            <SideBar sideBarStatus={this.state.sideBarStatus}/>
+                <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
                         <div className="container-fluid">
@@ -24,13 +24,11 @@ class Cart extends React.Component {
                             <li className="breadcrumb-item">
                                 <Link to="/">Home</Link>
                             </li>
-                            <li className="breadcrumb-item active">Cart</li>
+                            <li className="breadcrumb-item active">Holdings</li>
                         </ul>
                     </div>
                     <section>
                         <div className="container-fluid"></div>
-                        <h1 className="col-11 text-primary">Checkout</h1>
-
                     </section>
                 </div>
             </>
@@ -38,4 +36,4 @@ class Cart extends React.Component {
     }
 }
 
-export default Cart;
+export default Holdings;

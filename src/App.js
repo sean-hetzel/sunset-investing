@@ -12,6 +12,7 @@ import Footer from "./components/Footer.js";
 import SideBar from "./components/SideBar.js";
 import Property from "./components/Property.js";
 import Profile from "./components/Profile.js";
+import Holdings from "./components/Holdings.js";
 
 // blue reference: #37cfdc
 // API key= AIzaSyAeXRNUoDujYVkiyawNAFhf7oFDe8vcFn8
@@ -67,6 +68,13 @@ class App extends React.Component {
                         exact
                         render={props => (
                             <DashBoard holdings={this.state.holdings} />
+                        )}
+                    />
+                     <Route
+                        path="/holdings"
+                        exact
+                        render={props => (
+                            <Holdings holdings={this.state.holdings} />
                         )}
                     />
                     <Route path="/cart" component={Cart} />

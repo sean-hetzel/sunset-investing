@@ -17,7 +17,7 @@ class Properties extends React.Component {
     constructor(){
         super()
         this.state = {
-            sideBarStatus: { properties: "active", dashboard: "" }
+            sideBarStatus: { properties: "active", dashboard: "", holdings: "" }
         }
     }
     render() {

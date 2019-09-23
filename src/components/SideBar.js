@@ -30,7 +30,10 @@ const SideBar = props => {
         </ul>
     </li>
     
-    <li className={props.sideBarStatus["dashboard"]}><Link to="/dashboard"> <i className="fa fa-bar-chart" />Dashboard </Link>
+    <li className={props.sideBarStatus["dashboard"]}><Link to="/dashboard"> <i className="icon-chart" />Dashboard </Link>
+    </li>
+
+    <li className={props.sideBarStatus["holdings"]}><Link to="/holdings"> <i className="fa fa-bar-chart" />Holdings </Link>
     </li>
 
   </ul>

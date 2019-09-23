@@ -49,7 +49,7 @@ a {
 }
 
 .dashbg-2 {
-  background: #CF53F9;
+  background: rgb(225, 0, 255);
 }
 
 .dashbg-3 {
@@ -365,7 +365,7 @@ i[class*='icon-'] {
 }
 
 .megamenu .megamenu-buttons .megamenu-button-link.dashbg-2:hover {
-  background: #c83af8 !important;
+  background: rgb(225, 0, 255) !important;
 }
 
 .megamenu .megamenu-buttons .megamenu-button-link.dashbg-3:hover {
