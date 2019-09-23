@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ImageGallery from '/Users/flatironschool/Development/sunset-investing/src/components/ImageGallery.js';
+
 // import createSimpleMap from "/Users/flatironschool/Development/sunset-investing/public/js/components-map.js";
 // import createSimpleMap from "/Users/flatironschool/Development/sunset-investing/distribution-premium/js/components-map.js";
 import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
 import SideBar from "./SideBar";
+import { createSimpleMap } from "/Users/flatironschool/Development/sunset-investing/src/components/GoogleMaps.js";
+import ImageCarousel from "./ImageCarousel";
+import Carousel from "./Carousel";
+
 // coordinates for the center of the map and the marker
 let lat = 40.732346;
 let long = -74.0014247;
@@ -53,7 +59,6 @@ class Property extends React.Component {
                         </ul>
                     </div>
                     <section>
-                        {/* <div className="container-fluid"> */}
                             <img
                                 src={tempHouse1}
                                 alt="temp img"
@@ -102,12 +107,22 @@ class Property extends React.Component {
                                             alt="temp img"
                                             className="img-fluid"
                                         ></img>
-                                    {/* </div> */}
                                 </div>
-
-                              
+{/* <ImageGallery /> */}
+<Carousel />
+               {/* <div className="col-6 col-md-4 col-lg-3 col-xl-2">
+  <div classname="card"><a href="https://picsum.photos/1200/800?image=1033" data-lightbox="gallery" data-title="Image 1033"><img src="https://picsum.photos/300/200?image=1033" alt="Image 1033" classname="img-fluid" /></a>
+    <div classname="card-body">
+      <h6 classname="card-title mb-1">Image 1033</h6>
+      <p classname="card-text text-small text-muted">Image sample text</p>
+    </div>
+  </div>
+</div> */}
+  
         
+     
       
+          {/* {map = createSimpleMap(id, lat, long, markerImage)} */}
                   
     
                             </div>
