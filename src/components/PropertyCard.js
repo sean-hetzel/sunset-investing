@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import Carousel from "./Carousel";
+
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Property from "./Property";
 
@@ -32,6 +34,7 @@ class PropertyCard extends React.Component {
                             alt="Card cap"
                             className="card-img-top img-fluid"
                         />
+
                         <div className="card-body">
                             <h5 className="card-title text-primary">
                                 ${price.toLocaleString()}
