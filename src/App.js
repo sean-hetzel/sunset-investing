@@ -49,7 +49,7 @@ class App extends React.Component {
                         path="/properties"
                         exact
                         render={props => (
-                            <Properties properties={this.state.properties} />
+                            <Properties {...props} properties={this.state.properties} />
                         )}
                     />
                     <Route path="/property" component={Property} />
