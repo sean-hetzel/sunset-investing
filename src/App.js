@@ -45,6 +45,7 @@ class App extends React.Component {
                 <div className="d-flex align-items-stretch">
                     {/* <SideBar /> */}
                     <Route path="/" exact component={Home} />
+                    
                     <Route
                         path="/properties"
                         exact
@@ -52,14 +53,15 @@ class App extends React.Component {
                             <Properties {...props} properties={this.state.properties} />
                         )}
                     />
-                    <Route path="/property" component={Property} />
-                    {/* <Route
-                        path="/property"
-                        exact
+                    {/* <Route path="/property" component={Property} /> */}
+                    <Route
+                        path="/properties/:id"
+                        // exact
                         render={props => (
-                            <Property property={this.state.property} />
+                            <Property {...props} property={this.state.properties} />
                         )}
-                    /> */}
+                    />
+              
                     <Route path="/login" component={Login} />
                     <Route path="/logout" component={LogOut} />
                     <Route path="/signup" component={SignUp} />

@@ -14,4 +14,5 @@ a:hover {
 .progress {
     height: 2px;
     background: #393c43;
+    margin-bottom: 1em;
 }
