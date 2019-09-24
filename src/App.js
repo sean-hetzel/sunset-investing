@@ -49,6 +49,17 @@ class App extends React.Component {
             );
     }
 
+    // sumPropertyHeld = () => {
+    //     let amountHeld = 0
+
+    //     this.state.holdings.map(holding => {
+    //         amountHeld += holding.amount
+    //     })
+    //     return amountHeld
+    // }
+
+
+
     render() {
         return (
             <Router>
@@ -64,6 +75,7 @@ class App extends React.Component {
                             <Properties
                                 {...props}
                                 properties={this.state.properties}
+                                holdings={this.state.holdings}
                             />
                         )}
                     />
