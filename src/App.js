@@ -54,15 +54,13 @@ class App extends React.Component {
         this.state.holdings.map(holding => {
             total_held[holding.property_id] = (total_held[holding.property_id]+holding.amount) || holding.amount;            
         })
-        console.log("total held:", total_held)
         return total_held
     }
     
     
     
     render() {
-        this.sumPropertyHeld()
-        return (
+    return (
             <Router>
                 <Header />
                 <div className="d-flex align-items-stretch">
