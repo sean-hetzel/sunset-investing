@@ -126,6 +126,27 @@ class Property extends React.Component {
                                                 {next_year_appreciation}% next
                                                 year.
                                             </li>
+                                            <PercentageBar
+                                                percent={Math.round(
+                                                    (total / price) * 100
+                                                )}
+                                            />
+
+<div className="block">
+  <div className="title"><strong className="d-block">Bootstrap Touchspin</strong><span className="d-block">Read more about Touchspin at <a href="https://www.virtuosoft.eu/code/bootstrap-touchspin/">https://www.virtuosoft.eu/code/bootstrap-touchspin/</a>.</span></div>
+  <div className="block-body">
+    <form className="form-horizontal">
+      <div className="form-group row">
+        <label className="col-sm-3 form-control-label">Variant 3</label>
+        <div className="col-sm-9">
+          <input type="text" defaultValue={1500} name="touchspin2" className="form-control" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
                                         </ul>
                                         <div className="card-body">
                                             <Link
@@ -156,24 +177,6 @@ class Property extends React.Component {
                                     </h5>
                                 </div>
                                 <ul className="list-group list-group-flush">
-                                    <li className="list-group-item text-primary">
-                                        Price: ${price.toLocaleString()}
-                                    </li>
-                                    <li className="list-group-item text-primary">
-                                        Rent: ${rent.toLocaleString()}
-                                    </li>
-                                    <li className="list-group-item">
-                                        Leased for the next {lease_length / 12}{" "}
-                                        years.
-                                    </li>
-                                    <li className="list-group-item">
-                                        Appreciated by {last_year_appreciation}%
-                                        last year.
-                                    </li>
-                                    <li className="list-group-item">
-                                        Appreciation is predicted to be{" "}
-                                        {next_year_appreciation}% next year.
-                                    </li>
                                     <li className="list-group-item text-capitalize">
                                         {zone}
                                     </li>
@@ -183,11 +186,6 @@ class Property extends React.Component {
                                     <li className="list-group-item">
                                         {address}
                                     </li>
-                                    <PercentageBar
-                                        percent={Math.round(
-                                            (total / price) * 100
-                                        )}
-                                    />
                                 </ul>
                             </div>
                         </div>
