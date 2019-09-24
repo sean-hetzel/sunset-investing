@@ -66,69 +66,44 @@ class Property extends React.Component {
                         </ul>
                     </div>
                     <section>
-                            {/* <img
-                                src={tempHouse1}
-                                alt="temp img"
-                                className="col-md-6 img-fluid"
-                            ></img> */}
+
                             <div
                                 className="col-md-6"
-                                style={{ float: "right" }}
-                            >
-                                <h1 className="card-title">
-                                    Price: ${price.toLocaleString()}
-                                </h1>
-                                <Link to="/cart" className="btn btn-primary ">
-                                    Add to Cart
-                                </Link>
-                            </div>
+                                style={{ float: "right" }}>
+                        
+                                
+                <div className="card">
+                  <div className="card-header">Price: ${price.toLocaleString()}</div>
+                  <div className="card-body">
+                    <h5 className="card-title"></h5>
+                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> 
+                  </div>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">Vice tote bag shabby chic  </li>
+                    <li className="list-group-item">Portland Etsy craft beer</li>
+                    <li className="list-group-item">hi</li>
 
+                  </ul>
+                  <div className="card-body">
+                  <Link to="/cart" className="btn btn-primary">
+                                Add to Cart
+                            </Link>
+                            <Link
+                                to="/property"
+                                className="btn btn-outline-primary"
+                                style={{ marginLeft: "1.5em" }}
+                            >
+                                Add to Watchlist
+                            </Link>
+                            </div>
+                </div>
+
+                            </div>
                             <div style={{ marginTop: "2rem" }}></div>
                             <div class="container-fluid">
                                 <div className="row">
 <div className="col-md-12 img-fluid"><Carousel/></div>
-                                    {/* <div className="col-6 col-md-4 col-lg-3 col-xl-1">
-                                        <img
-                                            src={tempHouse1}
-                                            alt="temp img"
-                                            className="img-fluid"
-                                        ></img>
-                                    </div>
-                                    <div className="col-6 col-md-4 col-lg-3 col-xl-1">
-                                        <img
-                                            src={tempHouse1}
-                                            alt="temp img"
-                                            className="img-fluid"
-                                        ></img>
-                                    </div>
-                                    <div className="col-6 col-md-4 col-lg-3 col-xl-1">
-                                        <img
-                                            src={tempHouse1}
-                                            alt="temp img"
-                                            className="img-fluid"
-                                        ></img>
-                                    </div>
-                                    <div className="col-6 col-md-4 col-lg-3 col-xl-1">
-                                        <img
-                                            src={tempHouse1}
-                                            alt="temp img"
-                                            className="img-fluid"
-                                        ></img>
-                                </div> */}
-{/* <ImageGallery /> */}
-{/* <Carousel /> */}
-               {/* <div className="col-6 col-md-4 col-lg-3 col-xl-2">
-  <div classname="card"><a href="https://picsum.photos/1200/800?image=1033" data-lightbox="gallery" data-title="Image 1033"><img src="https://picsum.photos/300/200?image=1033" alt="Image 1033" classname="img-fluid" /></a>
-    <div classname="card-body">
-      <h6 classname="card-title mb-1">Image 1033</h6>
-      <p classname="card-text text-small text-muted">Image sample text</p>
-    </div>
-  </div>
-</div> */}
-  
-        
-     
-      
+
           {/* {map = createSimpleMap(id, lat, long, markerImage)} */}
                   
     
