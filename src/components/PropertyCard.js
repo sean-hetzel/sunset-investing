@@ -13,7 +13,8 @@ class PropertyCard extends React.Component {
             last_year_appreciation,
             next_year_appreciation,
             beds_baths_sqft,
-            address
+            address,
+            zone
         } = this.props.property;
 
         return (
