@@ -21,21 +21,29 @@ class Property extends React.Component {
     constructor(){
         super()
         this.state = {
-            sideBarStatus: { properties: "", dashboard: "", holdings: "" }
+            sideBarStatus: { properties: "active", dashboard: "", holdings: "" }
         }
     }
-    render() {
-        // const {
-        //     price,
-        //     rent,
-        //     lease_length,
-        //     last_year_appreciation,
-        //     next_year_appreciation,
-        //     beds_baths_sqft,
-        //     address
-        // } = this.props.property;
 
-        console.log("property page", this.props);
+    getProperty = () => {
+        const id = parseInt(this.props.match.params.id);
+
+        let foundProperty
+
+        for (let property of this.props.property) {
+            // console.log(property.id, id)
+            if (property.id == id) {
+                foundProperty = property
+                console.log("price", property.price)
+            }
+        }
+        return foundProperty
+    }
+
+    render() {
+        // const {price, rent, lease_length, last_year_appreciation, next_year_appreciation, beds_baths_sqft, address} = this.getProperty()
+        this.getProperty()
+        console.log("show props", this.props)
         return (
             <>
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
@@ -67,7 +75,7 @@ class Property extends React.Component {
                                 style={{ float: "right" }}
                             >
                                 <h1 className="card-title">
-                                    This is a property
+                                    Price: {}
                                 </h1>
                                 <Link to="/cart" className="btn btn-primary ">
                                     Add to Cart

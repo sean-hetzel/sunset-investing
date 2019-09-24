@@ -20,6 +20,8 @@ const tempHouseArray = [
 ];
 let i = 0;
 
+
+
 class Properties extends React.Component {
     constructor() {
         super();
@@ -28,6 +30,7 @@ class Properties extends React.Component {
         };
     }
     render() {
+
         return (
             <>
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
@@ -55,7 +58,7 @@ class Properties extends React.Component {
                                         <>
                                             <div className="col-md-6 col-lg-3">
                                                 <Link
-                                                    to={`/property/${property.id}`}
+                                                    to={`/properties/${property.id}`}
                                                     className="property-card"
                                                 >
                                                     <PropertyCard
@@ -67,6 +70,7 @@ class Properties extends React.Component {
                                                         {...i++}
                                                     />
                                                 </Link>
+
                                             </div>
                                         </>
                                     );

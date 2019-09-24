@@ -2,16 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import Carousel from "./Carousel";
 
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import Property from "./Property";
-
 class PropertyCard extends React.Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         property: this.props.property
-    //     };
-    // }
+
 
     render() {
         const {
@@ -26,7 +18,6 @@ class PropertyCard extends React.Component {
 
         return (
             <>
-                    {/* <Link to="/property"> */}
                     <div className="card property-card">
                         <img
                             src={[this.props.tempHouseImage]}
@@ -61,20 +52,13 @@ class PropertyCard extends React.Component {
 
                             <li className="list-group-item">
 
-                            {/* <a href="#" className="dropdown-item list-inline-item dropdown"> */}
-                  <div className="text d-flex justify-content-between"><span>70% Owned</span></div>
-                  <div className="progress">
-                    <div role="progressbar" style={{width: "70%"}} aria-valuenow={70} aria-valuemin={0} aria-valuemax="100" className="progress-bar dashbg-1 owned-bar"></div>
-                  </div>
-                                </li>
+                            <div className="text d-flex justify-content-between"><span>70% Owned</span></div>
+                            <div className="progress">
+                                <div role="progressbar" style={{width: "70%"}} aria-valuenow={70} aria-valuemin={0} aria-valuemax="100" className="progress-bar dashbg-1 owned-bar"></div>
+                            </div>
+                            </li>
 
                         </ul>
-
-                        {/* <a href="#" className="dropdown-item list-inline-item dropdown">
-                  <div className="text d-flex justify-content-between"><strong>Task 3</strong><span>70% complete</span></div>
-                  <div className="progress">
-                    <div role="progressbar" style={{width: "70%"}} aria-valuenow={70} aria-valuemin={0} aria-valuemax="100" className="progress-bar dashbg-1 owned-bar"></div>
-                  </div></a> */}
 
                         <div className="card-body">
                             <Link to="/property" className="btn btn-primary">
@@ -89,7 +73,6 @@ class PropertyCard extends React.Component {
                             </Link>
                         </div>
                     </div>
-                    {/* </Link> */}
             </>
         );
     }
