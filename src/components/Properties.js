@@ -64,6 +64,7 @@ class Properties extends React.Component {
                                                     <PropertyCard
                                                         key={property.id}
                                                         property={property}
+                                                        holdings={this.props.holdings}
                                                         tempHouseImage={
                                                             tempHouseArray[i]
                                                         }
