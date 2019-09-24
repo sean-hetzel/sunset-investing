@@ -62,17 +62,11 @@ class PropertyCard extends React.Component {
                             <li className="list-group-item">{address}</li>
 
                             <li className="list-group-item">
-
                             <div className="text d-flex justify-content-between"><span>{Math.round(this.sumPropertyHeld()/price*100)}% Owned</span></div>
                             <div className="progress">
                                 <div role="progressbar" style={{width: `${Math.round(this.sumPropertyHeld()/price*100)}%`}} aria-valuenow={Math.round(this.sumPropertyHeld()/price*100)} aria-valuemin={0} aria-valuemax="100" className="progress-bar dashbg-1 owned-bar"></div>
                             </div>
                             </li>
-
-                            <li className="list-group-item">
-                                {beds_baths_sqft}
-                            </li>
-                            <li className="list-group-item">{Math.round(this.sumPropertyHeld()/price*100)}%</li>
 
                         </ul>
 

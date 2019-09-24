@@ -49,18 +49,19 @@ class App extends React.Component {
             );
     }
 
-    // sumPropertyHeld = () => {
-    //     let amountHeld = 0
-
-    //     this.state.holdings.map(holding => {
-    //         amountHeld += holding.amount
-    //     })
-    //     return amountHeld
-    // }
-
-
-
+    sumPropertyHeld = () => {
+        let total_held = {}
+        this.state.holdings.map(holding => {
+            total_held[holding.property_id] = (total_held[holding.property_id]+holding.amount) || holding.amount;            
+        })
+        console.log("total held:", total_held)
+        return total_held
+    }
+    
+    
+    
     render() {
+        this.sumPropertyHeld()
         return (
             <Router>
                 <Header />
@@ -87,6 +88,7 @@ class App extends React.Component {
                             <Property
                                 {...props}
                                 property={this.state.properties}
+                                sumPropertyHeld={this.sumPropertyHeld}
                             />
                         )}
                     />
