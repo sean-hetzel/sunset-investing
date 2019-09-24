@@ -17,24 +17,35 @@ import Holdings from "./components/Holdings.js";
 // blue reference: #37cfdc
 // API key= AIzaSyAeXRNUoDujYVkiyawNAFhf7oFDe8vcFn8
 
-const API = "http://localhost:3000/api/v1/properties";
+const BASE_URL = "http://localhost:3000/api/v1";
+const PROPERTIES = "/properties";
+const HOLDINGS = "/holdings";
+const INVESTORS = "/ investors";
 
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            investors: [],
-            holdings: [],
             properties: [],
+            holdings: [],
+            investors: [],
             cart: []
         };
     }
 
     componentDidMount() {
-        fetch(API)
+        fetch(BASE_URL + PROPERTIES)
             .then(resp => resp.json())
             .then(json =>
-                this.setState({ properties: json }, console.log(json))
+                this.setState({ properties: json }, console.log(json)));
+        fetch(BASE_URL + HOLDINGS)
+            .then(resp => resp.json())
+            .then(json => 
+                this.setState({ holdings: json }, console.log(json)));
+        fetch(BASE_URL + INVESTORS)
+            .then(resp => resp.json())
+            .then(json =>
+                this.setState({ investors: json }, console.log(json))
             );
     }
 
@@ -45,12 +56,15 @@ class App extends React.Component {
                 <div className="d-flex align-items-stretch">
                     {/* <SideBar /> */}
                     <Route path="/" exact component={Home} />
-                    
+
                     <Route
                         path="/properties"
                         exact
                         render={props => (
-                            <Properties {...props} properties={this.state.properties} />
+                            <Properties
+                                {...props}
+                                properties={this.state.properties}
+                            />
                         )}
                     />
                     {/* <Route path="/property" component={Property} /> */}
@@ -58,10 +72,13 @@ class App extends React.Component {
                         path="/properties/:id"
                         // exact
                         render={props => (
-                            <Property {...props} property={this.state.properties} />
+                            <Property
+                                {...props}
+                                property={this.state.properties}
+                            />
                         )}
                     />
-              
+
                     <Route path="/login" component={Login} />
                     <Route path="/logout" component={LogOut} />
                     <Route path="/signup" component={SignUp} />
@@ -72,7 +89,7 @@ class App extends React.Component {
                             <DashBoard holdings={this.state.holdings} />
                         )}
                     />
-                     <Route
+                    <Route
                         path="/holdings"
                         exact
                         render={props => (
