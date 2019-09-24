@@ -28,7 +28,7 @@ class Property extends React.Component {
     getProperty = () => {
         const id = parseInt(this.props.match.params.id);
 
-        let foundProperty
+        let foundProperty = {price: 0, rent: 0, lease_length: 0, last_year_appreciation: 0, next_year_appreciation: 0, beds_baths_sqft: "", address: "", zone: ""}
 
         for (let property of this.props.property) {
             // console.log(property.id, id)
@@ -37,13 +37,14 @@ class Property extends React.Component {
                 console.log("price", property.price)
             }
         }
+        console.log("property:", foundProperty)
         return foundProperty
     }
 
     render() {
-        // const {price, rent, lease_length, last_year_appreciation, next_year_appreciation, beds_baths_sqft, address} = this.getProperty()
-        this.getProperty()
-        console.log("show props", this.props)
+        const {price, rent, lease_length, last_year_appreciation, next_year_appreciation, beds_baths_sqft, address, zone} = this.getProperty()
+        // this.getProperty()
+        console.log("property stuff:", price)
         return (
             <>
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
@@ -75,7 +76,7 @@ class Property extends React.Component {
                                 style={{ float: "right" }}
                             >
                                 <h1 className="card-title">
-                                    Price: {}
+                                    Price: ${price.toLocaleString()}
                                 </h1>
                                 <Link to="/cart" className="btn btn-primary ">
                                     Add to Cart
