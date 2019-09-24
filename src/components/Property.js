@@ -7,16 +7,18 @@ import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/i
 import SideBar from "./SideBar";
 import { createSimpleMap } from "/Users/flatironschool/Development/sunset-investing/src/components/GoogleMaps.js";
 import Carousel from "./Carousel";
+import PercentageBar from "./PercentageBar";
 
 // coordinates for the center of the map and the marker
-let lat = 40.732346;
-let long = -74.0014247;
+// let lat = 40.732346;
+// let long = -74.0014247;
 // if using with other than default style, change the path to the colour letiant 
 // of the marker. E.g. to img/map-marker-violet.png.
-let markerImage = 'img/map-marker-default.png';
+// let markerImage = 'img/map-marker-default.png';
 // id of the map DOM element
-let id = 'map-3';
-let map;
+// let id = 'map-3';
+// let map;
+
 class Property extends React.Component {
     constructor(){
         super()
@@ -43,8 +45,10 @@ class Property extends React.Component {
 
     render() {
         const {price, rent, lease_length, last_year_appreciation, next_year_appreciation, beds_baths_sqft, address, zone} = this.getProperty()
+        const total = this.props.sumPropertyHeld()[parseInt(this.props.match.params.id)]
         // this.getProperty()
         console.log("property stuff:", price)
+        console.log("props of sum:", this.props.sumPropertyHeld()[parseInt(this.props.match.params.id)])
         return (
             <>
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
@@ -81,7 +85,7 @@ class Property extends React.Component {
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item">Vice tote bag shabby chic  </li>
                     <li className="list-group-item">Portland Etsy craft beer</li>
-                    <li className="list-group-item">hi</li>
+                    <PercentageBar percent={Math.round((total/price)*100)}/>
 
                   </ul>
                   <div className="card-body">
