@@ -1,3 +1,19 @@
+import "./vendor/bootstrap/css/bootstrap.min.css"
+import "./vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css"
+import "./vendor/font-awesome/css/font-awesome.min.css"
+import "./css/font.css"
+import "./css/style.blue.premium.css"
+import "./css/custom.css"
+
+// import $ from 'node_modules/jquery/dist/jquery.js';
+
+// import "./vendor/jquery/jquery.js"
+// import "/Users/flatironschool/Development/sunset-investing/node_modules/jquery/src/jquery.js"
+// import "./vendor/popper.js/umd/popper.min.js"
+// import "/Users/flatironschool/Development/sunset-investing/src/vendor/popper.js/popper.js"
+// import "/Users/flatironschool/Development/sunset-investing/src/vendor/bootstrap/js/bootstrap.js"
+
+
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/Home.js";
@@ -20,7 +36,7 @@ import Holdings from "./components/Holdings.js";
 const BASE_URL = "http://localhost:3000/api/v1";
 const PROPERTIES = "/properties";
 const HOLDINGS = "/holdings";
-const INVESTORS = "/ investors";
+const INVESTORS = "/investors";
 
 class App extends React.Component {
     constructor() {

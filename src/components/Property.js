@@ -8,6 +8,8 @@ import SideBar from "./SideBar";
 import { createSimpleMap } from "/Users/flatironschool/Development/sunset-investing/src/components/GoogleMaps.js";
 import Carousel from "./Carousel";
 import PercentageBar from "./PercentageBar";
+import $ from 'jquery'
+import '../vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js'
 
 // coordinates for the center of the map and the marker
 // let lat = 40.732346;
@@ -132,7 +134,7 @@ class Property extends React.Component {
                                                 )}
                                             />
 
-<div className="block">
+{/* <div className="block">
   <div className="title"><strong className="d-block">Bootstrap Touchspin</strong><span className="d-block">Read more about Touchspin at <a href="https://www.virtuosoft.eu/code/bootstrap-touchspin/">https://www.virtuosoft.eu/code/bootstrap-touchspin/</a>.</span></div>
   <div className="block-body">
     <form className="form-horizontal">
@@ -144,7 +146,46 @@ class Property extends React.Component {
       </div>
     </form>
   </div>
+</div> */}
+
+<div className="block">
+  <div className="title"><strong className="d-block">Bootstrap Touchspin</strong><span className="d-block">Read more about Touchspin at <a href="https://www.virtuosoft.eu/code/bootstrap-touchspin/">https://www.virtuosoft.eu/code/bootstrap-touchspin/</a>.</span></div>
+  <div className="block-body">
+    <form className="form-horizontal">
+      <div className="form-group row">
+        <label className="col-sm-3 form-control-label">Variant 1</label>
+        <div className="col-sm-9">
+          <input type="text" name="touchspin0" className="form-control" />
+        </div>
+      </div>
+      <div className="form-group row">
+        <label className="col-sm-3 form-control-label">Variant 2</label>
+        <div className="col-sm-9">
+          <input type="text" defaultValue="55.50" name="touchspin1" className="form-control" />
+        </div>
+      </div>
+      <input id="demo1" type="text" value="55" name="demo1" />>
+        
+           { $("input[name='demo1']").TouchSpin({
+                min: 0,
+                max: 100,
+                step: 0.1,
+                decimals: 2,
+                boostat: 5,
+                maxboostedstep: 10,
+                postfix: '%'
+            })}
+        
+      <div className="form-group row">
+        <label className="col-sm-3 form-control-label">Variant 3</label>
+        <div className="col-sm-9">
+          <input type="text" defaultValue={1500} name="touchspin2" className="form-control" />
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
+
 
 
                                         </ul>
