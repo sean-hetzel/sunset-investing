@@ -19,6 +19,8 @@ import PercentageBar from "./PercentageBar";
 // let id = 'map-3';
 // let map;
 
+let PROPERTY;
+
 class Property extends React.Component {
     constructor() {
         super();
@@ -45,6 +47,7 @@ class Property extends React.Component {
             // console.log(property.id, id)
             if (property.id === id) {
                 foundProperty = property;
+                PROPERTY = property;
                 console.log("price", property.price);
             }
         }
@@ -72,6 +75,7 @@ class Property extends React.Component {
             "props of sum:",
             this.props.sumPropertyHeld()[parseInt(this.props.match.params.id)]
         );
+        console.log("property page props:", this.props)
         return (
             <>
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
@@ -134,16 +138,16 @@ class Property extends React.Component {
 
 <div className="block">
   <div className="title"><strong className="d-block">Select Amount</strong><span className="d-block"></span></div>
-  <div className="block-body">
+  {/* <div className="block-body"> */}
     <form className="form-horizontal">
-      <div className="form-group row">
+      {/* <div className="form-group row"> */}
         {/* <label className="col-sm-3 form-control-label">Variant 3</label> */}
         <div className="col-sm-9">
           <input type="text" defaultValue={1500} name="touchspin2" className="form-control" />
         </div>
-      </div>
+      {/* </div> */}
     </form>
-  </div>
+  {/* </div> */}
 </div>
 
 
@@ -152,9 +156,12 @@ class Property extends React.Component {
                                             <Link
                                                 to="/cart"
                                                 className="btn btn-primary"
+                                                key={this.props.property.id}
+                                                onClick={() => this.props.addToCart(PROPERTY)}
                                             >
                                                 Add to Cart
                                             </Link>
+
                                             <Link
                                                 to="/property"
                                                 className="btn btn-outline-primary"

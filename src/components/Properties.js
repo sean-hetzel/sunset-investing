@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropertyCard from "./PropertyCard";
 // import Property from "./Property";
-import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
-import tempHouse2 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Estrella-Altamira_Front-Elevation_920.jpg";
-import tempHouse3 from "/Users/flatironschool/Development/sunset-investing/src/images/01-Palisades-Santee_Front-Elevation-Twilight_920.jpg";
-import tempHouse4 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Solano-Artemis_Front-Elevation_1920.jpg";
-import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
-import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
+// import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
+// import tempHouse2 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Estrella-Altamira_Front-Elevation_920.jpg";
+// import tempHouse3 from "/Users/flatironschool/Development/sunset-investing/src/images/01-Palisades-Santee_Front-Elevation-Twilight_920.jpg";
+// import tempHouse4 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Solano-Artemis_Front-Elevation_1920.jpg";
+// import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
+// import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
 import SideBar from "./SideBar";
 
 // const tempHouseArray = [
@@ -20,7 +20,7 @@ import SideBar from "./SideBar";
 // ];
 // let i = 0;
 
-const tempHouseImages = {1: [tempHouse1], 2: [tempHouse2], 3: [tempHouse6], 4: [tempHouse4], 5: [tempHouse5], 6: [tempHouse3]}
+// const tempHouseImages = {1: [tempHouse1], 2: [tempHouse3], 3: [tempHouse6], 4: [tempHouse4], 5: [tempHouse5], 6: [tempHouse2]}
 
 
 
@@ -67,7 +67,7 @@ class Properties extends React.Component {
                                                         key={property.id}
                                                         property={property}
                                                         holdings={this.props.holdings}
-                                                        tempHouseImages={tempHouseImages}
+                                                        tempHouseImages={this.props.tempHouseImages}
                                                         // tempHouseImage={
                                                         //     tempHouseArray[i]
                                                         // }

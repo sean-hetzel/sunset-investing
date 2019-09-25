@@ -11,7 +11,7 @@ const SideBar = props => {
 <nav id="sidebar">
   <div className="sidebar-header d-flex align-items-center">
     <Link to="/profile">
-      <div className="avatar"><img src={require("img/avatar-9.jpg")} alt="..." className="img-fluid rounded-circle" /></div></Link>
+      <div className="avatar"><img src="img/avatar-9.jpg" alt="..." className="img-fluid rounded-circle" /></div></Link>
     <div className="title">
       <h1 className="h5">Sarah Bluth</h1>
       <p>CEO of the Bluth Company</p>

@@ -28,7 +28,8 @@ export default class Header extends Component {
         {/* Sidebar Toggle Btn*/}
         <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button>
       </div>
-      <div className="right-menu list-inline no-margin-bottom">    
+      <div className="right-menu list-inline no-margin-bottom">   
+      <h4 className="list-inline-item text-primary font-weight-light">August Rent: ${(62553).toLocaleString()}</h4>      
       <div className="list-inline-item"><Link to="/cart" className="nav-link"><i className="icon-contract" /><span className="badge dashbg-2">2</span></Link></div>
 
         {/* <div className="list-inline-item"><a href="fake_url" className="nav-link"><i className="icon-magnifying-glass-browser" /></a></div> */}

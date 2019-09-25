@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SideBar from "./SideBar";
+import PropertyCard from "./PropertyCard";
 
 class Cart extends React.Component {
     constructor(){
@@ -10,6 +11,7 @@ class Cart extends React.Component {
         }
     }
     render() {
+        console.log("cart:",this.props.cart)
         return (
             <>
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
@@ -30,6 +32,23 @@ class Cart extends React.Component {
                     <section>
                         <div className="container-fluid"></div>
                         <h1 className="col-11 text-primary">Checkout</h1>
+                        <div className="container-fluid">
+                            <div className="row">
+                                {this.props.cart.map(property => {
+                                    return (
+                                        <>
+                                            <div className="col-md-6 col-lg-3">
+                                                <h4>{property.price}</h4>
+                                                {property.price}
+                                                <PropertyCard key={property.id} property={property} tempHouseImages={this.props.tempHouseImages} holdings={this.props.holdings}
+/>
+
+                                            </div>
+                                        </>
+                                    );
+                                })}
+                            </div>
+                        </div>
                     </section>
                 </div>
             </>

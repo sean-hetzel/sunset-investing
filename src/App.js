@@ -14,6 +14,14 @@ import Property from "./components/Property.js";
 import Profile from "./components/Profile.js";
 import Holdings from "./components/Holdings.js";
 
+import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
+import tempHouse2 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Estrella-Altamira_Front-Elevation_920.jpg";
+import tempHouse3 from "/Users/flatironschool/Development/sunset-investing/src/images/01-Palisades-Santee_Front-Elevation-Twilight_920.jpg";
+import tempHouse4 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Solano-Artemis_Front-Elevation_1920.jpg";
+import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
+import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
+const tempHouseImages = {1: [tempHouse1], 2: [tempHouse3], 3: [tempHouse6], 4: [tempHouse4], 5: [tempHouse5], 6: [tempHouse2]}
+
 // blue reference: #37cfdc
 // API key= AIzaSyAeXRNUoDujYVkiyawNAFhf7oFDe8vcFn8
 
@@ -56,6 +64,12 @@ class App extends React.Component {
         })
         return total_held
     }
+
+    addToCart = property => {
+        if (!this.state.cart.includes(property)) {
+            this.setState({ cart: [...this.state.cart, property] });
+        }
+    };
     
     
     
@@ -75,6 +89,7 @@ class App extends React.Component {
                                 {...props}
                                 properties={this.state.properties}
                                 holdings={this.state.holdings}
+                                tempHouseImages={tempHouseImages}
                             />
                         )}
                     />
@@ -87,6 +102,7 @@ class App extends React.Component {
                                 {...props}
                                 property={this.state.properties}
                                 sumPropertyHeld={this.sumPropertyHeld}
+                                addToCart={this.addToCart}
                             />
                         )}
                     />
@@ -108,7 +124,19 @@ class App extends React.Component {
                             <Holdings holdings={this.state.holdings} />
                         )}
                     />
-                    <Route path="/cart" component={Cart} />
+                    {/* <Route path="/cart" component={Cart} /> */}
+                    <Route
+                        path="/cart"
+                        exact
+                        render={props => (
+                            <Cart
+                                {...props}
+                                cart={this.state.cart}
+                                tempHouseImages={tempHouseImages}
+                                holdings={this.state.holdings}
+                            />
+                        )}
+                    />
                     <Route path="/profile" component={Profile} />
                 </div>
                 <Footer />
