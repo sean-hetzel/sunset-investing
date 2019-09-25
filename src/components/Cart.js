@@ -4,17 +4,17 @@ import SideBar from "./SideBar";
 import PropertyCard from "./PropertyCard";
 
 class Cart extends React.Component {
-    constructor(){
-        super()
+    constructor() {
+        super();
         this.state = {
             sideBarStatus: { properties: "", dashboard: "", holdings: "" }
-        }
+        };
     }
     render() {
-        console.log("cart:",this.props.cart)
+        console.log("cart:", this.props.cart);
         return (
             <>
-            <SideBar sideBarStatus={this.state.sideBarStatus}/>
+                <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
                         <div className="container-fluid">
@@ -33,20 +33,46 @@ class Cart extends React.Component {
                         <div className="container-fluid"></div>
                         <h1 className="col-11 text-primary">Checkout</h1>
                         <div className="container-fluid">
+                        <div className="row" style={{marginBottom:"2rem"}}>
+                                <div className="col-md-6 col-lg-3">
+                                    <Link
+                                        to="/properties"
+                                        className="btn btn-primary"
+                                    >
+                                        Continue Shopping
+                                    </Link>
+                                </div>
+                            </div>
                             <div className="row">
                                 {this.props.cart.map(property => {
                                     return (
                                         <>
                                             <div className="col-md-6 col-lg-3">
-                                                <h4>{property.price}</h4>
-                                                {property.price}
-                                                <PropertyCard key={property.id} property={property} tempHouseImages={this.props.tempHouseImages} holdings={this.props.holdings}
-/>
-
+                                                <PropertyCard
+                                                    key={property.id}
+                                                    property={property}
+                                                    tempHouseImages={
+                                                        this.props
+                                                            .tempHouseImages
+                                                    }
+                                                    holdings={
+                                                        this.props.holdings
+                                                    }
+                                                />
                                             </div>
                                         </>
                                     );
                                 })}
+                            </div>
+                            <div className="row" style={{marginBottom:"2rem"}}>
+                                <div className="col-md-6 col-lg-3">
+                                    <Link
+                                        to="/ordersuccessful"
+                                        className="btn btn-primary"
+                                    >
+                                        Place Order
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </section>

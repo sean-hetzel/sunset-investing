@@ -30,7 +30,7 @@ export default class Header extends Component {
       </div>
       <div className="right-menu list-inline no-margin-bottom">   
       <h4 className="list-inline-item text-primary font-weight-light">August Rent: ${(62553).toLocaleString()}</h4>      
-      <div className="list-inline-item"><Link to="/cart" className="nav-link"><i className="icon-contract" /><span className="badge dashbg-2">2</span></Link></div>
+      <div className="list-inline-item"><Link to="/cart" className="nav-link"><i className="icon-contract" /><span className="badge dashbg-2">{(this.props.cart.length)}</span></Link></div>
 
         {/* <div className="list-inline-item"><a href="fake_url" className="nav-link"><i className="icon-magnifying-glass-browser" /></a></div> */}
         <div className="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="fake_url" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="nav-link messages-toggle"><i className="icon-email" /><span className="badge dashbg-2">5</span></a>
