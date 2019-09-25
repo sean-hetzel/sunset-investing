@@ -150,6 +150,9 @@ class Property extends React.Component {
   {/* </div> */}
 </div>
 
+                                            <li className="list-group-item text-primary">
+                                            Your share of rent will be ${Math.round((1500/price)*rent)} per month.
+                                            </li> 
 
                                         </ul>
                                         <div className="card-body">
@@ -163,11 +166,11 @@ class Property extends React.Component {
                                             </Link>
 
                                             <Link
-                                                to="/property"
+                                                to="/properties"
                                                 className="btn btn-outline-primary"
                                                 style={{ marginLeft: "1.5em" }}
                                             >
-                                                Add to Watchlist
+                                                Calculate Return
                                             </Link>
                                         </div>
                                     </div>

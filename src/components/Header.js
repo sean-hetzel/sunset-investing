@@ -29,11 +29,11 @@ export default class Header extends Component {
         <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button>
       </div>
       <div className="right-menu list-inline no-margin-bottom">   
-      <h4 className="list-inline-item text-primary font-weight-light">August Rent: ${(62553).toLocaleString()}</h4>      
-      <div className="list-inline-item"><Link to="/cart" className="nav-link"><i className="icon-contract" /><span className="badge dashbg-2">{(this.props.cart.length)}</span></Link></div>
+      <h4 className="list-inline-item text-primary font-weight-light">Rent from August was ${(62553).toLocaleString()}.</h4>      
+  <div className="list-inline-item"><Link to="/cart" className="nav-link"><i className="icon-contract" />{(this.props.cart.length >= 1)?<span className="badge dashbg-2">{(this.props.cart.length)}</span>:<span></span>}</Link></div>
 
         {/* <div className="list-inline-item"><a href="fake_url" className="nav-link"><i className="icon-magnifying-glass-browser" /></a></div> */}
-        <div className="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="fake_url" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="nav-link messages-toggle"><i className="icon-email" /><span className="badge dashbg-2">5</span></a>
+        {/* <div className="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="fake_url" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="nav-link messages-toggle"><i className="icon-email" /><span className="badge dashbg-2">5</span></a>
           <div aria-labelledby="navbarDropdownMenuLink1" className="dropdown-menu messages"><a href="fake_url" className="dropdown-item message d-flex align-items-center">
               <div className="profile"><img src="img/avatar-3.jpg" alt="..." className="img-fluid" />
                 <div className="status online" />
@@ -51,7 +51,7 @@ export default class Header extends Component {
                 <div className="status offline" />
               </div>
               <div className="content">   <strong className="d-block">Sara Wood</strong><span className="d-block">lorem ipsum dolor sit amit</span><small className="date d-block">10:30pm</small></div></a><a href="fake_url" className="dropdown-item text-center message"> <strong>See All Messages <i className="fa fa-angle-right" /></strong></a></div>
-        </div>
+        </div> */}
         {/* Log out               */}
         <div className="list-inline-item logout">                   <a id="logout" href="login.html" className="nav-link"> <span className="d-none d-sm-inline">Logout </span><i className="icon-logout" /></a></div>
       </div>
