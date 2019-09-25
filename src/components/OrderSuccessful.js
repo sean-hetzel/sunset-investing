@@ -39,7 +39,7 @@ class OrderSuccessful extends React.Component {
                                 <p>You can monitor the status of your properties in you Dashboard and Holdings.</p>
                                     <Link
                                         to="/dashboard"
-                                        className="btn btn-primary"
+                                        className="btn btn-outline-primary"
                                         style={{marginRight:"2rem"}}
                                     >
                                         Dashboard
@@ -47,7 +47,7 @@ class OrderSuccessful extends React.Component {
 
                                     <Link
                                         to="/holdings"
-                                        className="btn btn-primary"
+                                        className="btn btn-outline-primary"
                                     >
                                         Holdings
                                     </Link>

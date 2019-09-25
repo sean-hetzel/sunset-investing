@@ -32,49 +32,62 @@ class Cart extends React.Component {
                     <section>
                         <div className="container-fluid"></div>
                         <h1 className="col-11 text-primary">Checkout</h1>
-                        <div className="container-fluid">
-                        <div className="row" style={{marginBottom:"2rem"}}>
-                                <div className="col-md-6 col-lg-3">
-                                    <Link
-                                        to="/properties"
-                                        className="btn btn-primary"
-                                    >
-                                        Continue Shopping
-                                    </Link>
+                        {(this.props.cart.length > 0) ? (
+                            <div className="container-fluid">
+                                <div
+                                    className="row"
+                                    style={{ marginBottom: "2rem" }}
+                                >
+                                    <div className="col-md-6 col-lg-3">
+                                        <Link
+                                            to="/properties"
+                                            className="btn btn-primary"
+                                        >
+                                            Continue Shopping
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="row">
-                                {this.props.cart.map(property => {
-                                    return (
-                                        <>
-                                            <div className="col-md-6 col-lg-3">
-                                                <PropertyCard
-                                                    key={property.id}
-                                                    property={property}
-                                                    tempHouseImages={
-                                                        this.props
-                                                            .tempHouseImages
-                                                    }
-                                                    holdings={
-                                                        this.props.holdings
-                                                    }
-                                                />
-                                            </div>
-                                        </>
-                                    );
-                                })}
-                            </div>
-                            <div className="row" style={{marginBottom:"2rem"}}>
-                                <div className="col-md-6 col-lg-3">
-                                    <Link
-                                        to="/ordersuccessful"
-                                        className="btn btn-primary"
-                                    >
-                                        Place Order
-                                    </Link>
+                                <div className="row">
+                                    {this.props.cart.map(property => {
+                                        return (
+                                            <>
+                                                <div className="col-md-6 col-lg-3">
+                                                    <PropertyCard
+                                                        key={property.id}
+                                                        property={property}
+                                                        tempHouseImages={
+                                                            this.props
+                                                                .tempHouseImages
+                                                        }
+                                                        holdings={
+                                                            this.props.holdings
+                                                        }
+                                                    />
+                                                </div>
+                                            </>
+                                        );
+                                    })}
                                 </div>
+                                <div
+                                    className="row"
+                                    style={{ marginBottom: "2rem" }}
+                                >
+                                    <div className="col-md-6 col-lg-3">
+                                        <Link
+                                            to="/ordersuccessful"
+                                            className="btn btn-primary"
+                                        >
+                                            Place Order
+                                        </Link>
+                                    </div>
+                                </div>
+                                <p>Your cart is empty.</p>
                             </div>
-                        </div>
+                        ) : (
+                            <p className="col-md-6 col-lg-3">
+                                Your cart is empty.
+                            </p>
+                        )}
                     </section>
                 </div>
             </>
