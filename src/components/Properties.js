@@ -10,15 +10,17 @@ import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/i
 import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
 import SideBar from "./SideBar";
 
-const tempHouseArray = [
-    tempHouse1,
-    tempHouse2,
-    tempHouse6,
-    tempHouse3,
-    tempHouse4,
-    tempHouse5
-];
-let i = 0;
+// const tempHouseArray = [
+//     tempHouse1,
+//     tempHouse2,
+//     tempHouse6,
+//     tempHouse3,
+//     tempHouse4,
+//     tempHouse5
+// ];
+// let i = 0;
+
+const tempHouseImages = {1: [tempHouse1], 2: [tempHouse2], 3: [tempHouse6], 4: [tempHouse4], 5: [tempHouse5], 6: [tempHouse3]}
 
 
 
@@ -65,10 +67,11 @@ class Properties extends React.Component {
                                                         key={property.id}
                                                         property={property}
                                                         holdings={this.props.holdings}
-                                                        tempHouseImage={
-                                                            tempHouseArray[i]
-                                                        }
-                                                        {...i++}
+                                                        tempHouseImages={tempHouseImages}
+                                                        // tempHouseImage={
+                                                        //     tempHouseArray[i]
+                                                        // }
+                                                        // {...i++}
                                                     />
                                                 </Link>
 
