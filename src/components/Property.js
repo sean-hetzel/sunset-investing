@@ -133,11 +133,11 @@ class Property extends React.Component {
                                             />
 
 <div className="block">
-  <div className="title"><strong className="d-block">Bootstrap Touchspin</strong><span className="d-block">Read more about Touchspin at <a href="https://www.virtuosoft.eu/code/bootstrap-touchspin/">https://www.virtuosoft.eu/code/bootstrap-touchspin/</a>.</span></div>
+  <div className="title"><strong className="d-block">Select Amount</strong><span className="d-block"></span></div>
   <div className="block-body">
     <form className="form-horizontal">
       <div className="form-group row">
-        <label className="col-sm-3 form-control-label">Variant 3</label>
+        {/* <label className="col-sm-3 form-control-label">Variant 3</label> */}
         <div className="col-sm-9">
           <input type="text" defaultValue={1500} name="touchspin2" className="form-control" />
         </div>

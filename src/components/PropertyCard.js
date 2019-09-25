@@ -32,7 +32,7 @@ class PropertyCard extends React.Component {
             <>
                     <div className="card property-card">
                         <img
-                            src={[this.props.tempHouseImage]}
+                            src={this.props.tempHouseImages[this.props.property.id]}
                             alt="Card cap"
                             className="card-img-top img-fluid"
                         />
