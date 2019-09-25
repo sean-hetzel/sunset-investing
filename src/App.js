@@ -13,6 +13,7 @@ import Footer from "./components/Footer.js";
 import Property from "./components/Property.js";
 import Profile from "./components/Profile.js";
 import Holdings from "./components/Holdings.js";
+import OrderSuccessful from "./components/OrderSuccessful";
 
 import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
 import tempHouse2 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Estrella-Altamira_Front-Elevation_920.jpg";
@@ -76,7 +77,7 @@ class App extends React.Component {
     render() {
     return (
             <Router>
-                <Header />
+                <Header cart={this.state.cart} />
                 <div className="d-flex align-items-stretch">
                     {/* <SideBar /> */}
                     <Route path="/" exact component={Home} />
@@ -110,6 +111,7 @@ class App extends React.Component {
                     <Route path="/login" component={Login} />
                     <Route path="/logout" component={LogOut} />
                     <Route path="/signup" component={SignUp} />
+                    <Route path="/ordersuccessful" component={OrderSuccessful} />
                     <Route
                         path="/dashboard"
                         exact
