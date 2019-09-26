@@ -7,9 +7,6 @@ import Login from "./components/Login.js";
 import Cart from "./components/Cart.js";
 import DashBoard from "./components/DashBoard.js";
 import LogOut from "./components/LogOut";
-import Header from "./components/Header.js";
-import Footer from "./components/Footer.js";
-// import SideBar from "./components/SideBar.js";
 import Property from "./components/Property.js";
 import Profile from "./components/Profile.js";
 import Holdings from "./components/Holdings.js";
@@ -21,7 +18,14 @@ import tempHouse3 from "/Users/flatironschool/Development/sunset-investing/src/i
 import tempHouse4 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Solano-Artemis_Front-Elevation_1920.jpg";
 import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
 import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
-const tempHouseImages = {1: [tempHouse1], 2: [tempHouse3], 3: [tempHouse6], 4: [tempHouse4], 5: [tempHouse5], 6: [tempHouse2]}
+const tempHouseImages = {
+    1: [tempHouse1],
+    2: [tempHouse3],
+    3: [tempHouse6],
+    4: [tempHouse4],
+    5: [tempHouse5],
+    6: [tempHouse2]
+};
 
 // blue reference: #37cfdc
 // API key= AIzaSyAeXRNUoDujYVkiyawNAFhf7oFDe8vcFn8
@@ -46,11 +50,11 @@ class App extends React.Component {
         fetch(BASE_URL + PROPERTIES)
             .then(resp => resp.json())
             .then(json =>
-                this.setState({ properties: json }, console.log(json)));
+                this.setState({ properties: json }, console.log(json))
+            );
         fetch(BASE_URL + HOLDINGS)
             .then(resp => resp.json())
-            .then(json => 
-                this.setState({ holdings: json }, console.log(json)));
+            .then(json => this.setState({ holdings: json }, console.log(json)));
         fetch(BASE_URL + INVESTORS)
             .then(resp => resp.json())
             .then(json =>
@@ -59,117 +63,107 @@ class App extends React.Component {
     }
 
     sumPropertyHeld = () => {
-        let total_held = {}
+        let total_held = {};
         this.state.holdings.map(holding => {
-            total_held[holding.property_id] = (total_held[holding.property_id]+holding.amount) || holding.amount;            
-        })
-        return total_held
-    }
+            total_held[holding.property_id] =
+                total_held[holding.property_id] + holding.amount ||
+                holding.amount;
+        });
+        return total_held;
+    };
 
     addToCart = property => {
         if (!this.state.cart.includes(property)) {
             this.setState({ cart: [...this.state.cart, property] });
         }
     };
-    
-    
-    
+
     render() {
-    return (
+        return (
             <Router>
-                {/* <Header cart={this.props.cart} /> */}
-                {/* <div className="d-flex align-items-stretch"> */}
-                    {/* <SideBar /> */}
-                    <Route path="/" exact render={props => (
-                        <Home 
-                        {...props}
-                     cart={this.state.cart} />
-                     )}
+                <Route
+                    path="/"
+                    exact
+                    render={props => <Home {...props} cart={this.state.cart} />}
+                />
 
-/>
-
-                    <Route
-                        path="/properties"
-                        exact
-                        render={props => (
-                            <Properties
-                                {...props}
-                                cart={this.state.cart}
-                                properties={this.state.properties}
-                                holdings={this.state.holdings}
-                                tempHouseImages={tempHouseImages}
-                            />
-                        )}
-                    />
-                    {/* <Route path="/property" component={Property} /> */}
-                    <Route
-                        path="/properties/:id"
-                        // exact
-                        render={props => (
-                            <Property
-                                {...props}
-                                cart={this.state.cart}
-                                property={this.state.properties}
-                                sumPropertyHeld={this.sumPropertyHeld}
-                                addToCart={this.addToCart}
-                            />
-                        )}
-                    />
-
-                    <Route path="/login" component={Login} />
-                    <Route path="/logout" component={LogOut} />
-                    <Route path="/signup" component={SignUp} />
-                    
-                    <Route path="/ordersuccessful" exact render={props => (
-                        <OrderSuccessful 
-                        {...props}
-                        cart={this.state.cart}
-
-                     />
-                     )}
-                     />
-                    <Route
-                        path="/dashboard"
-                        exact
-                        render={props => (
-                            
-                            <DashBoard 
+                <Route
+                    path="/properties"
+                    exact
+                    render={props => (
+                        <Properties
                             {...props}
                             cart={this.state.cart}
-                            holdings={this.state.holdings} 
-                            />
-                        )}
-                    />
-                    <Route
-                        path="/holdings"
-                        exact
-                        render={props => (
-                            <Holdings 
+                            properties={this.state.properties}
+                            holdings={this.state.holdings}
+                            tempHouseImages={tempHouseImages}
+                        />
+                    )}
+                />
+                <Route
+                    path="/properties/:id"
+                    render={props => (
+                        <Property
                             {...props}
                             cart={this.state.cart}
-                            holdings={this.state.holdings} />
-                        )}
-                    />
-                    {/* <Route path="/cart" component={Cart} /> */}
-                    <Route
-                        path="/cart"
-                        exact
-                        render={props => (
-                            <Cart
-                                {...props}
-                                cart={this.state.cart}
-                                tempHouseImages={tempHouseImages}
-                                holdings={this.state.holdings}
-                            />
-                        )}
-                    />
-                    <Route path="/profile" exact render={props => (
-                        <Profile
-                        {...props}
-                        cart={this.state.cart}
-/>
-                    )} />
-                {/* </div> */}
+                            property={this.state.properties}
+                            sumPropertyHeld={this.sumPropertyHeld}
+                            addToCart={this.addToCart}
+                        />
+                    )}
+                />
+
+                <Route
+                    path="/ordersuccessful"
+                    exact
+                    render={props => (
+                        <OrderSuccessful {...props} cart={this.state.cart} />
+                    )}
+                />
+                <Route
+                    path="/dashboard"
+                    exact
+                    render={props => (
+                        <DashBoard
+                            {...props}
+                            cart={this.state.cart}
+                            holdings={this.state.holdings}
+                        />
+                    )}
+                />
+                <Route
+                    path="/holdings"
+                    exact
+                    render={props => (
+                        <Holdings
+                            {...props}
+                            cart={this.state.cart}
+                            holdings={this.state.holdings}
+                        />
+                    )}
+                />
+                <Route
+                    path="/cart"
+                    exact
+                    render={props => (
+                        <Cart
+                            {...props}
+                            cart={this.state.cart}
+                            tempHouseImages={tempHouseImages}
+                            holdings={this.state.holdings}
+                        />
+                    )}
+                />
+                <Route
+                    path="/profile"
+                    exact
+                    render={props => (
+                        <Profile {...props} cart={this.state.cart} />
+                    )}
+                />
+                <Route path="/login" component={Login} />
+                <Route path="/logout" component={LogOut} />
+                <Route path="/signup" component={SignUp} />
             </Router>
         );
     }
