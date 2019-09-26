@@ -98,13 +98,10 @@ class Property extends React.Component {
                     </div>
                     <section>
                         <div class="container-fluid">
-                            <div className="row">
+                            {/* <div className="row"> */}
                                 <div className="col-md-6 img-fluid">
                                     <Carousel />
                                 </div>
-                                </div>
-                                <div className="row">
-
                                 <div className="col-md-6">
                                     <div className="card">
                                         <div className="card-header">
@@ -186,7 +183,7 @@ class Property extends React.Component {
                                 </div>
                                 {/* {map = createSimpleMap(id, lat, long, markerImage)} */}
                             </div>
-                        </div>
+                        {/* </div> */}
 
                         <div className="col-md-6" style={{ float: "right" }}>
                             <div className="card">
