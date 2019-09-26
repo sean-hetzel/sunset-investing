@@ -102,6 +102,9 @@ class Property extends React.Component {
                                 <div className="col-md-6 img-fluid">
                                     <Carousel />
                                 </div>
+                                </div>
+                                <div className="row">
+
                                 <div className="col-md-6">
                                     <div className="card">
                                         <div className="card-header">
@@ -143,7 +146,7 @@ class Property extends React.Component {
       {/* <div className="form-group row"> */}
         {/* <label className="col-sm-3 form-control-label">Variant 3</label> */}
         <div className="col-sm-9">
-          <input type="text" defaultValue={1500} name="touchspin2" className="form-control" />
+          <input type="text" defaultValue={150000} name="touchspin2" className="form-control" />
         </div>
       {/* </div> */}
     </form>
@@ -151,7 +154,13 @@ class Property extends React.Component {
 </div>
 
                                             <li className="list-group-item text-primary">
-                                            Your share of rent will be ${Math.round((1500/price)*rent)} per month.
+                                            Your share of rent will be ${Math.round((150000/price)*rent)} per month.
+                                            </li> 
+                                            <li className="list-group-item text-primary">
+                                            Profit from appreciation could be ${Math.round(price*(next_year_appreciation/100)*(lease_length/12)).toLocaleString()} if it stays constant.*
+                                            </li> 
+                                            <li className="list-group-item text-primary">
+                                            Total profit could be ${Math.round((price*(next_year_appreciation/100)*(lease_length/12))+((150000/price)*rent)*lease_length).toLocaleString()} if sold {lease_length/12} years.*
                                             </li> 
 
                                         </ul>
