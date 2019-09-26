@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 // import createSimpleMap from "/Users/flatironschool/Development/sunset-investing/public/js/components-map.js";
 // import createSimpleMap from "/Users/flatironschool/Development/sunset-investing/distribution-premium/js/components-map.js";
 import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
+import Header from "./Header";
 import SideBar from "./SideBar";
+import Footer from "./Footer";
 import { createSimpleMap } from "/Users/flatironschool/Development/sunset-investing/src/components/GoogleMaps.js";
 import Carousel from "./Carousel";
 import PercentageBar from "./PercentageBar";
@@ -78,6 +80,8 @@ class Property extends React.Component {
         console.log("property page props:", this.props)
         return (
             <>
+            <Header cart={this.props.cart} />
+                            <div className="d-flex align-items-stretch">
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
@@ -207,6 +211,8 @@ class Property extends React.Component {
                         </div>
                     </section>
                 </div>
+                <Footer />
+</div>
             </>
         );
     }

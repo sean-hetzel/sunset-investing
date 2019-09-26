@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 import SideBar from "./SideBar";
+import Footer from "./Footer"
 
 class Holdings extends Component {
     constructor(){
@@ -12,6 +14,8 @@ class Holdings extends Component {
     render() {
         return (
             <>
+            <Header cart={this.props.cart} />
+                            <div className="d-flex align-items-stretch">
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
@@ -864,6 +868,8 @@ class Holdings extends Component {
 </section>
 
                 </div>
+                <Footer />
+</div>
             </>
         );
     }

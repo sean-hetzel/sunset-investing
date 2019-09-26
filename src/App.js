@@ -77,10 +77,16 @@ class App extends React.Component {
     render() {
     return (
             <Router>
-                <Header cart={this.state.cart} />
-                <div className="d-flex align-items-stretch">
+                {/* <Header cart={this.props.cart} /> */}
+                {/* <div className="d-flex align-items-stretch"> */}
                     {/* <SideBar /> */}
-                    <Route path="/" exact component={Home} />
+                    <Route path="/" exact render={props => (
+                        <Home 
+                        {...props}
+                     cart={this.state.cart} />
+                     )}
+
+/>
 
                     <Route
                         path="/properties"
@@ -88,6 +94,7 @@ class App extends React.Component {
                         render={props => (
                             <Properties
                                 {...props}
+                                cart={this.state.cart}
                                 properties={this.state.properties}
                                 holdings={this.state.holdings}
                                 tempHouseImages={tempHouseImages}
@@ -101,6 +108,7 @@ class App extends React.Component {
                         render={props => (
                             <Property
                                 {...props}
+                                cart={this.state.cart}
                                 property={this.state.properties}
                                 sumPropertyHeld={this.sumPropertyHeld}
                                 addToCart={this.addToCart}
@@ -111,19 +119,35 @@ class App extends React.Component {
                     <Route path="/login" component={Login} />
                     <Route path="/logout" component={LogOut} />
                     <Route path="/signup" component={SignUp} />
-                    <Route path="/ordersuccessful" component={OrderSuccessful} />
+                    
+                    <Route path="/ordersuccessful" exact render={props => (
+                        <OrderSuccessful 
+                        {...props}
+                        cart={this.state.cart}
+
+                     />
+                     )}
+                     />
                     <Route
                         path="/dashboard"
                         exact
                         render={props => (
-                            <DashBoard holdings={this.state.holdings} />
+                            
+                            <DashBoard 
+                            {...props}
+                            cart={this.state.cart}
+                            holdings={this.state.holdings} 
+                            />
                         )}
                     />
                     <Route
                         path="/holdings"
                         exact
                         render={props => (
-                            <Holdings holdings={this.state.holdings} />
+                            <Holdings 
+                            {...props}
+                            cart={this.state.cart}
+                            holdings={this.state.holdings} />
                         )}
                     />
                     {/* <Route path="/cart" component={Cart} /> */}
@@ -139,9 +163,13 @@ class App extends React.Component {
                             />
                         )}
                     />
-                    <Route path="/profile" component={Profile} />
-                </div>
-                <Footer />
+                    <Route path="/profile" exact render={props => (
+                        <Profile
+                        {...props}
+                        cart={this.state.cart}
+/>
+                    )} />
+                {/* </div> */}
             </Router>
         );
     }
