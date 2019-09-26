@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SideBar from "./SideBar";
+import "/Users/flatironschool/Development/sunset-investing/src/vendor/chart.js/Chart.js"
 
 class DashBoard extends React.Component {
     constructor(){

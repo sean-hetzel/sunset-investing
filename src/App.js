@@ -7,7 +7,9 @@ import "./css/custom.css"
 
 // import $ from 'node_modules/jquery/dist/jquery.js';
 
-// import "./vendor/jquery/jquery.js"
+import "./vendor/jquery/jquery.js"
+import "/Users/flatironschool/Development/sunset-investing/src/vendor/chart.js/Chart.js"
+
 // import "/Users/flatironschool/Development/sunset-investing/node_modules/jquery/src/jquery.js"
 // import "./vendor/popper.js/umd/popper.min.js"
 // import "/Users/flatironschool/Development/sunset-investing/src/vendor/popper.js/popper.js"

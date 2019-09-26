@@ -11,7 +11,7 @@
  *
  * Date: 2018-01-20T17:24Z
  */
-
+//  eslint no-undef: "off"
 ( function( global, factory ) {
 
 	"use strict";
@@ -10322,11 +10322,11 @@ jQuery.isNumeric = function( obj ) {
 // AMD loader is present. jQuery is a special case. For more information, see
 // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
-if ( typeof define === "function" && define.amd ) {
-	define( "jquery", [], function() {
-		return jQuery;
-	} );
-}
+// if ( typeof define === "function" && define.amd ) {
+// 	define( "jquery", [], function() {
+// 		return jQuery;
+// 	} );
+// }
 
 
 

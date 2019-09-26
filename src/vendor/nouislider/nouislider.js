@@ -1,4 +1,5 @@
 /*! nouislider - 12.1.0 - 10/25/2018 */
+
 (function(factory) {
     if (typeof define === "function" && define.amd) {
         // AMD. Register as an anonymous module.

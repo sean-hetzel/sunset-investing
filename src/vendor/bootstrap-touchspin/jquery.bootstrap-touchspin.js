@@ -6,6 +6,8 @@
  *  Made by István Ujj-Mészáros
  *  Under Apache License v2.0 License
  */
+/* eslint no-undef: "off"*/
+/* global jQuery, padding */
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);

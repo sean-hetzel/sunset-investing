@@ -1,3 +1,6 @@
+import $ from 'jquery'
+import "/Users/flatironschool/Development/sunset-investing/src/vendor/nouislider/nouislider.js"
+
 $(function () {
     
     var basicNoUISlider = $('#basicNoUISlider');
