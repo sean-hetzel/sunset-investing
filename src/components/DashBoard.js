@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 import SideBar from "./SideBar";
+import Footer from "./Footer";
+// import "/Users/flatironschool/Development/sunset-investing/src/Chart.js"
 
 class DashBoard extends React.Component {
     constructor(){
@@ -13,6 +16,8 @@ class DashBoard extends React.Component {
         console.log("State", this.state)
         return (
             <>
+            <Header cart={this.props.cart} />
+                            <div className="d-flex align-items-stretch">
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
                 <div className="page-content">
                     {/* Page Header*/}
@@ -131,7 +136,10 @@ class DashBoard extends React.Component {
                         </div>
                     </footer>
                 </div>
+                <Footer />
+</div>
             </>
+            
         );
     }
 }

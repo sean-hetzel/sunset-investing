@@ -53,7 +53,7 @@ export default class Header extends Component {
               <div className="content">   <strong className="d-block">Sara Wood</strong><span className="d-block">lorem ipsum dolor sit amit</span><small className="date d-block">10:30pm</small></div></a><a href="fake_url" className="dropdown-item text-center message"> <strong>See All Messages <i className="fa fa-angle-right" /></strong></a></div>
         </div> */}
         {/* Log out               */}
-        <div className="list-inline-item logout">                   <a id="logout" href="login.html" className="nav-link"> <span className="d-none d-sm-inline">Logout </span><i className="icon-logout" /></a></div>
+        <div className="list-inline-item logout">                   <Link to="/signup" id="logout" className="nav-link"> <span className="d-none d-sm-inline">Logout </span><i className="icon-logout" /></Link></div>
       </div>
     </div>
   </nav>
@@ -63,3 +63,4 @@ export default class Header extends Component {
         )
     }
 }
+ 

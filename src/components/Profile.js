@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 import SideBar from "./SideBar";
+import Footer from "./Footer";
 
 class Profile extends React.Component {
     constructor(){
@@ -12,6 +14,8 @@ class Profile extends React.Component {
     render() {
         return (
             <>
+            <Header cart={this.props.cart} />
+                            <div className="d-flex align-items-stretch">
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
@@ -230,7 +234,8 @@ class Profile extends React.Component {
 </div>
   </section>
   </div>
-
+  <Footer />
+</div>
             </>
         );
     }

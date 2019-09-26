@@ -8,7 +8,9 @@ import PropertyCard from "./PropertyCard";
 // import tempHouse4 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Solano-Artemis_Front-Elevation_1920.jpg";
 // import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
 // import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
+import Header from "./Header";
 import SideBar from "./SideBar";
+import Footer from "./Footer";
 
 // const tempHouseArray = [
 //     tempHouse1,
@@ -35,6 +37,9 @@ class Properties extends React.Component {
 
         return (
             <>
+                            <Header cart={this.props.cart} />
+                            <div className="d-flex align-items-stretch">
+
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
@@ -83,6 +88,9 @@ class Properties extends React.Component {
                         </div>
                     </section>
                 </div>
+
+                <Footer />
+</div>
             </>
         );
     }

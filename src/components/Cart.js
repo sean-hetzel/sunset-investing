@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 import SideBar from "./SideBar";
+import Footer from "./Footer";
 import PropertyCard from "./PropertyCard";
 
 class Cart extends React.Component {
@@ -14,6 +16,8 @@ class Cart extends React.Component {
         console.log("cart:", this.props.cart);
         return (
             <>
+            <Header cart={this.props.cart} />
+                            <div className="d-flex align-items-stretch">
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
@@ -90,6 +94,8 @@ class Cart extends React.Component {
                         )}
                     </section>
                 </div>
+                <Footer />
+</div>
             </>
         );
     }
