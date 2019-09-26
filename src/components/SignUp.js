@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class SignUp extends React.Component {
     render() {
@@ -13,9 +14,9 @@ class SignUp extends React.Component {
           <div className="info d-flex align-items-center">
             <div className="content">
               <div className="logo">
-                <h1>Dashboard</h1>
+                <h1>Sunset Investing</h1>
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p>Real Estate Investing. For the Modern Age.</p>
             </div>
           </div>
         </div>
@@ -43,7 +44,7 @@ class SignUp extends React.Component {
                 <div className="form-group text-center">
                   <input id="register" type="submit" defaultValue="Register" className="btn btn-primary" />
                 </div>
-              </form><small>Already have an account? </small><a href="login.html" className="signup">Login</a>
+              </form><small>Already have an account? </small><Link to="/login" className="signup">Login</Link>
             </div>
           </div>
         </div>

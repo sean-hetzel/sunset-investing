@@ -1589,7 +1589,8 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
   height: 100%;
   display: block;
   z-index: -1;
-  background: url(../img/bg.jpeg);
+  /* background: url(../img/bg.jpeg); */
+  background: url(../img/avi-waxman-pJk4RRS7urs-unsplash.jpg);
   background-size: cover;
   position: absolute;
   top: 0;

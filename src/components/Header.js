@@ -26,11 +26,11 @@ export default class Header extends Component {
           <div className="brand-text brand-big visible text-uppercase"><strong className="text-primary">SUNSET</strong><strong>INVESTING</strong></div>
           <div className="brand-text brand-sm"><strong className="text-primary">D</strong><strong>A</strong></div></Link>
         {/* Sidebar Toggle Btn*/}
-        <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button>
+        {/* <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button> */}
       </div>
       <div className="right-menu list-inline no-margin-bottom">   
       <h4 className="list-inline-item text-primary font-weight-light">Rent from August was ${(62553).toLocaleString()}.</h4>      
-  <div className="list-inline-item"><Link to="/cart" className="nav-link"><i className="icon-contract" />{(this.props.cart.length >= 1)?<span className="badge dashbg-2">{(this.props.cart.length)}</span>:<span></span>}</Link></div>
+  <div className="list-inline-item"><Link to="/cart" className="nav-link">Cart <i className="icon-contract" />{(this.props.cart.length >= 1)?<span className="badge dashbg-2">{(this.props.cart.length)}</span>:<span></span>}</Link></div>
 
         {/* <div className="list-inline-item"><a href="fake_url" className="nav-link"><i className="icon-magnifying-glass-browser" /></a></div> */}
         {/* <div className="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="fake_url" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="nav-link messages-toggle"><i className="icon-email" /><span className="badge dashbg-2">5</span></a>
@@ -53,7 +53,9 @@ export default class Header extends Component {
               <div className="content">   <strong className="d-block">Sara Wood</strong><span className="d-block">lorem ipsum dolor sit amit</span><small className="date d-block">10:30pm</small></div></a><a href="fake_url" className="dropdown-item text-center message"> <strong>See All Messages <i className="fa fa-angle-right" /></strong></a></div>
         </div> */}
         {/* Log out               */}
-        <div className="list-inline-item logout">                   <Link to="/signup" id="logout" className="nav-link"> <span className="d-none d-sm-inline">Logout </span><i className="icon-logout" /></Link></div>
+        {/* <div className="list-inline-item logout">                   <Link to="/signup" id="logout" className="nav-link"> <span className="d-none d-sm-inline">Logout </span><i className="icon-logout" /></Link></div> */}
+        <div className="list-inline-item">                   <Link to="/login" id="login" className="nav-link"> <span className="d-none d-sm-inline">Login </span><i className="icon-user" /></Link></div>
+
       </div>
     </div>
   </nav>
