@@ -1,5 +1,7 @@
+// import $ from 'jquery'
+// import 'jquery-validation'
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "./components/Home.js";
 import Properties from "./components/Properties.js";
 import SignUp from "./components/SignUp.js";
@@ -11,6 +13,8 @@ import Profile from "./components/Profile.js";
 import Holdings from "./components/Holdings.js";
 import OrderSuccessful from "./components/OrderSuccessful";
 import { api } from "./services/api";
+
+
 
 
 import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
@@ -186,13 +190,16 @@ class App extends React.Component {
                         <Profile {...props} cart={this.state.cart} />
                     )}
                 />
+            {/* <Switch> */}
                 <Route
               exact
               path="/login"
               render={props => <Login {...props} handleLogin={this.login} />}
             />
                 <Route path="/signup" component={SignUp} />
+            {/* </Switch> */}
             </Router>
+
         );
     }
 }

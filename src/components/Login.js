@@ -6,35 +6,50 @@ import { api } from '../services/api';
 class Login extends React.Component {
     constructor() {
         super();
-        this.state = {
-          error: false,
-          fields: {
-            name: '',
-            password: ''
-          }
-        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.state = {
+        //   error: false,
+        //   fields: {
+        //     name: '',
+        //     password: ''
+        //   }
+        // };
       }
     
-      handleChange = e => {
-        const newFields = { ...this.state.fields, [e.target.name]: e.target.value };
-        this.setState({ fields: newFields });
-      };
+      // handleChange = e => {
+      //   const newFields = { ...this.state.fields, [e.target.name]: e.target.value };
+      //   this.setState({ fields: newFields });
+      // };
     
-      handleSubmit = e => {
-        e.preventDefault();
-        api.auth.login(this.state.fields).then(res => {
-          if (!res.error) {
-            const updatedState = { ...this.state.auth, investor: res };
-            this.props.handleLogin(res);
-            this.props.history.push('/');
-          } else {
-            this.setState({ error: true });
-          }
+      // handleSubmit = e => {
+      //   console.log(e)
+      //   e.preventDefault();
+      //   api.auth.login(this.state.fields).then(res => {
+      //     if (!res.error) {
+      //       const updatedState = { ...this.state.auth, investor: res };
+      //       this.props.handleLogin(res);
+      //       this.props.history.push('/');
+      //     } else {
+      //       this.setState({ error: true });
+      //     }
+      //   });
+      // };
+
+      handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        console.log(...data)
+        // for (var [key, value] of data.entries()) { 
+        //   console.log(key, value);
+        // }
+        fetch('http://localhost:3000/api/v1/investors', {
+          method: 'POST',
+          body: data,
         });
-      };
+      }
 
     render() {
-        const { fields } = this.state;
+        // const { fields } = this.state;
         return (
             <>
                 <div className="login-page">
@@ -56,13 +71,13 @@ class Login extends React.Component {
         <div className="col-lg-6">
           <div className="form d-flex align-items-center">
             <div className="content">
-              <form method="get" className="form-validate mb-4">
+              <form method="get" className="form-validate mb-4" onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                  <input id="login-username" type="text" name="loginUsername" required data-msg="Please enter your username" className="input-material" value={fields.username} onChange={this.handleChange}/>
+                  <input id="login-username" type="text" name="name" required  className="input-material"  />
                   <label htmlFor="login-username" className="label-material">User Name</label>
                 </div>
                 <div className="form-group">
-                  <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" className="input-material" value={fields.password} onChange={this.handleChange}/>
+                  <input id="login-password" type="password" name="password" required  className="input-material" />
                   <label htmlFor="login-password" className="label-material">Password</label>
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
