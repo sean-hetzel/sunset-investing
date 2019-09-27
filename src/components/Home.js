@@ -53,6 +53,34 @@ class Home extends React.Component {
 <a style={{backgroundColor: 'black', color: 'white', textDecoration: 'none', padding: '4px 6px', fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif', fontSize: 12, fontWeight: 'bold', lineHeight: '1.2', display: 'inline-block', borderRadius: 3}} href="https://unsplash.com/@christingom?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Chris Tingom"><span style={{display: 'inline-block', padding: '2px 3px'}}><svg xmlns="http://www.w3.org/2000/svg" style={{height: 12, width: 'auto', position: 'relative', verticalAlign: 'middle', top: '-2px', fill: 'white'}} viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" /></svg></span><span style={{display: 'inline-block', padding: '2px 3px'}}>Chris Tingom</span></a>
                     </div>
                 </div>
+
+                <div classname="block">
+  <div classname="title"><strong classname="d-block">Bootstrap Touchspin</strong><span classname="d-block">Read more about Touchspin at <a href="https://www.virtuosoft.eu/code/bootstrap-touchspin/">https://www.virtuosoft.eu/code/bootstrap-touchspin/</a>.</span></div>
+  <div classname="block-body">
+    <form classname="form-horizontal">
+      <div classname="form-group row">
+        <label classname="col-sm-3 form-control-label">Variant 1</label>
+        <div classname="col-sm-9">
+          <input type="text" name="touchspin0" classname="form-control" />
+        </div>
+      </div>
+      <div classname="form-group row">
+        <label classname="col-sm-3 form-control-label">Variant 2</label>
+        <div classname="col-sm-9">
+          <input type="text" defaultValue="55.50" name="touchspin1" classname="form-control" />
+        </div>
+      </div>
+      <div classname="form-group row">
+        <label classname="col-sm-3 form-control-label">Variant 3</label>
+        <div classname="col-sm-9">
+          <input type="text" defaultValue={1500} name="touchspin2" classname="form-control" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+                
                 <Footer />
 </div>
             </>

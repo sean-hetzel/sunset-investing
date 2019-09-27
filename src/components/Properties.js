@@ -34,7 +34,7 @@ class Properties extends React.Component {
         };
     }
     render() {
-
+console.log("properties props:", this.props)
         return (
             <>
                             <Header cart={this.props.cart} />
