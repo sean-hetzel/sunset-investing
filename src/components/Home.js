@@ -54,32 +54,6 @@ class Home extends React.Component {
                     </div>
                 </div>
 
-                <div classname="block">
-  <div classname="title"><strong classname="d-block">Bootstrap Touchspin</strong><span classname="d-block">Read more about Touchspin at <a href="https://www.virtuosoft.eu/code/bootstrap-touchspin/">https://www.virtuosoft.eu/code/bootstrap-touchspin/</a>.</span></div>
-  <div classname="block-body">
-    <form classname="form-horizontal">
-      <div classname="form-group row">
-        <label classname="col-sm-3 form-control-label">Variant 1</label>
-        <div classname="col-sm-9">
-          <input type="text" name="touchspin0" classname="form-control" />
-        </div>
-      </div>
-      <div classname="form-group row">
-        <label classname="col-sm-3 form-control-label">Variant 2</label>
-        <div classname="col-sm-9">
-          <input type="text" defaultValue="55.50" name="touchspin1" classname="form-control" />
-        </div>
-      </div>
-      <div classname="form-group row">
-        <label classname="col-sm-3 form-control-label">Variant 3</label>
-        <div classname="col-sm-9">
-          <input type="text" defaultValue={1500} name="touchspin2" classname="form-control" />
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
                 
                 <Footer />
 </div>
