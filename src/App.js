@@ -6,11 +6,12 @@ import SignUp from "./components/SignUp.js";
 import Login from "./components/Login.js";
 import Cart from "./components/Cart.js";
 import DashBoard from "./components/DashBoard.js";
-import LogOut from "./components/LogOut";
 import Property from "./components/Property.js";
 import Profile from "./components/Profile.js";
 import Holdings from "./components/Holdings.js";
 import OrderSuccessful from "./components/OrderSuccessful";
+import { api } from "./services/api";
+
 
 import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
 import tempHouse2 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Estrella-Altamira_Front-Elevation_920.jpg";
@@ -42,7 +43,10 @@ class App extends React.Component {
             properties: [],
             holdings: [],
             investors: [],
-            cart: []
+            cart: [],
+            auth: {
+                investor: {}
+              }
         };
     }
 
@@ -60,7 +64,28 @@ class App extends React.Component {
             .then(json =>
                 this.setState({ investors: json }, console.log(json))
             );
+        const token = localStorage.getItem("token");
+        if (!token) {
+            console.log("there is no token");
+        } else {
+            // make a request to the backend and find our investor
+            api.auth.getCurrentInvestor().then(investor => {
+            const updatedState = { ...this.state.auth, investor: investor };
+            this.setState({ auth: updatedState });
+            });
+        }
     }
+
+    login = data => {
+        const updatedState = { ...this.state.auth, investor: data };
+        localStorage.setItem("token", data.jwt);
+        this.setState({ auth: updatedState });
+      };
+    
+      logout = () => {
+        localStorage.removeItem("token");
+        this.setState({ auth: { investor: {} } });
+      };
 
     sumPropertyHeld = () => {
         let total_held = {};
@@ -161,8 +186,11 @@ class App extends React.Component {
                         <Profile {...props} cart={this.state.cart} />
                     )}
                 />
-                <Route path="/login" component={Login} />
-                <Route path="/logout" component={LogOut} />
+                <Route
+              exact
+              path="/login"
+              render={props => <Login {...props} handleLogin={this.login} />}
+            />
                 <Route path="/signup" component={SignUp} />
             </Router>
         );

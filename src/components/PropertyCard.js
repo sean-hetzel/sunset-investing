@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import PercentageBar from "./PercentageBar";
 // import Carousel from "./Carousel";
 
@@ -36,7 +36,6 @@ class PropertyCard extends React.Component {
                             alt="Card cap"
                             className="card-img-top img-fluid"
                         />
-
                         <div className="card-body">
                             <h5 className="card-title text-primary">
                                 ${price.toLocaleString()}
