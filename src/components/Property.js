@@ -154,6 +154,9 @@ class Property extends React.Component {
   {/* </div> */}
 </div>
 
+
+
+
                                             <li className="list-group-item text-primary">
                                             Your share of rent will be ${Math.round((150000/price)*rent)} per month.
                                             </li> 

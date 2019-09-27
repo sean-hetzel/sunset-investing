@@ -34,7 +34,7 @@ const tempHouseImages = {
 const BASE_URL = "http://localhost:3000/api/v1";
 const PROPERTIES = "/properties";
 const HOLDINGS = "/holdings";
-const INVESTORS = "/ investors";
+const INVESTORS = "/investors";
 
 class App extends React.Component {
     constructor() {
