@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
@@ -12,6 +13,42 @@ class DashBoard extends React.Component {
             sideBarStatus: { properties: "", dashboard: "active", holdings: "" }
         }
     }
+
+        componentDidMount () {
+            const script = document.createElement("script");
+        
+            // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+            // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+            script.src = "vendor/chart.js/Chart.min.js";
+            script.async = true;
+        
+            document.body.appendChild(script);
+
+            // "/Users/flatironschool/Development/sunset-investing/public/js/charts-home.js"
+        
+            const script3 = document.createElement("script");
+        
+            // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+            // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+            script3.src = "/js/charts-custom.js"
+            ;
+            script3.async = true;
+        
+            document.body.appendChild(script3);
+        // "/js/charts-home.js"
+            const script2 = document.createElement("script");
+        
+            // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+            // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+            script2.src = "/js/front.js";
+            script2.async = true;
+        
+            document.body.appendChild(script2);
+        
+            
+          }
+
+    
     render() {
         console.log("State", this.state)
         return (
