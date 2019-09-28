@@ -110,6 +110,7 @@ class App extends React.Component {
     render() {
         return (
             <Router>
+                <Switch>
                 <Route
                     path="/"
                     exact
@@ -197,7 +198,7 @@ class App extends React.Component {
               render={props => <Login {...props} handleLogin={this.login} />}
             />
                 <Route path="/signup" component={SignUp} />
-            {/* </Switch> */}
+            </Switch>
             </Router>
 
         );
