@@ -12,6 +12,7 @@ import Property from "./components/Property.js";
 import Profile from "./components/Profile.js";
 import Holdings from "./components/Holdings.js";
 import OrderSuccessful from "./components/OrderSuccessful";
+import NotFound from "./components/NotFound";
 import { api } from "./services/api";
 
 
@@ -198,6 +199,7 @@ class App extends React.Component {
               render={props => <Login {...props} handleLogin={this.login} />}
             />
                 <Route path="/signup" component={SignUp} />
+                <Route path="*" component={NotFound} />
             </Switch>
             </Router>
 

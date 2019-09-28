@@ -30,7 +30,136 @@ class Property extends React.Component {
             sideBarStatus: { properties: "active", dashboard: "", holdings: "" }
         };
     }
+    componentDidMount () {
+    //  const script16 = document.createElement("link");
+    //  script16.src = "/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css"
+    //  script16.async = true;
+    //  document.head.appendChild(script16);
 
+     const script1 = document.createElement("script");
+     script1.src = "vendor/jquery/jquery.min.js"
+     script1.async = true;
+     document.body.appendChild(script1);
+
+     const script2 = document.createElement("script");
+     script2.src = "vendor/popper.js/umd/popper.min.js"
+     script2.async = true;
+     document.body.appendChild(script2);
+
+     const script3 = document.createElement("script");
+     script3.src = "vendor/bootstrap/js/bootstrap.min.js"
+     script3.async = true;
+     document.body.appendChild(script3);
+
+     const script4 = document.createElement("script");
+     script4.src = "vendor/jquery.cookie/jquery.cookie.js"
+     script4.async = true;
+     document.body.appendChild(script4);
+
+     const script5 = document.createElement("script");
+     script5.src = "vendor/chart.js/Chart.min.js"
+     script5.async = true;
+     document.body.appendChild(script5);
+
+     const script6 = document.createElement("script");
+     script6.src = "vendor/jquery-validation/jquery.validate.min.js"
+     script6.async = true;
+     document.body.appendChild(script6);
+
+     const script7 = document.createElement("script");
+     script7.src = "vendor/bootstrap-select/js/bootstrap-select.min.js"
+     script7.async = true;
+     document.body.appendChild(script7);
+
+     const script8 = document.createElement("script");
+     script8.src = "vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"
+     script8.async = true;
+     document.body.appendChild(script8);
+
+     const script9 = document.createElement("script");
+     script9.src = "vendor/nouislider/nouislider.min.js"
+     script9.async = true;
+     document.body.appendChild(script9);
+
+     const script10 = document.createElement("script");
+     script10.src = "vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
+     script10.async = true;
+     document.body.appendChild(script10);
+
+     const script11 = document.createElement("script");
+     script11.src = "vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"
+     script11.async = true;
+     document.body.appendChild(script11);
+
+     const script12 = document.createElement("script");
+     script12.src = "vendor/jasny-bootstrap/js/jasny-bootstrap.min.js"
+     script12.async = true;
+     document.body.appendChild(script12);
+
+     const script13 = document.createElement("script");
+     script13.src = "vendor/multiselect/js/jquery.multi-select.js"
+     script13.async = true;
+     document.body.appendChild(script13);
+
+     const script14 = document.createElement("script");
+     script14.src = "js/forms-advanced.js"
+     script14.async = true;
+     document.body.appendChild(script14);
+
+     const script15 = document.createElement("script");
+     script15.src = "js/front.js"
+     script15.async = true;
+     document.body.appendChild(script15);
+    }
+
+    // /Users/flatironschool/Development/sunset-investing/public/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js
+    // /Users/flatironschool/Development/sunset-investing/public/js/forms-advanced.js
+
+    // componentDidMount () {
+    //     const script = document.createElement("script");
+    
+    //     // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+    //     // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+    //     script.src = "vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js";
+    //     script.async = true;
+    
+    //     document.body.appendChild(script);
+
+    //     // "/Users/flatironschool/Development/sunset-investing/public/js/charts-home.js"
+    
+    //     const script3 = document.createElement("script");
+    
+    //     // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+    //     // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+    //     script3.src = "js/forms-advanced.js"
+    //     ;
+    //     script3.async = true;
+    
+    //     document.body.appendChild(script3);
+
+
+    //     // "%PUBLIC_URL%/js/home-premium.js"
+    //     const script4 = document.createElement("script");
+    
+    //     // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+    //     // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+    //     script4.src = "/js/home-premium.js"
+    //     ;
+    //     script4.async = true;
+    
+    //     document.body.appendChild(script4);
+    // // "/js/charts-home.js"
+    //     const script2 = document.createElement("script");
+    
+    //     // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+    //     // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+    //     script2.src = "/js/front.js";
+    //     script2.async = true;
+    
+    //     document.body.appendChild(script2);
+    
+        
+    //   }
     getProperty = () => {
         const id = parseInt(this.props.match.params.id);
 
@@ -153,6 +282,32 @@ class Property extends React.Component {
     </form>
   {/* </div> */}
 </div>
+
+<div className="block">
+                  <div className="title"><strong className="d-block">Bootstrap Touchspin</strong><span className="d-block">Read more about Touchspin at <a href="https://www.virtuosoft.eu/code/bootstrap-touchspin/">https://www.virtuosoft.eu/code/bootstrap-touchspin/</a>.</span></div>
+                  <div className="block-body">
+                    <form className="form-horizontal">
+                      <div className="form-group row">
+                        <label className="col-sm-3 form-control-label">Variant 1</label>
+                        <div className="col-sm-9">
+                          <input type="text" name="touchspin0" className="form-control bootstrap-touchspin"></input>
+                        </div>
+                      </div>
+                      <div className="form-group row">
+                        <label className="col-sm-3 form-control-label">Variant 2</label>
+                        <div className="col-sm-9">
+                          <input type="text" value="55.50" name="touchspin1" className="form-control"></input>
+                        </div>
+                      </div>
+                      <div className="form-group row">
+                        <label className="col-sm-3 form-control-label">Variant 3</label>
+                        <div className="col-sm-9">
+                          <input type="text" value="1500" name="touchspin2" className="form-control"></input>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
 
 
 
