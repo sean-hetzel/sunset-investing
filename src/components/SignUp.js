@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logoWite from "/Users/flatironschool/Development/sunset-investing/src/images/sunset-investing-logo-white.png"
 
 class SignUp extends React.Component {
   constructor() {
@@ -27,8 +28,10 @@ class SignUp extends React.Component {
         {/* Logo & Information Panel*/}
         <div className="col-lg-6">
           <div className="info d-flex align-items-center">
-            <div className="content">
+              <img src={logoWite} alt="sunset investing logo" className="img-fluid" style={{height:"100px", width:"100px", marginRight:"20px", display:"inline"}}></img>
+            <div className="content" style={{marginTop: "30px"}}>
               <div className="logo">
+
                 <h1>Sunset Investing</h1>
               </div>
               <p>Real Estate Investing. For the Modern Age.</p>
