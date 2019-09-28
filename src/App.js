@@ -133,6 +133,7 @@ class App extends React.Component {
                 />
                 <Route
                     path="/properties/:id"
+                    exact
                     render={props => (
                         <Property
                             {...props}

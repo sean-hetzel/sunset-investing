@@ -12,7 +12,7 @@ a:hover {
 } */
 
 .progress {
-    height: 2px;
+    height: 4px;
     background: #393c43;
     margin-bottom: 1em;
 }
