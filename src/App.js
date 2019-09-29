@@ -108,11 +108,12 @@ class App extends React.Component {
         return (
             <Router>
                 <Switch>
+
                     <Route
                         path="/"
                         exact
                         render={props => (
-                            <Home {...props} cart={this.state.cart} />
+                            <Home {...props} cart={this.state.cart} loginState={this.state.auth.investor} logout={this.logout}/>
                         )}
                     />
 
@@ -126,6 +127,7 @@ class App extends React.Component {
                                 properties={this.state.properties}
                                 holdings={this.state.holdings}
                                 tempHouseImages={tempHouseImages}
+                                loginState={this.state.auth.investor}
                             />
                         )}
                     />
@@ -139,6 +141,7 @@ class App extends React.Component {
                                 property={this.state.properties}
                                 sumPropertyHeld={this.sumPropertyHeld}
                                 addToCart={this.addToCart}
+                                loginState={this.state.auth.investor}
                             />
                         )}
                     />
@@ -150,6 +153,7 @@ class App extends React.Component {
                             <OrderSuccessful
                                 {...props}
                                 cart={this.state.cart}
+                                loginState={this.state.auth.investor}
                             />
                         )}
                     />
@@ -161,6 +165,7 @@ class App extends React.Component {
                                 {...props}
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
+                                loginState={this.state.auth.investor}
                             />
                         )}
                     />
@@ -172,6 +177,7 @@ class App extends React.Component {
                                 {...props}
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
+                                loginState={this.state.auth.investor}
                             />
                         )}
                     />
@@ -184,6 +190,7 @@ class App extends React.Component {
                                 cart={this.state.cart}
                                 tempHouseImages={tempHouseImages}
                                 holdings={this.state.holdings}
+                                loginState={this.state.auth.investor}
                             />
                         )}
                     />
@@ -191,7 +198,8 @@ class App extends React.Component {
                         path="/profile"
                         exact
                         render={props => (
-                            <Profile {...props} cart={this.state.cart} />
+                            <Profile {...props} cart={this.state.cart}
+                            loginState={this.state.auth.investor} />
                         )}
                     />
                     {/* <Switch> */}

@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import logo from "/Users/flatironschool/Development/sunset-investing/src/images/sunset-investing-logo.png";
-
+function isEmpty(obj) {
+  for(var key in obj) {
+      if(obj.hasOwnProperty(key))
+          return false;
+  }
+  return true;
+}
 export default class Header extends Component {
+
     render() {
+      console.log("login state:", isEmpty(this.props.loginState))
         return (
             <>
 <header className="header">   
@@ -54,7 +62,7 @@ export default class Header extends Component {
         </div> */}
         {/* Log out               */}
         {/* <div className="list-inline-item logout">                   <Link to="/signup" id="logout" className="nav-link"> <span className="d-none d-sm-inline">Logout </span><i className="icon-logout" /></Link></div> */}
-        <div className="list-inline-item">                   <Link to="/login" id="login" className="nav-link"> <span className="d-none d-sm-inline">Login </span><i className="icon-user" /></Link></div>
+        <div className="list-inline-item">                   {(isEmpty(this.props.loginState))?<Link to="/login" id="login" className="nav-link"> <span className="d-none d-sm-inline">Login </span><i className="icon-user" /></Link>:<Link to="/" onClick={() => this.props.logout()} className="d-none d-sm-inline nav-link"><span className="d-none d-sm-inline">Logout </span><i className="icon-logout" /></Link>}</div>
 
       </div>
     </div>

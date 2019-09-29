@@ -16,7 +16,7 @@ class Cart extends React.Component {
         console.log("cart:", this.props.cart);
         return (
             <>
-            <Header cart={this.props.cart} />
+            <Header cart={this.props.cart} loginState={this.props.loginState}/>
                             <div className="d-flex align-items-stretch">
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">

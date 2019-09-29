@@ -53,7 +53,7 @@ class DashBoard extends React.Component {
         console.log("State", this.state)
         return (
             <>
-            <Header cart={this.props.cart} />
+            <Header cart={this.props.cart} loginState={this.props.loginState}/>
                             <div className="d-flex align-items-stretch">
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
                 <div className="page-content">

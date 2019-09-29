@@ -209,7 +209,7 @@ class Property extends React.Component {
         console.log("property page props:", this.props)
         return (
             <>
-            <Header cart={this.props.cart} />
+            <Header cart={this.props.cart} loginState={this.props.loginState}/>
                             <div className="d-flex align-items-stretch">
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
