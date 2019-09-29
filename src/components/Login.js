@@ -35,19 +35,42 @@ class Login extends React.Component {
       //     }
       //   });
       // };
+      
+      componentDidMount () {
+        const script = document.createElement("script");
+        script.src = "/vendor/jquery-validation/jquery.validate.min.js";
+        script.async = true;
+        document.body.appendChild(script);
+    
+        const script2 = document.createElement("script");
+        script2.src = "/js/front.js";
+        script2.async = true;
+        document.body.appendChild(script2);
+      }
 
       handleSubmit(event) {
         event.preventDefault();
         const data = new FormData(event.target);
-        console.log(...data)
-        // for (var [key, value] of data.entries()) { 
-        //   console.log(key, value);
-        // }
-        fetch('http://localhost:3000/api/v1/investors', {
+        const name = data.get('name').toUpperCase()
+        const password = data.get('password')
+        console.log(JSON.stringify({investor: {name, password}}))
+    
+        fetch('http://localhost:3000/api/v1/login', {
           method: 'POST',
-          body: data,
-        });
-      }
+          headers: {
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json'
+                },
+          body: JSON.stringify({investor: {name, password}})
+          }).then(r => r.json())
+          .then(data => {
+              console.log(data);
+              // localStorage.setItem('currentUserId', data.investor.id);
+              // localStorage.setItem('currentUserName', data.investor.name);
+              // localStorage.setItem('jwt', data.jwt);
+              // this.props.history.push("/");
+          })
+    }
 
     render() {
         // const { fields } = this.state;
@@ -76,11 +99,11 @@ class Login extends React.Component {
             <div className="content">
               <form method="get" className="form-validate mb-4" onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                  <input id="login-username" type="text" name="name" required  className="input-material"  />
+                  <input id="name" type="text" name="name" required  className="input-material"  />
                   <label htmlFor="login-username" className="label-material">User Name</label>
                 </div>
                 <div className="form-group">
-                  <input id="login-password" type="password" name="password" required  className="input-material" />
+                  <input id="password" type="password" name="password" required  className="input-material" />
                   <label htmlFor="login-password" className="label-material">Password</label>
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>

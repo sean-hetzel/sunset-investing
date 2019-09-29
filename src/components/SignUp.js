@@ -18,85 +18,35 @@ class SignUp extends React.Component {
 // <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@jsaxxhoward?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Julian Howard"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Julian Howard</span></a>
 // <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@matthewlejune?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Matthew LeJune"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Matthew LeJune</span></a>
 
-
-function () {
-
-    /* Summernote Validation */
-
-    var summernoteForm = $('.form-validate-summernote');
-    var summernoteElement = $('.summernote');
-
-    var summernoteValidator = summernoteForm.validate({
-        errorElement: "div",
-        errorClass: 'is-invalid',
-        validClass: 'is-valid',
-        ignore: ':hidden:not(.summernote),.note-editable.card-block',
-        errorPlacement: function (error, element) {
-            // Add the `help-block` class to the error element
-            error.addClass("invalid-feedback");
-            console.log(element);
-            if (element.prop("type") === "checkbox") {
-                error.insertAfter(element.siblings("label"));
-            } else if (element.hasClass("summernote")) {
-                error.insertAfter(element.siblings(".note-editor"));
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-
-    summernoteElement.summernote({
-        height: 300,
-        callbacks: {
-            onChange: function (contents, $editable) {
-                // Note that at this point, the value of the `textarea` is not the same as the one
-                // you entered into the summernote editor, so you have to set it yourself to make
-                // the validation consistent and in sync with the value.
-                summernoteElement.val(summernoteElement.summernote('isEmpty') ? "" : contents);
-
-                // You should re-validate your element after change, because the plugin will have
-                // no way to know that the value of your `textarea` has been changed if the change
-                // was done programmatically.
-                summernoteValidator.element(summernoteElement);
-            }
-        }
-    });
-
-};
-
   componentDidMount () {
     const script = document.createElement("script");
-
-    // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
-    // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
     script.src = "/vendor/jquery-validation/jquery.validate.min.js";
     script.async = true;
-
     document.body.appendChild(script);
 
-
-
     const script2 = document.createElement("script");
-
-    // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
-    // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
     script2.src = "/js/front.js";
     script2.async = true;
-
-    document.body.appendChild(script2);
-
-    
+    document.body.appendChild(script2);    
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    console.log(data)
+    const name = data.get('name').toUpperCase()
+    const password = data.get('password')
+    console.log(JSON.stringify({investor: {name, password}}))
+
     fetch('http://localhost:3000/api/v1/investors', {
       method: 'POST',
-      body: data,
-    });
-  }
+      headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            },
+      body: JSON.stringify({investor: {name, password}})
+      })
+}
+
 
     render() {
         return (
@@ -124,7 +74,7 @@ function () {
             <div className="content">
               <form className="text-left form-validate" onSubmit={this.handleSubmit}>
                 <div className="form-group-material">
-                  <input id="register-username" type="text" name="name" required data-msg="Please enter your username" className="input-material" />
+                  <input id="name" type="text" name="name" required data-msg="Please enter your username" className="input-material" />
                   <label htmlFor="register-username" className="label-material">Username</label>
                 </div>
                 {/* <div className="form-group-material">
@@ -132,7 +82,7 @@ function () {
                   <label htmlFor="register-email" className="label-material">Email Address    </label>
                 </div> */}
                 <div className="form-group-material">
-                  <input id="register-password" type="password" name="password" required data-msg="Please enter your password" className="input-material" />
+                  <input id="password" type="password" name="password" required data-msg="Please enter your password" className="input-material" />
                   <label htmlFor="register-password" className="label-material">Password      </label>
                 </div>
                 <div className="form-group terms-conditions text-center">
