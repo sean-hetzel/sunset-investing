@@ -98,7 +98,7 @@ class App extends React.Component {
         return total_held;
     };
 
-    addToCart = property => {
+    addToCart = (property) => {
         if (!this.state.cart.includes(property)) {
             this.setState({ cart: [...this.state.cart, property] });
         }
@@ -128,6 +128,7 @@ class App extends React.Component {
                                 holdings={this.state.holdings}
                                 tempHouseImages={tempHouseImages}
                                 loginState={this.state.auth.investor}
+                                logout={this.logout}
                             />
                         )}
                     />
@@ -154,6 +155,7 @@ class App extends React.Component {
                                 {...props}
                                 cart={this.state.cart}
                                 loginState={this.state.auth.investor}
+                                logout={this.logout}
                             />
                         )}
                     />
@@ -166,6 +168,7 @@ class App extends React.Component {
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
                                 loginState={this.state.auth.investor}
+                                logout={this.logout}
                             />
                         )}
                     />
@@ -178,6 +181,7 @@ class App extends React.Component {
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
                                 loginState={this.state.auth.investor}
+                                logout={this.logout}
                             />
                         )}
                     />
@@ -191,6 +195,7 @@ class App extends React.Component {
                                 tempHouseImages={tempHouseImages}
                                 holdings={this.state.holdings}
                                 loginState={this.state.auth.investor}
+                                logout={this.logout}
                             />
                         )}
                     />
@@ -199,7 +204,8 @@ class App extends React.Component {
                         exact
                         render={props => (
                             <Profile {...props} cart={this.state.cart}
-                            loginState={this.state.auth.investor} />
+                            loginState={this.state.auth.investor}
+                            logout={this.logout} />
                         )}
                     />
                     {/* <Switch> */}

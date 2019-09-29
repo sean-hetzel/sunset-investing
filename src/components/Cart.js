@@ -16,7 +16,7 @@ class Cart extends React.Component {
         console.log("cart:", this.props.cart);
         return (
             <>
-            <Header cart={this.props.cart} loginState={this.props.loginState}/>
+            <Header cart={this.props.cart} loginState={this.props.loginState} logout={this.props.logout}/>
                             <div className="d-flex align-items-stretch">
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
@@ -52,13 +52,13 @@ class Cart extends React.Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    {this.props.cart.map(property => {
+                                    {this.props.cart.map(cartItem => {
                                         return (
                                             <>
                                                 <div className="col-md-6 col-lg-3">
                                                     <PropertyCard
-                                                        key={property.id}
-                                                        property={property}
+                                                        key={cartItem.property.id}
+                                                        property={cartItem.property}
                                                         tempHouseImages={
                                                             this.props
                                                                 .tempHouseImages
@@ -67,6 +67,7 @@ class Cart extends React.Component {
                                                             this.props.holdings
                                                         }
                                                     />
+                                                    {cartItem.amount}
                                                 </div>
                                             </>
                                         );
@@ -85,7 +86,6 @@ class Cart extends React.Component {
                                         </Link>
                                     </div>
                                 </div>
-                                <p>Your cart is empty.</p>
                             </div>
                         ) : (
                             <p className="col-md-6 col-lg-3">

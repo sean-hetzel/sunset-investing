@@ -209,7 +209,7 @@ class Property extends React.Component {
         console.log("property page props:", this.props)
         return (
             <>
-            <Header cart={this.props.cart} loginState={this.props.loginState}/>
+            <Header cart={this.props.cart} loginState={this.props.loginState} logout={this.props.logout}/>
                             <div className="d-flex align-items-stretch">
                 <SideBar sideBarStatus={this.state.sideBarStatus} />
                 <div className="page-content">
@@ -276,14 +276,14 @@ class Property extends React.Component {
       {/* <div className="form-group row"> */}
         {/* <label className="col-sm-3 form-control-label">Variant 3</label> */}
         <div className="col-sm-9">
-          <input type="text" defaultValue={150000} name="touchspin2" className="form-control" />
+          <input type="text" defaultValue={0} name="touchspin2" className="form-control" />
         </div>
       {/* </div> */}
     </form>
   {/* </div> */}
 </div>
 
-<div className="block">
+{/* <div className="block">
                   <div className="title"><strong className="d-block">Bootstrap Touchspin</strong><span className="d-block">Read more about Touchspin at <a href="https://www.virtuosoft.eu/code/bootstrap-touchspin/">https://www.virtuosoft.eu/code/bootstrap-touchspin/</a>.</span></div>
                   <div className="block-body">
                     <form className="form-horizontal">
@@ -307,7 +307,7 @@ class Property extends React.Component {
                       </div>
                     </form>
                   </div>
-                </div>
+                </div> */}
 
 
 
@@ -328,7 +328,7 @@ class Property extends React.Component {
                                                 to="/cart"
                                                 className="btn btn-primary"
                                                 key={this.props.property.id}
-                                                onClick={() => this.props.addToCart(PROPERTY)}
+                                                onClick={() => this.props.addToCart({property: PROPERTY, amount: 1000})}
                                             >
                                                 Add to Cart
                                             </Link>

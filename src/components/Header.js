@@ -11,7 +11,7 @@ function isEmpty(obj) {
 export default class Header extends Component {
 
     render() {
-      console.log("login state:", isEmpty(this.props.loginState))
+      console.log("logged in?:", !isEmpty(this.props.loginState))
         return (
             <>
 <header className="header">   
