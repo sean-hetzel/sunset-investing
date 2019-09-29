@@ -1,7 +1,45 @@
+import $ from 'jquery';
 import React from "react";
 import { Link } from "react-router-dom";
 import { api } from '../services/api';
 import logoWite from "/Users/flatironschool/Development/sunset-investing/src/images/sunset-investing-logo-white.png"
+
+// var validator = $("#signupform").validate({
+//   rules: {
+//       firstname: "required",
+//       lastname: "required",
+//       username: {
+//           required: true,
+//           minlength: 2,
+//           remote: "users.php"
+//       }
+//   },
+//   messages: {
+//       firstname: "Enter your firstname",
+//       lastname: "Enter your lastname",
+//       username: {
+//           required: "Enter a username",
+//           minlength: jQuery.format("Enter at least {0} characters"),
+//           remote: jQuery.format("{0} is already in use")
+//       }
+//   }
+// }
+
+// $("#myform").validate({
+//   invalidHandler: function(event, validator) {
+//     // 'this' refers to the form
+//     var errors = validator.numberOfInvalids();
+//     if (errors) {
+//       var message = errors == 1
+//         ? 'You missed 1 field. It has been highlighted'
+//         : 'You missed ' + errors + ' fields. They have been highlighted';
+//       $("div.error span").html(message);
+//       $("div.error").show();
+//     } else {
+//       $("div.error").hide();
+//     }
+//   }
+// });
 
 
 class Login extends React.Component {
@@ -38,14 +76,20 @@ class Login extends React.Component {
           body: JSON.stringify({investor: {name, password}})
           }).then(r => r.json())
           .then(data => {
-              console.log(data);
-              localStorage.setItem('currentUserId', data.investor.id);
-              localStorage.setItem('currentUserName', data.investor.name);
-              localStorage.setItem('jwt', data.jwt);
-              this.props.history.push("/");
+            console.log(data);
+            this.props.handleLogin(data)
+            // localStorage.setItem('currentUserId', data.investor.id);
+            // localStorage.setItem('currentUserName', data.investor.name);
+            // localStorage.setItem('jwt', data.jwt);
+            this.props.history.push("/");
           })
-    }
-
+        }
+        
+        // .then(r => {
+        //   if (r.status === 401) {
+        //     console.log("name does not exist")
+        //   }
+        // })
     render() {
         // const { fields } = this.state;
         return (
@@ -73,11 +117,11 @@ class Login extends React.Component {
             <div className="content">
               <form method="get" className="form-validate mb-4" onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                  <input id="name" type="text" name="name" required  className="input-material"  />
+                  <input id="name" type="text" name="name" required data-msg="Please enter your username" className="input-material"  />
                   <label htmlFor="login-username" className="label-material">User Name</label>
                 </div>
                 <div className="form-group">
-                  <input id="password" type="password" name="password" required  className="input-material" />
+                  <input id="password" type="password" name="password" required data-msg="Please enter your password" className="input-material" />
                   <label htmlFor="login-password" className="label-material">Password</label>
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>

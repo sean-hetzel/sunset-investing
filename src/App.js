@@ -1,7 +1,7 @@
 // import $ from 'jquery'
 // import 'jquery-validation'
 import React from "react";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home.js";
 import Properties from "./components/Properties.js";
 import SignUp from "./components/SignUp.js";
@@ -14,9 +14,6 @@ import Holdings from "./components/Holdings.js";
 import OrderSuccessful from "./components/OrderSuccessful";
 import NotFound from "./components/NotFound";
 import { api } from "./services/api";
-
-
-
 
 import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
 import tempHouse2 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Estrella-Altamira_Front-Elevation_920.jpg";
@@ -47,11 +44,11 @@ class App extends React.Component {
         this.state = {
             properties: [],
             holdings: [],
-            investors: [],
+            // investors: [],
             cart: [],
             auth: {
                 investor: {}
-              }
+            }
         };
     }
 
@@ -64,18 +61,18 @@ class App extends React.Component {
         fetch(BASE_URL + HOLDINGS)
             .then(resp => resp.json())
             .then(json => this.setState({ holdings: json }, console.log(json)));
-        fetch(BASE_URL + INVESTORS)
-            .then(resp => resp.json())
-            .then(json =>
-                this.setState({ investors: json }, console.log(json))
-            );
+        // fetch(BASE_URL + INVESTORS)
+        //     .then(resp => resp.json())
+        //     .then(json =>
+        //         this.setState({ investors: json }, console.log(json))
+        //     );
         const token = localStorage.getItem("token");
         if (!token) {
             console.log("there is no token");
         } else {
             api.auth.getCurrentInvestor().then(investor => {
-            const updatedState = { ...this.state.auth, investor: investor };
-            this.setState({ auth: updatedState });
+                const updatedState = { ...this.state.auth, investor: investor };
+                this.setState({ auth: updatedState });
             });
         }
     }
@@ -84,12 +81,12 @@ class App extends React.Component {
         const updatedState = { ...this.state.auth, investor: data };
         localStorage.setItem("token", data.jwt);
         this.setState({ auth: updatedState });
-      };
-    
-      logout = () => {
+    };
+
+    logout = () => {
         localStorage.removeItem("token");
         this.setState({ auth: { investor: {} } });
-      };
+    };
 
     sumPropertyHeld = () => {
         let total_held = {};
@@ -107,102 +104,108 @@ class App extends React.Component {
         }
     };
     render() {
-        console.log("app state:", this.state)
+        console.log("app state:", this.state);
         return (
             <Router>
                 <Switch>
-                <Route
-                    path="/"
-                    exact
-                    render={props => <Home {...props} cart={this.state.cart} />}
-                />
+                    <Route
+                        path="/"
+                        exact
+                        render={props => (
+                            <Home {...props} cart={this.state.cart} />
+                        )}
+                    />
 
-                <Route
-                    path="/properties"
-                    exact
-                    render={props => (
-                        <Properties
-                            {...props}
-                            cart={this.state.cart}
-                            properties={this.state.properties}
-                            holdings={this.state.holdings}
-                            tempHouseImages={tempHouseImages}
-                        />
-                    )}
-                />
-                <Route
-                    path="/properties/:id"
-                    exact
-                    render={props => (
-                        <Property
-                            {...props}
-                            cart={this.state.cart}
-                            property={this.state.properties}
-                            sumPropertyHeld={this.sumPropertyHeld}
-                            addToCart={this.addToCart}
-                        />
-                    )}
-                />
+                    <Route
+                        path="/properties"
+                        exact
+                        render={props => (
+                            <Properties
+                                {...props}
+                                cart={this.state.cart}
+                                properties={this.state.properties}
+                                holdings={this.state.holdings}
+                                tempHouseImages={tempHouseImages}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/properties/:id"
+                        exact
+                        render={props => (
+                            <Property
+                                {...props}
+                                cart={this.state.cart}
+                                property={this.state.properties}
+                                sumPropertyHeld={this.sumPropertyHeld}
+                                addToCart={this.addToCart}
+                            />
+                        )}
+                    />
 
-                <Route
-                    path="/ordersuccessful"
-                    exact
-                    render={props => (
-                        <OrderSuccessful {...props} cart={this.state.cart} />
-                    )}
-                />
-                <Route
-                    path="/dashboard"
-                    exact
-                    render={props => (
-                        <DashBoard
-                            {...props}
-                            cart={this.state.cart}
-                            holdings={this.state.holdings}
-                        />
-                    )}
-                />
-                <Route
-                    path="/holdings"
-                    exact
-                    render={props => (
-                        <Holdings
-                            {...props}
-                            cart={this.state.cart}
-                            holdings={this.state.holdings}
-                        />
-                    )}
-                />
-                <Route
-                    path="/cart"
-                    exact
-                    render={props => (
-                        <Cart
-                            {...props}
-                            cart={this.state.cart}
-                            tempHouseImages={tempHouseImages}
-                            holdings={this.state.holdings}
-                        />
-                    )}
-                />
-                <Route
-                    path="/profile"
-                    exact
-                    render={props => (
-                        <Profile {...props} cart={this.state.cart} />
-                    )}
-                />
-            {/* <Switch> */}
-                <Route
-              exact
-              path="/login"
-              render={props => <Login {...props} handleLogin={this.login} />}
-            />
-                <Route path="/signup" component={SignUp} />
-                <Route path="*" component={NotFound} />
-            </Switch>
+                    <Route
+                        path="/ordersuccessful"
+                        exact
+                        render={props => (
+                            <OrderSuccessful
+                                {...props}
+                                cart={this.state.cart}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/dashboard"
+                        exact
+                        render={props => (
+                            <DashBoard
+                                {...props}
+                                cart={this.state.cart}
+                                holdings={this.state.holdings}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/holdings"
+                        exact
+                        render={props => (
+                            <Holdings
+                                {...props}
+                                cart={this.state.cart}
+                                holdings={this.state.holdings}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/cart"
+                        exact
+                        render={props => (
+                            <Cart
+                                {...props}
+                                cart={this.state.cart}
+                                tempHouseImages={tempHouseImages}
+                                holdings={this.state.holdings}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/profile"
+                        exact
+                        render={props => (
+                            <Profile {...props} cart={this.state.cart} />
+                        )}
+                    />
+                    {/* <Switch> */}
+                    <Route
+                        exact
+                        path="/login"
+                        render={props => (
+                            <Login {...props} handleLogin={this.login} />
+                        )}
+                    />
+                    <Route path="/signup" component={SignUp} />
+                    <Route path="*" component={NotFound} />
+                </Switch>
             </Router>
-
         );
     }
 }
