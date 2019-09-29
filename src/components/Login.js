@@ -8,33 +8,7 @@ class Login extends React.Component {
     constructor() {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.state = {
-        //   error: false,
-        //   fields: {
-        //     name: '',
-        //     password: ''
-        //   }
-        // };
       }
-    
-      // handleChange = e => {
-      //   const newFields = { ...this.state.fields, [e.target.name]: e.target.value };
-      //   this.setState({ fields: newFields });
-      // };
-    
-      // handleSubmit = e => {
-      //   console.log(e)
-      //   e.preventDefault();
-      //   api.auth.login(this.state.fields).then(res => {
-      //     if (!res.error) {
-      //       const updatedState = { ...this.state.auth, investor: res };
-      //       this.props.handleLogin(res);
-      //       this.props.history.push('/');
-      //     } else {
-      //       this.setState({ error: true });
-      //     }
-      //   });
-      // };
       
       componentDidMount () {
         const script = document.createElement("script");
@@ -65,10 +39,10 @@ class Login extends React.Component {
           }).then(r => r.json())
           .then(data => {
               console.log(data);
-              // localStorage.setItem('currentUserId', data.investor.id);
-              // localStorage.setItem('currentUserName', data.investor.name);
-              // localStorage.setItem('jwt', data.jwt);
-              // this.props.history.push("/");
+              localStorage.setItem('currentUserId', data.investor.id);
+              localStorage.setItem('currentUserName', data.investor.name);
+              localStorage.setItem('jwt', data.jwt);
+              this.props.history.push("/");
           })
     }
 

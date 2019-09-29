@@ -73,7 +73,6 @@ class App extends React.Component {
         if (!token) {
             console.log("there is no token");
         } else {
-            // make a request to the backend and find our investor
             api.auth.getCurrentInvestor().then(investor => {
             const updatedState = { ...this.state.auth, investor: investor };
             this.setState({ auth: updatedState });
@@ -107,8 +106,8 @@ class App extends React.Component {
             this.setState({ cart: [...this.state.cart, property] });
         }
     };
-
     render() {
+        console.log("app state:", this.state)
         return (
             <Router>
                 <Switch>

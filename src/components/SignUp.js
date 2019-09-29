@@ -44,9 +44,20 @@ class SignUp extends React.Component {
               Accept: 'application/json'
             },
       body: JSON.stringify({investor: {name, password}})
-      })
+      }).then(r => {
+        if(r.status===201) {
+          this.props.history.push('/')
+        }
+        if(r.status===406) {
+          this.props.form.setFields({
+              name: {
+                errors: [new Error('Username is already taken.')],
+              },
+            });
+        }
+        return r.json()
+    })
 }
-
 
     render() {
         return (
