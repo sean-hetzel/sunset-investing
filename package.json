@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@rebass/preset": "^4.0.5",
+    "bootstrap-touchspin": "^4.2.5",
     "emotion-theming": "^10.0.19",
     "jquery": "^3.4.1",
     "jquery-validation": "^1.19.1",
