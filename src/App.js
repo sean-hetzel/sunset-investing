@@ -1,7 +1,7 @@
 // import $ from 'jquery'
 // import 'jquery-validation'
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./components/Home.js";
 import Properties from "./components/Properties.js";
 import SignUp from "./components/SignUp.js";
@@ -21,6 +21,7 @@ import tempHouse3 from "/Users/flatironschool/Development/sunset-investing/src/i
 import tempHouse4 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Solano-Artemis_Front-Elevation_1920.jpg";
 import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
 import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
+import Restricted from "./components/Restricted.js";
 const tempHouseImages = {
     1: [tempHouse1],
     2: [tempHouse3],
@@ -75,6 +76,16 @@ class App extends React.Component {
                 this.setState({ auth: updatedState });
             });
         }
+
+        function loggedIn(loginState) {
+            for(var key in loginState) {
+                if(loginState.hasOwnProperty(key))
+                    return false;
+            }
+            return true;
+          }
+          console.log("logged in?:", !loggedIn(this.props.loginState))
+
     }
 
     login = data => {
@@ -174,27 +185,27 @@ class App extends React.Component {
                         path="/dashboard"
                         exact
                         render={props => (
-                            <DashBoard
+                            this.loggedIn ? <DashBoard
                                 {...props}
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
-                            />
+                            />:<Redirect to="/rescricted" />
                         )}
                     />
                     <Route
                         path="/holdings"
                         exact
                         render={props => (
-                            <Holdings
+                            this.loggedIn ? <Holdings
                                 {...props}
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
                                 properties={this.state.properties}
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
-                            />
+                            />:<Redirect to="/rescricted" />
                         )}
                     />
                     <Route
@@ -216,12 +227,12 @@ class App extends React.Component {
                         path="/profile"
                         exact
                         render={props => (
-                            <Profile
+                            this.loggedIn ? <Profile
                                 {...props}
                                 cart={this.state.cart}
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
-                            />
+                            />:<Redirect to="/rescricted" />
                         )}
                     />
                     {/* <Switch> */}
@@ -233,6 +244,7 @@ class App extends React.Component {
                         )}
                     />
                     <Route path="/signup" component={SignUp} />
+                    <Route path="/rescricted" component={Restricted} />
                     <Route path="*" component={NotFound} />
                 </Switch>
             </Router>

@@ -66,7 +66,6 @@ class Holdings extends Component {
                                                 <tbody>
                                                     {this.props.holdings
                                                         .filter(holding => {
-                                                            console.log("holding investor:",this.props.loginState.investor.id)
                                                             return (
                                                                 holding
                                                                     .investor_id == this.props.loginState.investor.id
