@@ -27,7 +27,6 @@ class Cart extends React.Component {
             investor_id = purchase.investorId;
             property_id = purchase.property.id;
             amount = purchase.amount;
-            // console.log(JSON.stringify(purchase.investorId, purchase.property.id, purchase.amount))
             console.log(
                 JSON.stringify({
                     holding: { investor_id, property_id, amount }

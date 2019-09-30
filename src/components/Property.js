@@ -9,6 +9,13 @@ import PercentageBar from "./PercentageBar";
 
 let PROPERTY;
 
+function isEmpty(obj) {
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) return false;
+    }
+    return true;
+}
+
 class Property extends React.Component {
     constructor() {
         super();
@@ -336,29 +343,54 @@ class Property extends React.Component {
                                                                         conditions.
                                                                     </div>
                                                                 </div>
-                                                                <Link
-                                                                    to="/cart"
-                                                                    className="btn btn-primary"
-                                                                    key={
-                                                                        this
-                                                                            .props
-                                                                            .property
-                                                                            .id
-                                                                    }
-                                                                    onClick={() =>
-                                                                        this.props.addToCart(
-                                                                            {
-                                                                                investorId: this.props.investor.investor.id,
-                                                                                property: PROPERTY,
-                                                                                amount: this
-                                                                                    .state
-                                                                                    .purchaseAmount
-                                                                            }
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    Add to Cart
-                                                                </Link>
+                                                                {!isEmpty(
+                                                                    this.props
+                                                                        .loginState
+                                                                ) ? (
+                                                                    <Link
+                                                                        to="/cart"
+                                                                        className="btn btn-primary"
+                                                                        key={
+                                                                            this
+                                                                                .props
+                                                                                .property
+                                                                                .id
+                                                                        }
+                                                                        onClick={() =>
+                                                                            this.props.addToCart(
+                                                                                {
+                                                                                    investorId: this
+                                                                                        .props
+                                                                                        .investor
+                                                                                        .investor
+                                                                                        .id,
+                                                                                    property: PROPERTY,
+                                                                                    amount: this
+                                                                                        .state
+                                                                                        .purchaseAmount
+                                                                                }
+                                                                            )
+                                                                        }
+                                                                    >
+                                                                        Add to
+                                                                        Cart
+                                                                    </Link>
+                                                                ) : (
+                                                                    <p>
+                                                                        Please{" "}
+                                                                        <Link to="/login">
+                                                                            login
+                                                                        </Link>{" "}
+                                                                        or{" "}
+                                                                        <Link to="/signup">
+                                                                            signup
+                                                                        </Link>{" "}
+                                                                        to
+                                                                        invest
+                                                                        in this
+                                                                        property.
+                                                                    </p>
+                                                                )}
                                                             </div>
                                                         </div>
                                                     </form>
