@@ -13,20 +13,36 @@ class Property extends React.Component {
     constructor() {
         super();
         this.state = {
-            sideBarStatus: { properties: "active", dashboard: "", holdings: "" }
+            sideBarStatus: {
+                properties: "active",
+                dashboard: "",
+                holdings: ""
+            },
+            purchaseAmount: 1000 
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    componentDidMount () {
+    componentDidMount() {
         const script = document.createElement("script");
         script.src = "/vendor/jquery-validation/jquery.validate.min.js";
         script.async = true;
         document.body.appendChild(script);
-    
+
         const script2 = document.createElement("script");
         script2.src = "/js/front.js";
         script2.async = true;
         document.body.appendChild(script2);
+    }
+
+    handleChange(event) {
+        this.setState({purchaseAmount: event.target.value});
       }
+
+      handleSubmit(event) {
+        event.preventDefault();
+      }
+
     getProperty = () => {
         const id = parseInt(this.props.match.params.id);
 
@@ -72,6 +88,8 @@ class Property extends React.Component {
             this.props.sumPropertyHeld()[parseInt(this.props.match.params.id)]
         );
         console.log("property page props:", this.props);
+        console.log("property page state:", this.state);
+
         return (
             <>
                 <Header
@@ -157,26 +175,30 @@ class Property extends React.Component {
                                                     <form
                                                         id="amount2"
                                                         className="form-horizontal form-validate form"
+                                                        onSubmit={this.handleSubmit}
                                                     >
                                                         <div className="row">
-                                                            <div className="col-sm-9">
+                                                            <div className="col-sm-12">
                                                                 <input
                                                                     type="number"
-                                                                    min="1"
-                                                                    max={price - total}
+                                                                    min="99"
+                                                                    max={
+                                                                        price -
+                                                                        total
+                                                                    }
                                                                     required
-                                                                    data-msg={`Amount must be between $1 and $${(price - total).toLocaleString()}`}
+                                                                    data-msg={`Amount must be between $100 and $${(
+                                                                        price -
+                                                                        total
+                                                                    ).toLocaleString()}`}
                                                                     placeholder="$"
                                                                     name="amount2"
                                                                     id="amount2"
                                                                     className="form-control form-validate"
+                                                                    value={this.state.value} onChange={this.handleChange}
                                                                 />
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                                                                                        <div className="margin-bottom-sm margin-top-sm">
 
-                                                <div className="block margin-bottom-sm col-sm-9">
                                                     <div className="title">
                                                         <strong>Return</strong>
                                                     </div>
@@ -185,13 +207,27 @@ class Property extends React.Component {
                                                             <tbody>
                                                                 <tr>
                                                                     <th scope="row">
+                                                                        Share Of
+                                                                        Property
+                                                                    </th>
+                                                                    <td className="text-primary">
+                                                                        {Math.round(
+                                                                            (this.state.purchaseAmount /
+                                                                                price) *
+                                                                                100
+                                                                        )}
+                                                                        %
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">
                                                                         Monthly
                                                                         Rent
                                                                     </th>
                                                                     <td className="text-primary">
                                                                         $
                                                                         {Math.round(
-                                                                            (150000 /
+                                                                            (this.state.purchaseAmount /
                                                                                 price) *
                                                                                 rent
                                                                         ).toLocaleString()}
@@ -210,7 +246,7 @@ class Property extends React.Component {
                                                                     <td className="text-primary">
                                                                         $
                                                                         {Math.round(
-                                                                            (150000 /
+                                                                            (this.state.purchaseAmount /
                                                                                 price) *
                                                                                 (price *
                                                                                     (next_year_appreciation /
@@ -220,7 +256,8 @@ class Property extends React.Component {
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">
-                                                                        Potential Profit
+                                                                        Potential
+                                                                        Profit
                                                                         If Sold
                                                                         After{" "}
                                                                         {lease_length /
@@ -229,22 +266,30 @@ class Property extends React.Component {
                                                                     </th>
                                                                     <td className="text-primary">
                                                                         $
-                                                                        {Math.round(((150000 / price)*(rent*lease_length))+((150000 / price))*((next_year_appreciation / 100) * price * (lease_length / 12))).toLocaleString()
-                                                                            }
+                                                                        {Math.round(
+                                                                            (this.state.purchaseAmount /
+                                                                                price) *
+                                                                                (rent *
+                                                                                    lease_length) +
+                                                                                (this.state.purchaseAmount /
+                                                                                    price) *
+                                                                                    ((next_year_appreciation /
+                                                                                        100) *
+                                                                                        price *
+                                                                                        (lease_length /
+                                                                                            12))
+                                                                        ).toLocaleString()}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
-                                                        
                                                     </div>
-                                                    <div className="lcol-sm-9"><br></br>
-                                                    * These numbers are not guaranteed. 
-                                                </div>
-                                                </div>
-
-                                                
-                                            </ul>
-                                            <div className="card-body">
+                                                    <div className="lcol-sm-9">
+                                                        <br></br>* These numbers
+                                                        are not guaranteed. They
+                                                        are only predictions.
+                                                    </div>
+                                                    </div>
                                                 <Link
                                                     to="/cart"
                                                     className="btn btn-primary"
@@ -258,17 +303,11 @@ class Property extends React.Component {
                                                 >
                                                     Add to Cart
                                                 </Link>
-
-                                                {/* <Link
-                                                    to="/properties"
-                                                    className="btn btn-outline-primary"
-                                                    style={{
-                                                        marginLeft: "1.5em"
-                                                    }}
-                                                >
-                                                    Calculate Return
-                                                </Link> */}
-                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -281,7 +320,7 @@ class Property extends React.Component {
                                 <div className="card">
                                     <div className="card-header">
                                         <h5 className="card-title text-primary text-center text-uppercase">
-                                            Details
+                                            Property Details
                                         </h5>
                                     </div>
                                     <ul className="list-group list-group-flush">
