@@ -81,6 +81,7 @@ class Cart extends React.Component {
                                         <Link
                                             to="/ordersuccessful"
                                             className="btn btn-primary"
+                                            onClick={() => this.props.clearCart()}
                                         >
                                             Place Order
                                         </Link>

@@ -103,6 +103,11 @@ class App extends React.Component {
             this.setState({ cart: [...this.state.cart, property] });
         }
     };
+
+    clearCart = () => {
+            this.setState({ cart: {} });
+    };
+
     render() {
         console.log("app state:", this.state);
         return (
@@ -196,6 +201,7 @@ class App extends React.Component {
                                 holdings={this.state.holdings}
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
+                                clearCart={this.clearCart}
                             />
                         )}
                     />

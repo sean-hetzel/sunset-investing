@@ -1,3 +1,6 @@
+import $ from 'jquery';
+// import Touchspin from '/Users/flatironschool/Development/sunset-investing/public/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js';
+// import Messenger from `${process.env.PUBLIC_URL}/vendor/messenger-hubspot/build/js/messenger.js`;
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -20,8 +23,112 @@ import PercentageBar from "./PercentageBar";
 // id of the map DOM element
 // let id = 'map-3';
 // let map;
+// $(function () {
+
+//     Messenger.options = {
+//         extraClasses: 'messenger-fixed messenger-on-top  messenger-on-right',
+//         theme: 'flat',
+//         messageDefaults: {
+//             showCloseButton: true
+//         }
+//     }
+//     Messenger().post({
+//         message: 'Hey Sarah!<br>Your portfolio grew by 5.6% or $25,751 since your last visit!',
+//         type: 'success'
+//     });
+// });
 
 let PROPERTY;
+// $(function () {
+    
+    // var basicNoUISlider = $('#basicNoUISlider');
+    // if (basicNoUISlider.length > 0) {
+    //     noUiSlider.create(basicNoUISlider[0], { // we need to pass only the element, not jQuery object
+    //         start: [20, 80],
+    //         range: {
+    //             'min': [0],
+    //             'max': [100]
+    //         }
+    //     });
+
+    // }
+
+    // var stepNoUISlider = $('#stepNoUISlider');
+    // if (stepNoUISlider.length > 0) {
+    //     noUiSlider.create(stepNoUISlider[0], { // we need to pass only the element, not jQuery object
+    //         start: [200, 1000],
+    //         range: {
+    //             'min': [0],
+    //             'max': [1800]
+    //         },
+    //         step: 100,
+    //         tooltips: true,
+    //         connect: true
+    //     });
+    // }    
+    // $('.input-datepicker').datepicker({
+    //     format: 'mm/dd/yyyy'
+    // });
+
+    // $('.input-datepicker-autoclose').datepicker({
+    //     autoclose: true,
+    //     format: 'mm/dd/yyyy'
+    // });
+
+    // $('.input-datepicker-multiple').datepicker({
+    //     multidate: true,
+    //     format: 'mm/dd/yyyy'
+    // });
+
+    // $('.input-datepicker-range').datepicker({
+    //     format: 'mm/dd/yyyy'
+    // });
+
+//     $("input[name='touchspin0']").TouchSpin({
+//         buttondown_class: 'btn btn-secondary',
+//         buttonup_class: 'btn btn-secondary'
+//     });
+//     $("input[name='touchspin1']").TouchSpin({
+//         min: 0,
+//         max: 100,
+//         step: 0.1,
+//         decimals: 2,
+//         boostat: 5,
+//         maxboostedstep: 10,
+//         postfix: '%',
+//         buttondown_class: 'btn btn-secondary',
+//         buttonup_class: 'btn btn-secondary'
+//     });
+
+//     $("input[name='touchspin2']").TouchSpin({
+//         min: -1000000000,
+//         max: 1000000000,
+//         step: 50,
+//         maxboostedstep: 10000000,
+//         prefix: '$',
+//         buttondown_class: 'btn btn-secondary',
+//         buttonup_class: 'btn btn-secondary'
+//     });
+
+//     $('.selectpicker-primary').selectpicker({
+//         style: 'btn-primary',
+//         size: 4
+//     });
+
+//     $('.selectpicker-secondary').selectpicker({
+//         style: 'btn-secondary',
+//         size: 4
+//     });
+
+//     $('.selectpicker-light').selectpicker({
+//         style: 'btn-outline-light',
+//         size: 4
+//     });
+
+//     $('#multiselect1').multiSelect();
+
+// });
+
 
 class Property extends React.Component {
     constructor() {
@@ -35,6 +142,11 @@ class Property extends React.Component {
     //  script16.src = "/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css"
     //  script16.async = true;
     //  document.head.appendChild(script16);
+
+    const script16 = document.createElement("script")
+    script16.src = "/Users/flatironschool/Development/sunset-investing/public/vendor/messenger-hubspot/build/js/messenger.js"
+    script16.async = true
+    document.body.appendChild(script16)
 
      const script1 = document.createElement("script");
      script1.src = "vendor/jquery/jquery.min.js"
@@ -72,7 +184,7 @@ class Property extends React.Component {
      document.body.appendChild(script7);
 
      const script8 = document.createElement("script");
-     script8.src = "vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"
+     script8.src = "vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js"
      script8.async = true;
      document.body.appendChild(script8);
 
@@ -110,6 +222,20 @@ class Property extends React.Component {
      script15.src = "js/front.js"
      script15.async = true;
      document.body.appendChild(script15);
+    //  $(function () {
+
+    //     Messenger.options = {
+    //         extraClasses: 'messenger-fixed messenger-on-top  messenger-on-right',
+    //         theme: 'flat',
+    //         messageDefaults: {
+    //             showCloseButton: true
+    //         }
+    //     }
+    //     Messenger().post({
+    //         message: 'Hey Sarah!<br>Your portfolio grew by 5.6% or $25,751 since your last visit!',
+    //         type: 'success'
+    //     });
+    // });
     }
 
     // /Users/flatironschool/Development/sunset-investing/public/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js
