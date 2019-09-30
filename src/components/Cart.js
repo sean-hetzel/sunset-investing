@@ -42,9 +42,9 @@ class Cart extends React.Component {
     };
 
     handleClick = () => {
-        this.makePurchase()
-        this.props.clearCart()
-    }
+        this.makePurchase();
+        this.props.clearCart();
+    };
 
     render() {
         console.log("checkout:", this.props);
@@ -125,8 +125,7 @@ class Cart extends React.Component {
                                             <Link
                                                 to="/ordersuccessful"
                                                 className="btn btn-primary"
-                                                onClick={this.handleClick()
-                                                }
+                                                onClick={() => this.handleClick()}
                                             >
                                                 Place Order
                                             </Link>
