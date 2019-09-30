@@ -18,7 +18,7 @@ class Property extends React.Component {
                 dashboard: "",
                 holdings: ""
             },
-            purchaseAmount: 1000 
+            purchaseAmount: 0
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,12 +36,12 @@ class Property extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({purchaseAmount: event.target.value});
-      }
+        this.setState({ purchaseAmount: event.target.value });
+    }
 
-      handleSubmit(event) {
+    handleSubmit(event) {
         event.preventDefault();
-      }
+    }
 
     getProperty = () => {
         const id = parseInt(this.props.match.params.id);
@@ -82,7 +82,30 @@ class Property extends React.Component {
         const total = this.props.sumPropertyHeld()[
             parseInt(this.props.match.params.id)
         ];
-        console.log("property stuff:", price);
+
+        let shareOfProperty = Math.round(
+            (this.state.purchaseAmount / price) * 100
+        );
+        let monnthlyRent = Math.round(
+            (this.state.purchaseAmount / price) * rent
+        );
+
+        let annualAppriciationAmount = Math.round(
+            (this.state.purchaseAmount / price) *
+                (price * (next_year_appreciation / 100))
+        );
+
+        let breakEvenDate = Math.round((this.state.purchaseAmount)/monnthlyRent) || Infinity
+
+        let potentialProfit = Math.round(
+            (this.state.purchaseAmount / price) * (rent * lease_length) +
+                (this.state.purchaseAmount / price) *
+                    ((next_year_appreciation / 100) *
+                        price *
+                        (lease_length / 12))
+        );
+           
+        console.log("ROI:", `profit: ${potentialProfit} / cost: ${this.state.purchaseAmount} = ${potentialProfit / this.state.purchaseAmount}`);
         console.log(
             "props of sum:",
             this.props.sumPropertyHeld()[parseInt(this.props.match.params.id)]
@@ -124,12 +147,12 @@ class Property extends React.Component {
                             <div class="container-fluid">
                                 <div className="row">
                                     <div
-                                        className="col-md-6 img-fluid"
+                                        className="col-md-7 img-fluid"
                                         style={{ height: "100%" }}
                                     >
                                         <Carousel />
                                     </div>
-                                    <div className="col-md-6">
+                                    <div className="col-md-5">
                                         <div className="card">
                                             <div className="card-header">
                                                 <h5 className="card-title text-primary text-center text-uppercase">
@@ -175,7 +198,9 @@ class Property extends React.Component {
                                                     <form
                                                         id="amount2"
                                                         className="form-horizontal form-validate form"
-                                                        onSubmit={this.handleSubmit}
+                                                        onSubmit={
+                                                            this.handleSubmit
+                                                        }
                                                     >
                                                         <div className="row">
                                                             <div className="col-sm-12">
@@ -195,114 +220,132 @@ class Property extends React.Component {
                                                                     name="amount2"
                                                                     id="amount2"
                                                                     className="form-control form-validate"
-                                                                    value={this.state.value} onChange={this.handleChange}
+                                                                    value={
+                                                                        this
+                                                                            .state
+                                                                            .value
+                                                                    }
+                                                                    onChange={
+                                                                        this
+                                                                            .handleChange
+                                                                    }
                                                                 />
-                                                                                                                        <div className="margin-bottom-sm margin-top-sm">
+                                                                <div className="margin-bottom-sm margin-top-sm">
+                                                                    <div className="title">
+                                                                        <strong>
+                                                                            Return
+                                                                        </strong>
+                                                                    </div>
+                                                                    <div className="table-responsive">
+                                                                        <table className="table table-striped">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <th scope="row">
+                                                                                        Share
+                                                                                        of
+                                                                                        Property
+                                                                                    </th>
+                                                                                    <td className="text-primary">
+                                                                                        {
+                                                                                            shareOfProperty
+                                                                                        }
 
-                                                    <div className="title">
-                                                        <strong>Return</strong>
-                                                    </div>
-                                                    <div className="table-responsive">
-                                                        <table className="table table-striped">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th scope="row">
-                                                                        Share Of
-                                                                        Property
-                                                                    </th>
-                                                                    <td className="text-primary">
-                                                                        {Math.round(
-                                                                            (this.state.purchaseAmount /
-                                                                                price) *
-                                                                                100
-                                                                        )}
-                                                                        %
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">
-                                                                        Monthly
-                                                                        Rent
-                                                                    </th>
-                                                                    <td className="text-primary">
-                                                                        $
-                                                                        {Math.round(
-                                                                            (this.state.purchaseAmount /
-                                                                                price) *
-                                                                                rent
-                                                                        ).toLocaleString()}
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">
-                                                                        Annual
-                                                                        Appreciation
-                                                                        at{" "}
-                                                                        {
-                                                                            next_year_appreciation
-                                                                        }
-                                                                        % *
-                                                                    </th>
-                                                                    <td className="text-primary">
-                                                                        $
-                                                                        {Math.round(
-                                                                            (this.state.purchaseAmount /
-                                                                                price) *
-                                                                                (price *
-                                                                                    (next_year_appreciation /
-                                                                                        100))
-                                                                        ).toLocaleString()}
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">
-                                                                        Potential
-                                                                        Profit
-                                                                        If Sold
-                                                                        After{" "}
-                                                                        {lease_length /
-                                                                            12}{" "}
-                                                                        Years *
-                                                                    </th>
-                                                                    <td className="text-primary">
-                                                                        $
-                                                                        {Math.round(
-                                                                            (this.state.purchaseAmount /
-                                                                                price) *
-                                                                                (rent *
-                                                                                    lease_length) +
-                                                                                (this.state.purchaseAmount /
-                                                                                    price) *
-                                                                                    ((next_year_appreciation /
-                                                                                        100) *
-                                                                                        price *
-                                                                                        (lease_length /
-                                                                                            12))
-                                                                        ).toLocaleString()}
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div className="lcol-sm-9">
-                                                        <br></br>* These numbers
-                                                        are not guaranteed. They
-                                                        are only predictions.
-                                                    </div>
-                                                    </div>
-                                                <Link
-                                                    to="/cart"
-                                                    className="btn btn-primary"
-                                                    key={this.props.property.id}
-                                                    onClick={() =>
-                                                        this.props.addToCart({
-                                                            property: PROPERTY,
-                                                            amount: 1000
-                                                        })
-                                                    }
-                                                >
-                                                    Add to Cart
-                                                </Link>
+                                                                                        %
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">
+                                                                                        Monthly
+                                                                                        Rent
+                                                                                    </th>
+                                                                                    <td className="text-primary">
+                                                                                        $
+                                                                                        {monnthlyRent.toLocaleString()}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">
+                                                                                        Annual
+                                                                                        Appreciation
+                                                                                        at{" "}
+                                                                                        {
+                                                                                            next_year_appreciation
+                                                                                        }
+
+                                                                                        %
+                                                                                        *
+                                                                                    </th>
+                                                                                    <td className="text-primary">
+                                                                                        $
+                                                                                        {annualAppriciationAmount.toLocaleString()}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">
+                                                                                        Time to Break Even
+                                                                                        *
+                                                                                    </th>
+                                                                                    <td className="text-primary">
+                                                                                        {breakEvenDate.toLocaleString()} Months
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">
+                                                                                        Potential
+                                                                                        Profit
+                                                                                        if
+                                                                                        Sold
+                                                                                        After{" "}
+                                                                                        {lease_length /
+                                                                                            12}{" "}
+                                                                                        Years
+                                                                                        *
+                                                                                    </th>
+                                                                                    <td className="text-primary">
+                                                                                        $
+                                                                                        {potentialProfit.toLocaleString()}
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div className="lcol-sm-12">
+                                                                        <br></br>
+                                                                        * These
+                                                                        numbers
+                                                                        are not
+                                                                        guaranteed.
+                                                                        They are
+                                                                        only
+                                                                        predictions
+                                                                        based on
+                                                                        current
+                                                                        market
+                                                                        conditions.
+                                                                    </div>
+                                                                </div>
+                                                                <Link
+                                                                    to="/cart"
+                                                                    className="btn btn-primary"
+                                                                    key={
+                                                                        this
+                                                                            .props
+                                                                            .property
+                                                                            .id
+                                                                    }
+                                                                    onClick={() =>
+                                                                        this.props.addToCart(
+                                                                            {
+                                                                                property: PROPERTY,
+                                                                                amount: this
+                                                                                    .state
+                                                                                    .purchaseAmount
+                                                                            }
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    Add to Cart
+                                                                </Link>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -314,7 +357,7 @@ class Property extends React.Component {
                             </div>
 
                             <div
-                                className="col-md-6"
+                                className="col-md-12"
                                 style={{ float: "right" }}
                             >
                                 <div className="card">
