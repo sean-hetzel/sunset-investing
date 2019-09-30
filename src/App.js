@@ -191,6 +191,7 @@ class App extends React.Component {
                                 {...props}
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
+                                properties={this.state.properties}
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
                             />
