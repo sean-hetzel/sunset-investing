@@ -60,19 +60,6 @@ class PropertyCard extends React.Component {
                            <PercentageBar percent={Math.round(this.sumPropertyHeld()/price*100)}/>
 
                         </ul>
-
-                        {/* <div className="card-body">
-                            <Link to="/property" className="btn btn-primary">
-                                Temp Button
-                            </Link>
-                            <Link
-                                to="/property"
-                                className="btn btn-outline-primary"
-                                style={{ marginLeft: "1.5em" }}
-                            >
-                                Add to Watchlist
-                            </Link>
-                        </div> */}
                     </div>
             </>
         );

@@ -95,7 +95,7 @@ class Property extends React.Component {
                         <section>
                             <div class="container-fluid">
                                 <div className="row">
-                                    <div className="col-md-6 img-fluid">
+                                    <div className="col-md-6 img-fluid" style={{height: "100%"}}>
                                         <Carousel />
                                     </div>
                                     <div className="col-md-6">
@@ -206,7 +206,7 @@ class Property extends React.Component {
                                                     Add to Cart
                                                 </Link>
 
-                                                <Link
+                                                {/* <Link
                                                     to="/properties"
                                                     className="btn btn-outline-primary"
                                                     style={{
@@ -214,7 +214,7 @@ class Property extends React.Component {
                                                     }}
                                                 >
                                                     Calculate Return
-                                                </Link>
+                                                </Link> */}
                                             </div>
                                         </div>
                                     </div>
