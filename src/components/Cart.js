@@ -13,8 +13,13 @@ class Cart extends React.Component {
     constructor() {
         super();
         this.state = {
-            sideBarStatus: { properties: "", dashboard: "", holdings: "" }
+            sideBarStatus: { properties: "", dashboard: "", holdings: "" }, orderTotal: 0
         };
+    }
+    componentDidMount() {
+        this.props.cart.map(purchase => {
+            this.setState({orderTotal: this.state.orderTotal += parseInt(purchase.amount)})
+        })
     }
 
     makePurchase = () => {
@@ -88,12 +93,27 @@ class Cart extends React.Component {
                                                 Continue Shopping
                                             </Link>
                                         </div>
+                                        <div className="col-md-6 col-lg-3">
+                                            <h4 className="card-title text-primary text-center text-uppercase">Order Total ${this.state.orderTotal.toLocaleString()}</h4>
+                                        </div>
                                     </div>
                                     <div className="row">
                                         {this.props.cart.map(cartItem => {
                                             return (
                                                 <>
-                                                    <div className="col-md-6 col-lg-3">
+                                                    <div className="col-md-3">
+                                                        <div className="card property-card" style={{marginBottom: "0em"}}>
+                                                            <p
+                                                                className="card-title text-primary text-center text-uppercase"
+                                                                style={{
+                                                                    paddingTop: "4px"
+                                                                }}
+                                                            >
+                                                                Purchase Amount:{" "}
+                                                                $
+                                                                {parseInt(cartItem.amount).toLocaleString()}
+                                                            </p>
+                                                        </div>
                                                         <PropertyCard
                                                             key={
                                                                 cartItem
@@ -111,7 +131,6 @@ class Cart extends React.Component {
                                                                     .holdings
                                                             }
                                                         />
-                                                        {cartItem.amount}
                                                     </div>
                                                 </>
                                             );
@@ -125,7 +144,9 @@ class Cart extends React.Component {
                                             <Link
                                                 to="/ordersuccessful"
                                                 className="btn btn-primary"
-                                                onClick={() => this.handleClick()}
+                                                onClick={() =>
+                                                    this.handleClick()
+                                                }
                                             >
                                                 Place Order
                                             </Link>
