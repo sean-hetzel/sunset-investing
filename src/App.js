@@ -100,6 +100,7 @@ class App extends React.Component {
 
     addToCart = property => {
         if (!this.state.cart.includes(property)) {
+            console.log("add to cart", property)
             this.setState({ cart: [...this.state.cart, property] });
         }
     };
@@ -152,6 +153,7 @@ class App extends React.Component {
                                 sumPropertyHeld={this.sumPropertyHeld}
                                 addToCart={this.addToCart}
                                 loginState={this.state.auth.investor}
+                                investor={this.state.auth.investor}
                             />
                         )}
                     />

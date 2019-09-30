@@ -5,6 +5,10 @@ import SideBar from "./SideBar";
 import Footer from "./Footer";
 import PropertyCard from "./PropertyCard";
 
+let investor_id = 0;
+let property_id = 0;
+let amount = 0;
+
 class Cart extends React.Component {
     constructor() {
         super();
@@ -12,8 +16,38 @@ class Cart extends React.Component {
             sideBarStatus: { properties: "", dashboard: "", holdings: "" }
         };
     }
+
+    makePurchase = () => {
+        this.props.cart.map(purchase => {
+            investor_id = purchase.investorId;
+            property_id = purchase.property.id;
+            amount = purchase.amount;
+            // console.log(JSON.stringify(purchase.investorId, purchase.property.id, purchase.amount))
+            console.log(
+                JSON.stringify({
+                    holding: { investor_id, property_id, amount }
+                })
+            );
+            fetch("http://localhost:3000/api/v1/holdings", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    holding: { investor_id, property_id, amount }
+                })
+            });
+        });
+    };
+
+    handleClick = () => {
+        this.makePurchase()
+        this.props.clearCart()
+    }
+
     render() {
-        console.log("cart:", this.props.cart);
+        console.log("checkout:", this.props);
         return (
             <>
                 <Header
@@ -91,8 +125,7 @@ class Cart extends React.Component {
                                             <Link
                                                 to="/ordersuccessful"
                                                 className="btn btn-primary"
-                                                onClick={() =>
-                                                    this.props.clearCart()
+                                                onClick={this.handleClick()
                                                 }
                                             >
                                                 Place Order

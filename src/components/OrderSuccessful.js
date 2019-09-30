@@ -54,8 +54,8 @@ class OrderSuccessful extends React.Component {
                                     <div className="col-md-12">
                                         <p>
                                             You can monitor the status of your
-                                            properties in you Dashboard and
-                                            Holdings.
+                                            properties in the Dashboard and
+                                            Holdings pages.
                                         </p>
                                         <Link
                                             to="/dashboard"

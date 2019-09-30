@@ -95,7 +95,8 @@ class Property extends React.Component {
                 (price * (next_year_appreciation / 100))
         );
 
-        let breakEvenDate = Math.round((this.state.purchaseAmount)/monnthlyRent) || Infinity
+        let breakEvenDate =
+            Math.round(this.state.purchaseAmount / monnthlyRent) || Infinity;
 
         let potentialProfit = Math.round(
             (this.state.purchaseAmount / price) * (rent * lease_length) +
@@ -104,8 +105,13 @@ class Property extends React.Component {
                         price *
                         (lease_length / 12))
         );
-           
-        console.log("ROI:", `profit: ${potentialProfit} / cost: ${this.state.purchaseAmount} = ${potentialProfit / this.state.purchaseAmount}`);
+
+        console.log(
+            "ROI:",
+            `profit: ${potentialProfit} / cost: ${
+                this.state.purchaseAmount
+            } = ${potentialProfit / this.state.purchaseAmount}`
+        );
         console.log(
             "props of sum:",
             this.props.sumPropertyHeld()[parseInt(this.props.match.params.id)]
@@ -282,11 +288,17 @@ class Property extends React.Component {
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th scope="row">
-                                                                                        Time to Break Even
+                                                                                        Time
+                                                                                        to
+                                                                                        Break
+                                                                                        Even
+                                                                                        From
+                                                                                        Rent
                                                                                         *
                                                                                     </th>
                                                                                     <td className="text-primary">
-                                                                                        {breakEvenDate.toLocaleString()} Months
+                                                                                        {breakEvenDate.toLocaleString()}{" "}
+                                                                                        Months
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -336,6 +348,7 @@ class Property extends React.Component {
                                                                     onClick={() =>
                                                                         this.props.addToCart(
                                                                             {
+                                                                                investorId: this.props.investor.investor.id,
                                                                                 property: PROPERTY,
                                                                                 amount: this
                                                                                     .state
