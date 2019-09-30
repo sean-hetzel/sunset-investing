@@ -49,7 +49,8 @@ class App extends React.Component {
             cart: [],
             auth: {
                 investor: {}
-            }
+            },
+            loggedIn: false
         };
     }
 
@@ -76,27 +77,19 @@ class App extends React.Component {
                 this.setState({ auth: updatedState });
             });
         }
-
-        function loggedIn(loginState) {
-            for(var key in loginState) {
-                if(loginState.hasOwnProperty(key))
-                    return false;
-            }
-            return true;
-          }
-          console.log("logged in?:", !loggedIn(this.props.loginState))
-
     }
 
     login = data => {
         const updatedState = { ...this.state.auth, investor: data };
         localStorage.setItem("token", data.jwt);
         this.setState({ auth: updatedState });
+        this.setState({loggedIn: true})
     };
 
     logout = () => {
         localStorage.removeItem("token");
         this.setState({ auth: { investor: {} } });
+        this.setState({loggedIn:false})
     };
 
     sumPropertyHeld = () => {
@@ -185,7 +178,7 @@ class App extends React.Component {
                         path="/dashboard"
                         exact
                         render={props => (
-                            this.loggedIn ? <DashBoard
+                            this.state.loggedIn ? <DashBoard
                                 {...props}
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
@@ -198,7 +191,7 @@ class App extends React.Component {
                         path="/holdings"
                         exact
                         render={props => (
-                            this.loggedIn ? <Holdings
+                            this.state.loggedIn ? <Holdings
                                 {...props}
                                 cart={this.state.cart}
                                 holdings={this.state.holdings}
@@ -227,7 +220,7 @@ class App extends React.Component {
                         path="/profile"
                         exact
                         render={props => (
-                            this.loggedIn ? <Profile
+                            this.state.loggedIn ? <Profile
                                 {...props}
                                 cart={this.state.cart}
                                 loginState={this.state.auth.investor}
