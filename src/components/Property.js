@@ -16,7 +16,17 @@ class Property extends React.Component {
             sideBarStatus: { properties: "active", dashboard: "", holdings: "" }
         };
     }
-
+    componentDidMount () {
+        const script = document.createElement("script");
+        script.src = "/vendor/jquery-validation/jquery.validate.min.js";
+        script.async = true;
+        document.body.appendChild(script);
+    
+        const script2 = document.createElement("script");
+        script2.src = "/js/front.js";
+        script2.async = true;
+        document.body.appendChild(script2);
+      }
     getProperty = () => {
         const id = parseInt(this.props.match.params.id);
 
@@ -95,7 +105,10 @@ class Property extends React.Component {
                         <section>
                             <div class="container-fluid">
                                 <div className="row">
-                                    <div className="col-md-6 img-fluid" style={{height: "100%"}}>
+                                    <div
+                                        className="col-md-6 img-fluid"
+                                        style={{ height: "100%" }}
+                                    >
                                         <Carousel />
                                     </div>
                                     <div className="col-md-6">
@@ -137,59 +150,99 @@ class Property extends React.Component {
                                                 <div className="block">
                                                     <div className="title">
                                                         <strong className="d-block">
-                                                            Select Amount
+                                                            Enter Amount
                                                         </strong>
                                                         <span className="d-block"></span>
                                                     </div>
                                                     <form
                                                         id="amount2"
-                                                        className="form-horizontal"
+                                                        className="form-horizontal form-validate form"
                                                     >
-                                                        <div className="col-sm-9">
-                                                            <input
-                                                                type="text"
-                                                                defaultValue={0}
-                                                                name="amount2"
-                                                                id="amount2"
-                                                                className="form-control"
-                                                            />
+                                                        <div className="row">
+                                                            <div className="col-sm-9">
+                                                                <input
+                                                                    type="number"
+                                                                    min="1"
+                                                                    max={price - total}
+                                                                    required
+                                                                    data-msg={`Amount must be between $1 and $${(price - total).toLocaleString()}`}
+                                                                    placeholder="$"
+                                                                    name="amount2"
+                                                                    id="amount2"
+                                                                    className="form-control form-validate"
+                                                                />
+                                                            </div>
                                                         </div>
                                                     </form>
                                                 </div>
 
-                                                <li className="list-group-item text-primary">
-                                                    Your share of rent will be $
-                                                    {Math.round(
-                                                        (150000 / price) * rent
-                                                    )}{" "}
-                                                    per month.
-                                                </li>
-                                                <li className="list-group-item text-primary">
-                                                    Profit from appreciation
-                                                    could be $
-                                                    {Math.round(
-                                                        price *
-                                                            (next_year_appreciation /
-                                                                100) *
-                                                            (lease_length / 12)
-                                                    ).toLocaleString()}{" "}
-                                                    if it stays constant.*
-                                                </li>
-                                                <li className="list-group-item text-primary">
-                                                    Total profit could be $
-                                                    {Math.round(
-                                                        price *
-                                                            (next_year_appreciation /
-                                                                100) *
-                                                            (lease_length /
-                                                                12) +
-                                                            (150000 / price) *
-                                                                rent *
-                                                                lease_length
-                                                    ).toLocaleString()}{" "}
-                                                    if sold {lease_length / 12}{" "}
-                                                    years.*
-                                                </li>
+                                                <div className="block margin-bottom-sm col-sm-9">
+                                                    <div className="title">
+                                                        <strong>Return</strong>
+                                                    </div>
+                                                    <div className="table-responsive">
+                                                        <table className="table table-striped">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">
+                                                                        Monthly
+                                                                        Rent
+                                                                    </th>
+                                                                    <td className="text-primary">
+                                                                        $
+                                                                        {Math.round(
+                                                                            (150000 /
+                                                                                price) *
+                                                                                rent
+                                                                        ).toLocaleString()}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">
+                                                                        Annual
+                                                                        Appreciation
+                                                                        at{" "}
+                                                                        {
+                                                                            next_year_appreciation
+                                                                        }
+                                                                        % *
+                                                                    </th>
+                                                                    <td className="text-primary">
+                                                                        $
+                                                                        {Math.round(
+                                                                            (150000 /
+                                                                                price) *
+                                                                                (price *
+                                                                                    (next_year_appreciation /
+                                                                                        100))
+                                                                        ).toLocaleString()}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">
+                                                                        Potential Profit
+                                                                        If Sold
+                                                                        After{" "}
+                                                                        {lease_length /
+                                                                            12}{" "}
+                                                                        Years *
+                                                                    </th>
+                                                                    <td className="text-primary">
+                                                                        $
+                                                                        {Math.round(((150000 / price)*(rent*lease_length))+((150000 / price))*((next_year_appreciation / 100) * price * (lease_length / 12))).toLocaleString()
+                                                                            }
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        
+                                                    </div>
+                                                    <div className="lcol-sm-9"><br></br>
+                                                    * These numbers are not guaranteed. 
+                                                </div>
+                                                </div>
+
+                                                
                                             </ul>
                                             <div className="card-body">
                                                 <Link

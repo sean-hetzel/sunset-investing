@@ -9,54 +9,107 @@ import Footer from "./Footer";
 // import tempHomeImage3 from "/Users/flatironschool/Development/sunset-investing/src/images/avi-waxman-jxpadpazkfw-unsplash.jpg";
 // style={{backgroundImage: `url(${tempHomeImage})`}}
 class Home extends React.Component {
-    constructor(){
-        super()
+    constructor() {
+        super();
         this.state = {
             sideBarStatus: { properties: "", dashboard: "", holdings: "" }
-        }
+        };
     }
     render() {
         return (
             <>
-            <Header cart={this.props.cart} loginState={this.props.loginState} logout={this.props.logout}/>
-                            <div className="d-flex align-items-stretch">
-            <SideBar sideBarStatus={this.state.sideBarStatus}/>
-                <div className="page-content">
-                    <div className="page-header no-margin-bottom">
-                        <div className="container-fluid">
-                            <h2 className="h5 no-margin-bottom">Home</h2>
+                <Header
+                    cart={this.props.cart}
+                    loginState={this.props.loginState}
+                    logout={this.props.logout}
+                />
+                <div className="d-flex align-items-stretch">
+                    <SideBar sideBarStatus={this.state.sideBarStatus} />
+                    <div className="page-content">
+                        <div className="page-header no-margin-bottom">
+                            <div className="container-fluid">
+                                <h2 className="h5 no-margin-bottom">Home</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div className="container-fluid">
-                        <ul className="breadcrumb">
-                            <li className="breadcrumb-item">
-                                <Link to="/">Home</Link>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div className="container-fluid" >
+                        <div className="container-fluid">
+                            <ul className="breadcrumb">
+                                <li className="breadcrumb-item">
+                                    <Link to="/">Home</Link>
+                                </li>
+                            </ul>
+                        </div>
 
-                        {/* <div style={{backgroundImage: `url(${tempHomeImage})`}}
+                        <div className="container-fluid">
+                            {/* <div style={{backgroundImage: `url(${tempHomeImage})`}}
                             src={tempHomeImage}
                             alt="home"
                             className="col-11 img-fluid"
                         ></div><br></br> */}
-{/* <a style={{backgroundColor: 'black', color: 'white', textDecoration: 'none', padding: '4px 6px', fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif', fontSize: 12, fontWeight: 'bold', lineHeight: '1.2', display: 'inline-block', borderRadius: 3}} href="https://unsplash.com/@aviosly?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Avi Waxman"><span style={{display: 'inline-block', padding: '2px 3px'}}><svg xmlns="http://www.w3.org/2000/svg" style={{height: 12, width: 'auto', position: 'relative', verticalAlign: 'middle', top: '-2px', fill: 'white'}} viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" /></svg></span><span style={{display: 'inline-block', padding: '2px 3px'}}>Avi Waxman</span></a>
+                            {/* <a style={{backgroundColor: 'black', color: 'white', textDecoration: 'none', padding: '4px 6px', fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif', fontSize: 12, fontWeight: 'bold', lineHeight: '1.2', display: 'inline-block', borderRadius: 3}} href="https://unsplash.com/@aviosly?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Avi Waxman"><span style={{display: 'inline-block', padding: '2px 3px'}}><svg xmlns="http://www.w3.org/2000/svg" style={{height: 12, width: 'auto', position: 'relative', verticalAlign: 'middle', top: '-2px', fill: 'white'}} viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" /></svg></span><span style={{display: 'inline-block', padding: '2px 3px'}}>Avi Waxman</span></a>
 <a style={{backgroundColor: 'black', color: 'white', textDecoration: 'none', padding: '4px 6px', fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif', fontSize: 12, fontWeight: 'bold', lineHeight: '1.2', display: 'inline-block', borderRadius: 3}} href="https://unsplash.com/@aviosly?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Avi Waxman"><span style={{display: 'inline-block', padding: '2px 3px'}}><svg xmlns="http://www.w3.org/2000/svg" style={{height: 12, width: 'auto', position: 'relative', verticalAlign: 'middle', top: '-2px', fill: 'white'}} viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" /></svg></span><span style={{display: 'inline-block', padding: '2px 3px'}}>Avi Waxman</span></a> */}
-                        <h1 className="col-11 text-primary text-center">Real Estate Investing. For The Modern Age.</h1>
-                        <img
-                            src={tempHomeImage}
-                            alt="Card cap"
-                            className="image-fluid col-8"
-                        />
-<a style={{backgroundColor: 'black', color: 'white', textDecoration: 'none', padding: '4px 6px', fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif', fontSize: 12, fontWeight: 'bold', lineHeight: '1.2', display: 'inline-block', borderRadius: 3}} href="https://unsplash.com/@christingom?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Chris Tingom"><span style={{display: 'inline-block', padding: '2px 3px'}}><svg xmlns="http://www.w3.org/2000/svg" style={{height: 12, width: 'auto', position: 'relative', verticalAlign: 'middle', top: '-2px', fill: 'white'}} viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" /></svg></span><span style={{display: 'inline-block', padding: '2px 3px'}}>Chris Tingom</span></a>
+                            <h1 className="col-11 text-primary text-center">
+                                Real Estate Investing. For The Modern Age.
+                            </h1>
+                            <img
+                                src={tempHomeImage}
+                                alt="Card cap"
+                                className="image-fluid col-8"
+                            />
+                            <a
+                                style={{
+                                    backgroundColor: "black",
+                                    color: "white",
+                                    textDecoration: "none",
+                                    padding: "4px 6px",
+                                    fontFamily:
+                                        '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif',
+                                    fontSize: 12,
+                                    fontWeight: "bold",
+                                    lineHeight: "1.2",
+                                    display: "inline-block",
+                                    borderRadius: 3
+                                }}
+                                href="https://unsplash.com/@christingom?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Download free do whatever you want high-resolution photos from Chris Tingom"
+                            >
+                                <span
+                                    style={{
+                                        display: "inline-block",
+                                        padding: "2px 3px"
+                                    }}
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style={{
+                                            height: 12,
+                                            width: "auto",
+                                            position: "relative",
+                                            verticalAlign: "middle",
+                                            top: "-2px",
+                                            fill: "white"
+                                        }}
+                                        viewBox="0 0 32 32"
+                                    >
+                                        <title>unsplash-logo</title>
+                                        <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" />
+                                    </svg>
+                                </span>
+                                <span
+                                    style={{
+                                        display: "inline-block",
+                                        padding: "2px 3px"
+                                    }}
+                                >
+                                    Chris Tingom
+                                </span>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                
-                <Footer />
-</div>
+                    <Footer />
+                </div>
             </>
         );
     }

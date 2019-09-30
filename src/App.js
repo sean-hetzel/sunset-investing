@@ -98,14 +98,14 @@ class App extends React.Component {
         return total_held;
     };
 
-    addToCart = (property) => {
+    addToCart = property => {
         if (!this.state.cart.includes(property)) {
             this.setState({ cart: [...this.state.cart, property] });
         }
     };
 
     clearCart = () => {
-            this.setState({ cart: {} });
+        this.setState({ cart: {} });
     };
 
     render() {
@@ -113,12 +113,16 @@ class App extends React.Component {
         return (
             <Router>
                 <Switch>
-
                     <Route
                         path="/"
                         exact
                         render={props => (
-                            <Home {...props} cart={this.state.cart} loginState={this.state.auth.investor} logout={this.logout}/>
+                            <Home
+                                {...props}
+                                cart={this.state.cart}
+                                loginState={this.state.auth.investor}
+                                logout={this.logout}
+                            />
                         )}
                     />
 
@@ -209,9 +213,12 @@ class App extends React.Component {
                         path="/profile"
                         exact
                         render={props => (
-                            <Profile {...props} cart={this.state.cart}
-                            loginState={this.state.auth.investor}
-                            logout={this.logout} />
+                            <Profile
+                                {...props}
+                                cart={this.state.cart}
+                                loginState={this.state.auth.investor}
+                                logout={this.logout}
+                            />
                         )}
                     />
                     {/* <Switch> */}

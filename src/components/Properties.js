@@ -24,8 +24,6 @@ import Footer from "./Footer";
 
 // const tempHouseImages = {1: [tempHouse1], 2: [tempHouse3], 3: [tempHouse6], 4: [tempHouse4], 5: [tempHouse5], 6: [tempHouse2]}
 
-
-
 class Properties extends React.Component {
     constructor() {
         super();
@@ -34,63 +32,73 @@ class Properties extends React.Component {
         };
     }
     render() {
-console.log("properties props:", this.props)
+        console.log("properties props:", this.props);
         return (
             <>
-                            <Header cart={this.props.cart} loginState={this.props.loginState} logout={this.props.logout}/>
-                            <div className="d-flex align-items-stretch">
-
-                <SideBar sideBarStatus={this.state.sideBarStatus} />
-                <div className="page-content">
-                    <div className="page-header no-margin-bottom">
-                        <div className="container-fluid">
-                            <h2 className="h5 no-margin-bottom">Properties</h2>
-                        </div>
-                    </div>
-                    <div className="container-fluid">
-                        <ul className="breadcrumb">
-                            <li className="breadcrumb-item">
-                                <Link to="/">Home</Link>
-                            </li>
-                            <li className="breadcrumb-item active">
-                                Properties
-                            </li>
-                        </ul>
-                    </div>
-                    <section>
-                        <div className="container-fluid">
-                            <div className="row">
-                                {this.props.properties.map(property => {
-                                    return (
-                                        <>
-                                            <div className="col-md-6 col-lg-3">
-                                                <Link
-                                                    to={`/properties/${property.id}`}
-                                                    className="property-card"
-                                                >
-                                                    <PropertyCard
-                                                        key={property.id}
-                                                        property={property}
-                                                        holdings={this.props.holdings}
-                                                        tempHouseImages={this.props.tempHouseImages}
-                                                        // tempHouseImage={
-                                                        //     tempHouseArray[i]
-                                                        // }
-                                                        // {...i++}
-                                                    />
-                                                </Link>
-
-                                            </div>
-                                        </>
-                                    );
-                                })}
+                <Header
+                    cart={this.props.cart}
+                    loginState={this.props.loginState}
+                    logout={this.props.logout}
+                />
+                <div className="d-flex align-items-stretch">
+                    <SideBar sideBarStatus={this.state.sideBarStatus} />
+                    <div className="page-content">
+                        <div className="page-header no-margin-bottom">
+                            <div className="container-fluid">
+                                <h2 className="h5 no-margin-bottom">
+                                    Properties
+                                </h2>
                             </div>
                         </div>
-                    </section>
-                </div>
+                        <div className="container-fluid">
+                            <ul className="breadcrumb">
+                                <li className="breadcrumb-item">
+                                    <Link to="/">Home</Link>
+                                </li>
+                                <li className="breadcrumb-item active">
+                                    Properties
+                                </li>
+                            </ul>
+                        </div>
+                        <section>
+                            <div className="container-fluid">
+                                <div className="row">
+                                    {this.props.properties.map(property => {
+                                        return (
+                                            <>
+                                                <div className="col-md-6 col-lg-3">
+                                                    <Link
+                                                        to={`/properties/${property.id}`}
+                                                        className="property-card"
+                                                    >
+                                                        <PropertyCard
+                                                            key={property.id}
+                                                            property={property}
+                                                            holdings={
+                                                                this.props
+                                                                    .holdings
+                                                            }
+                                                            tempHouseImages={
+                                                                this.props
+                                                                    .tempHouseImages
+                                                            }
+                                                            // tempHouseImage={
+                                                            //     tempHouseArray[i]
+                                                            // }
+                                                            // {...i++}
+                                                        />
+                                                    </Link>
+                                                </div>
+                                            </>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </section>
+                    </div>
 
-                <Footer />
-</div>
+                    <Footer />
+                </div>
             </>
         );
     }
