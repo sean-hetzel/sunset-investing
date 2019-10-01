@@ -8,9 +8,37 @@ class Holdings extends Component {
     constructor() {
         super();
         this.state = {
-            sideBarStatus: { properties: "", dashboard: "", holdings: "active" }
+            sideBarStatus: {
+                properties: "",
+                dashboard: "",
+                holdings: "active"
+            },
+            sellAmount: 0
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    componentDidMount() {
+        const script = document.createElement("script");
+        script.src = "/vendor/jquery-validation/jquery.validate.min.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        const script2 = document.createElement("script");
+        script2.src = "/js/front.js";
+        script2.async = true;
+        document.body.appendChild(script2);
+    }
+
+    handleChange(event) {
+        this.setState({ sellAmount: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+    }
+
     render() {
         return (
             <>
@@ -55,44 +83,116 @@ class Holdings extends Component {
                                             >
                                                 <thead>
                                                     <tr>
+                                                        <th>temp holding id</th>
+                                                        <th>
+                                                            temp property id
+                                                        </th>
+
                                                         <th>Montyly Rent</th>
-                                                        <th>Total Price</th>
                                                         <th>Your Share</th>
+                                                        <th>Total Price</th>
                                                         <th>Appriciation</th>
-                                                        <th>View Property</th>
-                                                        <th>Sell</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     {this.props.holdings
                                                         .filter(holding => {
                                                             return (
-                                                                holding
-                                                                    .investor_id == this.props.loginState.investor.id
+                                                                // .investor_id == this.props.loginState.investor.id
+                                                                holding.investor_id ==
+                                                                21
                                                             );
                                                         })
                                                         .map(holding => {
+                                                            let property = this.props.properties.filter(
+                                                                property => {
+                                                                    return (
+                                                                        property.id ==
+                                                                        holding.property_id
+                                                                    );
+                                                                }
+                                                            );
                                                             return (
                                                                 <tr>
-                                                                    <td>
-                                                                       ${325}
-                                                                    </td>
                                                                     <td>
                                                                         {
                                                                             holding.id
                                                                         }
                                                                     </td>
                                                                     <td>
-                                                                        nielsencobb@memora.com
+                                                                        {
+                                                                            property.id
+                                                                        }
                                                                     </td>
                                                                     <td>
-                                                                        +1 (851)
-                                                                        552-2735
+                                                                        ${325}
+                                                                    </td>
+
+                                                                    <td>
+                                                                        {50}%
                                                                     </td>
                                                                     <td>
-                                                                        Graniteville
+                                                                        $
+                                                                        {
+                                                                            1532000
+                                                                        }
                                                                     </td>
-                                                                    <td>0</td>
+                                                                    <td>
+                                                                        {2.5}%
+                                                                    </td>
+                                                                    <td>
+                                                                        <Link
+                                                                            to={`/properties/${property.id}`}
+                                                                            className="btn btn-outline-primary"
+                                                                        >
+                                                                            View
+                                                                            Property
+                                                                        </Link>
+                                                                    </td>
+                                                                    <td>
+                                                                        <form
+                                                                            method="get"
+                                                                            className="form-validate mb-4"
+                                                                            onSubmit={
+                                                                                this
+                                                                                    .handleSubmit
+                                                                            }
+                                                                        >
+                                                                            <button
+                                                                                to={`/properties/${property.id}`}
+                                                                                className="btn btn-outline-primary sell-btn"
+                                                                                style={{
+                                                                                    marginBottom:
+                                                                                        "1em"
+                                                                                }}
+                                                                            >
+                                                                                Sell
+                                                                                Property
+                                                                            </button>
+                                                                            <input
+                                                                                type="number"
+                                                                                min="99"
+                                                                                max={
+                                                                                    1000000
+                                                                                }
+                                                                                required
+                                                                                data-msg={`Amount must be between $100 and $${(1000000).toLocaleString()}`}
+                                                                                placeholder="$"
+                                                                                name="sellAmount"
+                                                                                id="sellAmount"
+                                                                                className="form-control form-validate"
+                                                                                value={
+                                                                                    this
+                                                                                        .state
+                                                                                        .value
+                                                                                }
+                                                                                onChange={
+                                                                                    this
+                                                                                        .handleChange
+                                                                                }
+                                                                            />
+                                                                        </form>
+                                                                    </td>
                                                                 </tr>
                                                             );
                                                         })}

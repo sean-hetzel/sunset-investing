@@ -31,3 +31,14 @@ a:hover {
     top: 0;
     right: 0;
 }
+
+.sell-btn{
+  color: red;
+  border-color: red;
+}
+
+.sell-btn:hover {
+  color: #fff;
+  background-color: red;
+  border-color: red;
+}
