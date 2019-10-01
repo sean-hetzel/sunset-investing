@@ -105,12 +105,13 @@ class Holdings extends Component {
                                                         })
                                                         .map(holding => {
                                                             let property = this.props.properties.filter(
-                                                                property => {
-                                                                    return (
-                                                                        property.id ==
-                                                                        holding.property_id
-                                                                    );
-                                                                }
+                                                                property =>
+                                                                    property.id ==
+                                                                    holding.property_id
+                                                            );
+                                                            console.log(
+                                                                "holding page props:",
+                                                                property
                                                             );
                                                             return (
                                                                 <tr>
@@ -121,11 +122,13 @@ class Holdings extends Component {
                                                                     </td>
                                                                     <td>
                                                                         {
-                                                                            property.id
+                                                                            property[0]
+                                                                                .id
                                                                         }
                                                                     </td>
                                                                     <td>
-                                                                        ${325}
+                                                                        ${property[0]
+                                                                                .rent}
                                                                     </td>
 
                                                                     <td>
@@ -134,15 +137,17 @@ class Holdings extends Component {
                                                                     <td>
                                                                         $
                                                                         {
-                                                                            1532000
+                                                                            property[0]
+                                                                            .price
                                                                         }
                                                                     </td>
                                                                     <td>
-                                                                        {2.5}%
+                                                                        {property[0]
+                                                                                .next_year_appreciation}%
                                                                     </td>
                                                                     <td>
                                                                         <Link
-                                                                            to={`/properties/${property.id}`}
+                                                                            to={`/properties/${property[0].id}`}
                                                                             className="btn btn-outline-primary"
                                                                         >
                                                                             View
