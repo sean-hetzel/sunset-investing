@@ -20,6 +20,7 @@ class Holdings extends Component {
     }
 
     handleChange(event) {
+        console.log("sell cahnge:", event.target.value);
         this.setState({ sellAmount: event.target.value });
     }
 
@@ -27,7 +28,29 @@ class Holdings extends Component {
         event.preventDefault();
     }
 
+    sellProperty = holding => {
+        const investor_id = holding.investor_id;
+        const property_id = holding.property_id;
+        const amount = holding.amount - this.state.sellAmount;
+        console.log(
+            JSON.stringify({
+                holding: { investor_id, property_id, amount }
+            })
+        );
+        fetch(`http://localhost:3000/api/v1/holdings/${holding.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                holding: { investor_id, property_id, amount }
+            })
+        }).then(response => response.json())
+    };
+
     render() {
+        console.log("holdings props:", this.props);
         return (
             <>
                 <Header
@@ -79,7 +102,7 @@ class Holdings extends Component {
                                                             Percentage Owned
                                                         </th>
                                                         <th>Property Price</th>
-                                                        <th>Appriciation</th>
+                                                        <th>Appreciation</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -142,7 +165,7 @@ class Holdings extends Component {
                                                             return (
                                                                 // .investor_id == this.props.loginState.investor.id
                                                                 holding.investor_id ===
-                                                                21
+                                                                3
                                                             );
                                                         })
                                                         .map(holding => {
@@ -179,7 +202,6 @@ class Holdings extends Component {
                                                                                 100
                                                                         )}
                                                                         %
-                                                                        
                                                                     </td>
                                                                     <td>
                                                                         $
@@ -201,7 +223,12 @@ class Holdings extends Component {
                                                                             Property
                                                                         </Link>
                                                                     </td>
-                                                                    <td>
+                                                                    <td
+                                                                        style={{
+                                                                            width:
+                                                                                "20em"
+                                                                        }}
+                                                                    >
                                                                         <form
                                                                             method="get"
                                                                             className="form-validate mb-4"
@@ -211,25 +238,29 @@ class Holdings extends Component {
                                                                             }
                                                                         >
                                                                             <button
-                                                                                to={`/properties/${property.id}`}
                                                                                 className="btn btn-outline-primary sell-btn"
                                                                                 style={{
                                                                                     marginBottom:
                                                                                         "1em"
                                                                                 }}
+                                                                                onClick={() =>
+                                                                                    this.sellProperty(
+                                                                                        holding
+                                                                                    )
+                                                                                }
                                                                             >
                                                                                 Sell
                                                                                 Property
                                                                             </button>
                                                                             <input
                                                                                 type="number"
-                                                                                min="99"
+                                                                                min="1"
                                                                                 max={
-                                                                                    1000000
+                                                                                    holding.amount
                                                                                 }
                                                                                 required
-                                                                                data-msg={`Amount must be between $100 and $${(1000000).toLocaleString()}`}
-                                                                                placeholder="$"
+                                                                                data-msg={`Amount must be between $1 and $${holding.amount.toLocaleString()}`}
+                                                                                placeholder="Enter $ Amount to be Sold"
                                                                                 name="sellAmount"
                                                                                 id="sellAmount"
                                                                                 className="form-control form-validate"
