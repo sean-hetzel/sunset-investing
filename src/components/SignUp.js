@@ -1,4 +1,3 @@
-import $ from "jquery";
 import React from "react";
 import { Link } from "react-router-dom";
 import logoWite from "/Users/flatironschool/Development/sunset-investing/src/images/sunset-investing-logo-white.png";
@@ -197,7 +196,7 @@ class SignUp extends React.Component {
                                 className="external"
                             >
                                 Bootstrapious
-                            </a>{" "}
+                            </a>{" "}Photo by{" "}
                             <a
                                 style={{
                                     backgroundColor: "black",

@@ -172,7 +172,7 @@ class Login extends React.Component {
                                                     Login
                                                 </button>
                                             </form>
-                                            <a href="#" className="forgot-pass">
+                                            <a href="/" className="forgot-pass">
                                                 Forgot Password? (does not work
                                                 yet)
                                             </a>
@@ -200,7 +200,7 @@ class Login extends React.Component {
                                 className="external"
                             >
                                 Bootstrapious
-                            </a>{" "}
+                            </a>{" "}Photo by{" "}
                             <a
                                 style={{
                                     backgroundColor: "black",

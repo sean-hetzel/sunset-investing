@@ -66,6 +66,7 @@ class Property extends React.Component {
             description: ""
         };
 
+        // eslint-disable-next-line
         for (let property of this.props.property) {
             if (property.id === id) {
                 foundProperty = property;

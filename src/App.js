@@ -1,7 +1,12 @@
 // import $ from 'jquery'
 // import 'jquery-validation'
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect
+} from "react-router-dom";
 import Home from "./components/Home.js";
 import Properties from "./components/Properties.js";
 import SignUp from "./components/SignUp.js";
@@ -37,7 +42,7 @@ const tempHouseImages = {
 const BASE_URL = "http://localhost:3000/api/v1";
 const PROPERTIES = "/properties";
 const HOLDINGS = "/holdings";
-const INVESTORS = "/investors";
+// const INVESTORS = "/investors";
 
 class App extends React.Component {
     constructor() {
@@ -83,17 +88,19 @@ class App extends React.Component {
         const updatedState = { ...this.state.auth, investor: data };
         localStorage.setItem("token", data.jwt);
         this.setState({ auth: updatedState });
-        this.setState({loggedIn: true})
+        this.setState({ loggedIn: true });
     };
 
     logout = () => {
         localStorage.removeItem("token");
         this.setState({ auth: { investor: {} } });
-        this.setState({loggedIn:false})
+        this.setState({ loggedIn: false });
+        this.clearCart()
     };
 
     sumPropertyHeld = () => {
         let total_held = {};
+        // eslint-disable-next-line
         this.state.holdings.map(holding => {
             total_held[holding.property_id] =
                 total_held[holding.property_id] + holding.amount ||
@@ -104,7 +111,7 @@ class App extends React.Component {
 
     addToCart = property => {
         if (!this.state.cart.includes(property)) {
-            console.log("add to cart", property)
+            console.log("add to cart", property);
             this.setState({ cart: [...this.state.cart, property] });
         }
     };
@@ -178,29 +185,37 @@ class App extends React.Component {
                     <Route
                         path="/dashboard"
                         exact
-                        render={props => (
-                            this.state.loggedIn ? <DashBoard
-                                {...props}
-                                cart={this.state.cart}
-                                holdings={this.state.holdings}
-                                loginState={this.state.auth.investor}
-                                logout={this.logout}
-                            />:<Redirect to="/rescricted" />
-                        )}
+                        render={props =>
+                            this.state.loggedIn ? (
+                                <DashBoard
+                                    {...props}
+                                    cart={this.state.cart}
+                                    holdings={this.state.holdings}
+                                    loginState={this.state.auth.investor}
+                                    logout={this.logout}
+                                />
+                            ) : (
+                                <Redirect to="/rescricted" />
+                            )
+                        }
                     />
                     <Route
                         path="/holdings"
                         exact
-                        render={props => (
-                            !this.state.loggedIn ? <Holdings
-                                {...props}
-                                cart={this.state.cart}
-                                holdings={this.state.holdings}
-                                properties={this.state.properties}
-                                loginState={this.state.auth.investor}
-                                logout={this.logout}
-                            />:<Redirect to="/rescricted" />
-                        )}
+                        render={props =>
+                            !this.state.loggedIn ? (
+                                <Holdings
+                                    {...props}
+                                    cart={this.state.cart}
+                                    holdings={this.state.holdings}
+                                    properties={this.state.properties}
+                                    loginState={this.state.auth.investor}
+                                    logout={this.logout}
+                                />
+                            ) : (
+                                <Redirect to="/rescricted" />
+                            )
+                        }
                     />
                     <Route
                         path="/cart"
@@ -220,14 +235,18 @@ class App extends React.Component {
                     <Route
                         path="/profile"
                         exact
-                        render={props => (
-                            this.state.loggedIn ? <Profile
-                                {...props}
-                                cart={this.state.cart}
-                                loginState={this.state.auth.investor}
-                                logout={this.logout}
-                            />:<Redirect to="/rescricted" />
-                        )}
+                        render={props =>
+                            this.state.loggedIn ? (
+                                <Profile
+                                    {...props}
+                                    cart={this.state.cart}
+                                    loginState={this.state.auth.investor}
+                                    logout={this.logout}
+                                />
+                            ) : (
+                                <Redirect to="/rescricted" />
+                            )
+                        }
                     />
                     {/* <Switch> */}
                     <Route

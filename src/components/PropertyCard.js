@@ -6,9 +6,9 @@ import PercentageBar from "./PercentageBar";
 class PropertyCard extends React.Component {
     sumPropertyHeld = () => {
         let amount_held = 0;
-
+        // eslint-disable-next-line
         this.props.holdings.map(holding => {
-            if (holding.property_id == this.props.property.id) {
+            if (holding.property_id === this.props.property.id) {
                 amount_held += holding.amount;
             }
         });
@@ -21,10 +21,7 @@ class PropertyCard extends React.Component {
             rent,
             lease_length,
             last_year_appreciation,
-            next_year_appreciation,
-            beds_baths_sqft,
-            address,
-            zone
+            next_year_appreciation
         } = this.props.property;
 
         return (

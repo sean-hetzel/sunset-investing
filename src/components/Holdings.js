@@ -83,30 +83,84 @@ class Holdings extends Component {
                                             >
                                                 <thead>
                                                     <tr>
-                                                        <th>temp holding id</th>
-                                                        <th>
-                                                            temp property id
-                                                        </th>
-
                                                         <th>Montyly Rent</th>
-                                                        <th>Your Share</th>
-                                                        <th>Total Price</th>
+                                                        <th>
+                                                            Investment Amount
+                                                        </th>
+                                                        <th>
+                                                            Percentage Owned
+                                                        </th>
+                                                        <th>Property Price</th>
                                                         <th>Appriciation</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    {console.log(
+                                                        "because im batman",
+                                                        Object.values(
+                                                            this.props.holdings
+                                                        ).reduce(
+                                                            (
+                                                                unique,
+                                                                holding
+                                                            ) => {
+                                                                return unique.includes(
+                                                                    holding.id
+                                                                )
+                                                                    ? unique
+                                                                    : [
+                                                                          ...unique,
+                                                                          holding.id
+                                                                      ];
+                                                            },
+                                                            []
+                                                        )
+                                                    )}
+                                                    {console.log(
+                                                        [
+                                                            {
+                                                                id: 10,
+                                                                name:
+                                                                    "Poe Dameron",
+                                                                years: 14
+                                                            },
+                                                            {
+                                                                id: 2,
+                                                                name:
+                                                                    "Temmin 'Snap' Wexley",
+                                                                years: 30
+                                                            },
+                                                            {
+                                                                id: 41,
+                                                                name:
+                                                                    "Tallissan Lintra",
+                                                                years: 16
+                                                            },
+                                                            {
+                                                                id: 99,
+                                                                name:
+                                                                    "Ello Asty",
+                                                                years: 22
+                                                            }
+                                                        ].reduce(
+                                                            (acc, pilot) =>
+                                                                acc +
+                                                                pilot.years,
+                                                            0
+                                                        )
+                                                    )}
                                                     {this.props.holdings
                                                         .filter(holding => {
                                                             return (
                                                                 // .investor_id == this.props.loginState.investor.id
-                                                                holding.investor_id ==
+                                                                holding.investor_id ===
                                                                 21
                                                             );
                                                         })
                                                         .map(holding => {
                                                             let property = this.props.properties.filter(
                                                                 property =>
-                                                                    property.id ==
+                                                                    property.id ===
                                                                     holding.property_id
                                                             );
                                                             console.log(
@@ -114,36 +168,41 @@ class Holdings extends Component {
                                                                 property
                                                             );
                                                             return (
-                                                                <tr>
+                                                                <tr className="text-primary">
                                                                     <td>
-                                                                        {
-                                                                            holding.id
-                                                                        }
-                                                                    </td>
-                                                                    <td>
-                                                                        {
-                                                                            property[0]
-                                                                                .id
-                                                                        }
-                                                                    </td>
-                                                                    <td>
-                                                                        ${property[0]
-                                                                                .rent}
-                                                                    </td>
-
-                                                                    <td>
-                                                                        {50}%
+                                                                        $
+                                                                        {Math.round(
+                                                                            (holding.amount /
+                                                                                property[0]
+                                                                                    .price) *
+                                                                                property[0]
+                                                                                    .rent
+                                                                        ).toLocaleString()}
                                                                     </td>
                                                                     <td>
                                                                         $
-                                                                        {
-                                                                            property[0]
-                                                                            .price
-                                                                        }
+                                                                        {holding.amount.toLocaleString()}
                                                                     </td>
                                                                     <td>
-                                                                        {property[0]
-                                                                                .next_year_appreciation}%
+                                                                        {Math.round(
+                                                                            (holding.amount /
+                                                                                property[0]
+                                                                                    .price) *
+                                                                                100
+                                                                        )}
+                                                                        %
+                                                                        
+                                                                    </td>
+                                                                    <td>
+                                                                        $
+                                                                        {property[0].price.toLocaleString()}
+                                                                    </td>
+                                                                    <td>
+                                                                        {
+                                                                            property[0]
+                                                                                .next_year_appreciation
+                                                                        }
+                                                                        %
                                                                     </td>
                                                                     <td>
                                                                         <Link

@@ -17,12 +17,15 @@ class Cart extends React.Component {
         };
     }
     componentDidMount() {
+        // eslint-disable-next-line
         this.props.cart.map(purchase => {
+            // eslint-disable-next-line
             this.setState({orderTotal: this.state.orderTotal += parseInt(purchase.amount)})
         })
     }
 
     makePurchase = () => {
+        // eslint-disable-next-line
         this.props.cart.map(purchase => {
             investor_id = purchase.investorId;
             property_id = purchase.property.id;

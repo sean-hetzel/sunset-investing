@@ -16,6 +16,7 @@ const NotFound = () => (
             </h1>
             <img
                 src={PageNotFound}
+                alt="It's free Real Estate"
                 style={{
                     width: "50%",
                     height: "50%",
