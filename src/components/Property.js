@@ -61,7 +61,9 @@ class Property extends React.Component {
             next_year_appreciation: 0,
             beds_baths_sqft: "",
             address: "",
-            zone: ""
+            zone: "",
+            year_built: "",
+            description: ""
         };
 
         for (let property of this.props.property) {
@@ -84,7 +86,9 @@ class Property extends React.Component {
             next_year_appreciation,
             beds_baths_sqft,
             address,
-            zone
+            zone,
+            year_built,
+            description
         } = this.getProperty();
         const total = this.props.sumPropertyHeld()[
             parseInt(this.props.match.params.id)
@@ -416,10 +420,16 @@ class Property extends React.Component {
                                             {zone}
                                         </li>
                                         <li className="list-group-item">
+                                            Year Built: {year_built}
+                                        </li>
+                                        <li className="list-group-item">
                                             {beds_baths_sqft}
                                         </li>
                                         <li className="list-group-item">
                                             {address}
+                                        </li>
+                                        <li className="list-group-item">
+                                            {description}
                                         </li>
                                     </ul>
                                 </div>

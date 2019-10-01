@@ -55,12 +55,12 @@ class Holdings extends Component {
                                             >
                                                 <thead>
                                                     <tr>
-                                                        <th>Name</th>
-                                                        <th>Company</th>
-                                                        <th>Email</th>
-                                                        <th>Phone</th>
-                                                        <th>City</th>
-                                                        <th>Orders</th>
+                                                        <th>Montyly Rent</th>
+                                                        <th>Total Price</th>
+                                                        <th>Your Share</th>
+                                                        <th>Appriciation</th>
+                                                        <th>View Property</th>
+                                                        <th>Sell</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -75,13 +75,7 @@ class Holdings extends Component {
                                                             return (
                                                                 <tr>
                                                                     <td>
-                                                                        <a
-                                                                            href="javascript: return(void);"
-                                                                            className="text-muted"
-                                                                        >
-                                                                            Nielsen
-                                                                            Cobb
-                                                                        </a>
+                                                                       ${325}
                                                                     </td>
                                                                     <td>
                                                                         {

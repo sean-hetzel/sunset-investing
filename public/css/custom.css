@@ -18,16 +18,16 @@ a:hover {
 }
 
 .not-found-page {
-  /* content: ''; */
-  width: 100%;
-  height: 100%;
-  display: block;
-  /* z-index: -1; */
-  /* background-color: #8a8d93; */
+    /* content: ''; */
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* z-index: -1; */
+    /* background-color: #8a8d93; */
     background: url(../img/avi-waxman-pJk4RRS7urs-unsplash.jpg);
 
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  right: 0;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
 }

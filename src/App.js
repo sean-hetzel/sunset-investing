@@ -158,6 +158,7 @@ class App extends React.Component {
                                 addToCart={this.addToCart}
                                 loginState={this.state.auth.investor}
                                 investor={this.state.auth.investor}
+                                logout={this.logout}
                             />
                         )}
                     />
