@@ -82,6 +82,15 @@ class App extends React.Component {
                 this.setState({ auth: updatedState });
             });
         }
+        const script = document.createElement("script");
+        script.src = "/vendor/jquery-validation/jquery.validate.min.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        const script2 = document.createElement("script");
+        script2.src = "/js/front.js";
+        script2.async = true;
+        document.body.appendChild(script2);
     }
 
     login = data => {

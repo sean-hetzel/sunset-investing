@@ -8,8 +8,19 @@ function isEmpty(obj) {
   }
   return true;
 }
-export default class Header extends Component {
 
+export default class Header extends Component {
+  componentDidMount() {
+    const script = document.createElement("script");
+    script.src = "/vendor/jquery-validation/jquery.validate.min.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    const script2 = document.createElement("script");
+    script2.src = "/js/front.js";
+    script2.async = true;
+    document.body.appendChild(script2);
+}
     render() {
       console.log("logged in?:", !isEmpty(this.props.loginState))
         return (
@@ -34,7 +45,7 @@ export default class Header extends Component {
           <div className="brand-text brand-big visible text-uppercase"><strong className="text-primary">SUNSET</strong><strong>INVESTING</strong></div>
           <div className="brand-text brand-sm"><strong className="text-primary">D</strong><strong>A</strong></div></Link>
         {/* Sidebar Toggle Btn*/}
-        {/* <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button> */}
+        <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button>
       </div>
       <div className="right-menu list-inline no-margin-bottom">   
       <h4 className="list-inline-item text-primary font-weight-light">Rent from August was ${(62553).toLocaleString()}.</h4>      
