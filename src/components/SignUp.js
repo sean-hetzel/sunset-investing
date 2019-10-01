@@ -212,10 +212,10 @@ class SignUp extends React.Component {
                                     display: "inline-block",
                                     borderRadius: 3
                                 }}
-                                href="https://unsplash.com/@aviosly?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge"
+                                href="https://unsplash.com/@clayton_cardinalli?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                title="Download free do whatever you want high-resolution photos from Avi Waxman"
+                                title="Download free do whatever you want high-resolution photos from Clayton Cardinalli"
                             >
                                 <span
                                     style={{
@@ -245,7 +245,7 @@ class SignUp extends React.Component {
                                         padding: "2px 3px"
                                     }}
                                 >
-                                    Avi Waxman
+                                    Clayton Cardinalli
                                 </span>
                             </a>
                         </p>
