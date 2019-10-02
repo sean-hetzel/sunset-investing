@@ -95,14 +95,21 @@ class App extends React.Component {
         //     1000
         //   );
         // console.log("dumb thing:",this.state.holdings)
-        let rent = this.state.holdings.filter(holding => holding.investor_id === 4).reduce((acc, amount) => acc + amount, 0)
+        let rent = this.getRent()
+        // console.log("really dubmb thing",this.getRent())
         // let rent = 5
         this.setState({ monthlyRent: rent });
     }
 
     componentDidUpdate(){
-        console.log("dumb thing:",this.state.holdings.filter(holding => holding.investor_id === 4).map(holding => holding.amount).reduce((acc, amount) => acc + amount, 0))
+        let rent = this.state.holdings.filter(holding => holding.investor_id === 4).map(holding => holding.amount).reduce((acc, amount) => acc + amount, 0)
+        // this.setState({monthlyRent: rent})
+        console.log("really dubmb thing",rent)
 
+    }
+    getRent = () => {
+        let rent = this.state.holdings.filter(holding => holding.investor_id === 4).map(holding => holding.amount).reduce((acc, amount) => acc + amount, 0)
+        return rent
     }
     // componentWillUnmount() {
     //     clearInterval(this.intervalID);
