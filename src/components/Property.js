@@ -111,11 +111,7 @@ class Property extends React.Component {
             Math.round(this.state.purchaseAmount / monnthlyRent) || Infinity;
 
         let potentialProfit = Math.round(
-            (this.state.purchaseAmount / price) * (rent * lease_length) +
-                (this.state.purchaseAmount / price) *
-                    ((next_year_appreciation / 100) *
-                        price *
-                        (lease_length / 12))
+            (monnthlyRent * 12 + annualAppriciationAmount) * 10
         );
 
         console.log(
@@ -162,13 +158,13 @@ class Property extends React.Component {
                             </ul>
                         </div>
                         <section>
-                            <div class="container-fluid">
+                            <div className="container-fluid">
                                 <div className="row">
                                     <div
                                         className="col-md-7 img-fluid"
                                         style={{ height: "100%" }}
                                     >
-                                        <Carousel />
+                                        <Carousel id={parseInt(this.props.match.params.id)} propertyImages={this.props.tempHouseImages}/>
                                     </div>
                                     <div className="col-md-5">
                                         <div className="card">
@@ -319,9 +315,8 @@ class Property extends React.Component {
                                                                                         Profit
                                                                                         if
                                                                                         Sold
-                                                                                        After{" "}
-                                                                                        {lease_length /
-                                                                                            12}{" "}
+                                                                                        After
+                                                                                        10
                                                                                         Years
                                                                                         *
                                                                                     </th>

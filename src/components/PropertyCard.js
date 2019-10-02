@@ -28,7 +28,7 @@ class PropertyCard extends React.Component {
             <>
                 <div className="card property-card">
                     <img
-                        src={this.props.tempHouseImages[this.props.property.id]}
+                        src={this.props.tempHouseImages[this.props.property.id][0]}
                         alt="Card cap"
                         className="card-img-top img-fluid"
                     />

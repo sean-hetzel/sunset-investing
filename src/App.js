@@ -28,7 +28,7 @@ import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/i
 import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
 import Restricted from "./components/Restricted.js";
 const tempHouseImages = {
-    1: [tempHouse1],
+    1: [tempHouse1, tempHouse2],
     2: [tempHouse3],
     3: [tempHouse6],
     4: [tempHouse4],
@@ -36,13 +36,9 @@ const tempHouseImages = {
     6: [tempHouse2]
 };
 
-// blue reference: #37cfdc
-// API key= AIzaSyAeXRNUoDujYVkiyawNAFhf7oFDe8vcFn8
-
 const BASE_URL = "http://localhost:3000/api/v1";
 const PROPERTIES = "/properties";
 const HOLDINGS = "/holdings";
-// const INVESTORS = "/investors";
 
 class App extends React.Component {
     constructor() {
@@ -50,7 +46,6 @@ class App extends React.Component {
         this.state = {
             properties: [],
             holdings: [],
-            // investors: [],
             cart: [],
             auth: {
                 investor: {}
@@ -68,11 +63,6 @@ class App extends React.Component {
         fetch(BASE_URL + HOLDINGS)
             .then(resp => resp.json())
             .then(json => this.setState({ holdings: json }, console.log(json)));
-        // fetch(BASE_URL + INVESTORS)
-        //     .then(resp => resp.json())
-        //     .then(json =>
-        //         this.setState({ investors: json }, console.log(json))
-        //     );
         const token = localStorage.getItem("token");
         if (!token) {
             console.log("there is no token");
@@ -175,6 +165,7 @@ class App extends React.Component {
                                 loginState={this.state.auth.investor}
                                 investor={this.state.auth.investor}
                                 logout={this.logout}
+                                tempHouseImages={tempHouseImages}
                             />
                         )}
                     />
