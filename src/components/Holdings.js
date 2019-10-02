@@ -13,7 +13,8 @@ class Holdings extends Component {
                 dashboard: "",
                 holdings: "active"
             },
-            sellAmount: 0
+            sellAmount: 0,
+            holdings: [{totalPropertyRent: 0, yourShare: 0, yourPercentShare: 0, propertyPrice: 0, propertyAppreciation: 0}]
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,6 +49,48 @@ class Holdings extends Component {
             })
         }).then(response => response.json());
     };
+    
+    getHoldings() {
+        let holding = {}
+        let totalPropertyRent = 0
+        let yourShare = 0
+        let yourPercentShare = 0
+        let propertyPrice = 0
+        let propertyAppreciation = 0
+        let monthlyRent = 0
+
+        this.props.holdings
+            .filter(holding => 
+                
+                    // holding.investor_id ===
+                    // this.props
+                    //     .loginState
+                    //     .investor.id
+                    holding.investor_id === 4
+                
+            )
+            .map(holding => {
+                let property = this.props.properties.filter(
+                    property => property.id === holding.property_id
+                );
+
+                monthlyRent += totalPropertyRent = Math.round(
+                    (holding.amount / property[0].price) * property[0].rent
+                )
+
+                // this.setState(yourShare += holding.amount)
+
+                // this.setState(yourPercentShare += Math.round(
+                //     (holding.amount / property[0].price) * 100
+                // ));
+
+                // this.setState(propertyPrice = property[0].price)
+
+                // this.setState(propertyAppreciation = property[0].next_year_appreciation)
+            });
+            return monthlyRent
+    }
+
 
     render() {
         console.log("holdings props:", this.props);
@@ -163,12 +206,12 @@ class Holdings extends Component {
                                                     {this.props.holdings
                                                         .filter(holding => {
                                                             return (
-                                                                holding.investor_id ===
-                                                                this.props
-                                                                    .loginState
-                                                                    .investor.id
                                                                 // holding.investor_id ===
-                                                                // 3
+                                                                // this.props
+                                                                //     .loginState
+                                                                //     .investor.id
+                                                                holding.investor_id ===
+                                                                4
                                                             );
                                                         })
                                                         .map(holding => {

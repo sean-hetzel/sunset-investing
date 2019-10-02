@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import tempHomeImage from "/Users/flatironschool/Development/sunset-investing/src/images/chris-tingom-BaDrWEr794Q-unsplash.jpg";
+import tempHomeImage from "../images/chris-tingom-BaDrWEr794Q-unsplash.jpg";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import Footer from "./Footer";
@@ -59,7 +59,7 @@ class Home extends React.Component {
                             <h2 className="col-12 text-primary text-center">
                                 How it Works
                             </h2>
-                            <p style={{position: "absolute", marginLeft: "25%", width: "50em", marginTop: "4em"}}lassName="col-6 text-center">
+                            <p style={{position: "absolute", marginLeft: "25%", width: "50em", marginTop: "4em"}} className="col-6 text-center">
                                 Business and stuff from Wikipedia: Once an
                                 investment property has been located, and
                                 preliminary due diligence (investigation and

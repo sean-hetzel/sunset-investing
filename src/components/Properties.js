@@ -12,6 +12,7 @@ class Properties extends React.Component {
             sideBarStatus: { properties: "active", dashboard: "", holdings: "" }
         };
     }
+
     render() {
         console.log("properties props:", this.props);
         return (
@@ -20,6 +21,7 @@ class Properties extends React.Component {
                     cart={this.props.cart}
                     loginState={this.props.loginState}
                     logout={this.props.logout}
+                    time={this.props.time}
                 />
                 <div className="d-flex align-items-stretch">
                     <SideBar sideBarStatus={this.state.sideBarStatus} />

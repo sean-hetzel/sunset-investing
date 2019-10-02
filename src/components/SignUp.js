@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoWite from "/Users/flatironschool/Development/sunset-investing/src/images/sunset-investing-logo-white.png";
+import logoWite from "../images/sunset-investing-logo-white.png";
 
 // $("#myform").validate({
 //   invalidHandler: function(event, validator) {

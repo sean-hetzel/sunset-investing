@@ -20,12 +20,12 @@ import OrderSuccessful from "./components/OrderSuccessful";
 import NotFound from "./components/NotFound";
 import { api } from "./services/api";
 
-import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
-import tempHouse2 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Estrella-Altamira_Front-Elevation_920.jpg";
-import tempHouse3 from "/Users/flatironschool/Development/sunset-investing/src/images/01-Palisades-Santee_Front-Elevation-Twilight_920.jpg";
-import tempHouse4 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Solano-Artemis_Front-Elevation_1920.jpg";
-import tempHouse5 from "/Users/flatironschool/Development/sunset-investing/src/images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
-import tempHouse6 from "/Users/flatironschool/Development/sunset-investing/src/images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
+import tempHouse1 from "./images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
+import tempHouse2 from "./images/1-Estrella-Altamira_Front-Elevation_920.jpg";
+import tempHouse3 from "./images/01-Palisades-Santee_Front-Elevation-Twilight_920.jpg";
+import tempHouse4 from "./images/1-Solano-Artemis_Front-Elevation_1920.jpg";
+import tempHouse5 from "./images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
+import tempHouse6 from "./images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
 import Restricted from "./components/Restricted.js";
 const tempHouseImages = {
     1: [tempHouse1, tempHouse2],
@@ -45,12 +45,17 @@ class App extends React.Component {
         super();
         this.state = {
             properties: [],
+            filteredProperties: [],
             holdings: [],
             cart: [],
             auth: {
                 investor: {}
             },
-            loggedIn: false
+            loggedIn: false,
+            time: new Date().getSeconds(),
+            rent: 0,
+            amount: 0,
+            monthlyRent: 0
         };
     }
 
@@ -58,7 +63,10 @@ class App extends React.Component {
         fetch(BASE_URL + PROPERTIES)
             .then(resp => resp.json())
             .then(json =>
-                this.setState({ properties: json }, console.log(json))
+                this.setState(
+                    { properties: json, filteredProperties: json },
+                    console.log(json)
+                )
             );
         fetch(BASE_URL + HOLDINGS)
             .then(resp => resp.json())
@@ -81,7 +89,30 @@ class App extends React.Component {
         script2.src = "/js/front.js";
         script2.async = true;
         document.body.appendChild(script2);
+
+        // this.intervalID = setInterval(
+        //     () => this.tick(),
+        //     1000
+        //   );
+        // console.log("dumb thing:",this.state.holdings)
+        let rent = this.state.holdings.filter(holding => holding.investor_id === 4).reduce((acc, amount) => acc + amount, 0)
+        // let rent = 5
+        this.setState({ monthlyRent: rent });
     }
+
+    componentDidUpdate(){
+        console.log("dumb thing:",this.state.holdings.filter(holding => holding.investor_id === 4).map(holding => holding.amount).reduce((acc, amount) => acc + amount, 0))
+
+    }
+    // componentWillUnmount() {
+    //     clearInterval(this.intervalID);
+    //   }
+    //   tick() {
+    //     this.setState({
+    //       time: new Date().getSeconds() * this.state.monthlyRent,
+    //       rent: this.state.amount += this.state.monthlyRent
+    //     });
+    //   }
 
     login = data => {
         const updatedState = { ...this.state.auth, investor: data };
@@ -94,7 +125,7 @@ class App extends React.Component {
         localStorage.removeItem("token");
         this.setState({ auth: { investor: {} } });
         this.setState({ loggedIn: false });
-        this.clearCart()
+        this.clearCart();
     };
 
     sumPropertyHeld = () => {
@@ -119,6 +150,14 @@ class App extends React.Component {
         this.setState({ cart: {} });
     };
 
+    handleFilter = zone => {
+        const newProperties = this.state.properties.filter(property => {
+            return property.price.includes(zone);
+        });
+        this.setState({
+            filteredProperties: newProperties
+        });
+    };
     render() {
         console.log("app state:", this.state);
         return (
@@ -144,11 +183,13 @@ class App extends React.Component {
                             <Properties
                                 {...props}
                                 cart={this.state.cart}
-                                properties={this.state.properties}
+                                properties={this.state.filteredProperties}
                                 holdings={this.state.holdings}
                                 tempHouseImages={tempHouseImages}
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
+                                handleFilter={this.handleFilter}
+                                time={this.state.rent}
                             />
                         )}
                     />
@@ -203,7 +244,7 @@ class App extends React.Component {
                         path="/holdings"
                         exact
                         render={props =>
-                            this.state.loggedIn ? (
+                            !this.state.loggedIn ? (
                                 <Holdings
                                     {...props}
                                     cart={this.state.cart}
