@@ -46,7 +46,7 @@ class Holdings extends Component {
             body: JSON.stringify({
                 holding: { investor_id, property_id, amount }
             })
-        }).then(response => response.json())
+        }).then(response => response.json());
     };
 
     render() {
@@ -106,7 +106,7 @@ class Holdings extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {console.log(
+                                                    {/* {console.log(
                                                         "because im batman",
                                                         Object.values(
                                                             this.props.holdings
@@ -126,8 +126,8 @@ class Holdings extends Component {
                                                             },
                                                             []
                                                         )
-                                                    )}
-                                                    {console.log(
+                                                    )} */}
+                                                    {/* {console.log(
                                                         [
                                                             {
                                                                 id: 10,
@@ -159,13 +159,16 @@ class Holdings extends Component {
                                                                 pilot.years,
                                                             0
                                                         )
-                                                    )}
+                                                    )} */}
                                                     {this.props.holdings
                                                         .filter(holding => {
                                                             return (
-                                                                // .investor_id == this.props.loginState.investor.id
                                                                 holding.investor_id ===
-                                                                3
+                                                                this.props
+                                                                    .loginState
+                                                                    .investor.id
+                                                                // holding.investor_id ===
+                                                                // 3
                                                             );
                                                         })
                                                         .map(holding => {

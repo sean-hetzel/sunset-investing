@@ -212,7 +212,7 @@ class App extends React.Component {
                         path="/holdings"
                         exact
                         render={props =>
-                            !this.state.loggedIn ? (
+                            this.state.loggedIn ? (
                                 <Holdings
                                     {...props}
                                     cart={this.state.cart}
