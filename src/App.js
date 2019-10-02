@@ -85,6 +85,11 @@ class App extends React.Component {
         script.async = true;
         document.body.appendChild(script);
 
+        const script1 = document.createElement("script");
+        script1.src = "/vendor/chart.js/Chart.min.js";
+        script1.async = true;
+        document.body.appendChild(script1);
+
         const script2 = document.createElement("script");
         script2.src = "/js/front.js";
         script2.async = true;
@@ -95,22 +100,27 @@ class App extends React.Component {
         //     1000
         //   );
         // console.log("dumb thing:",this.state.holdings)
-        let rent = this.getRent()
+        let rent = this.getRent();
         // console.log("really dubmb thing",this.getRent())
         // let rent = 5
         this.setState({ monthlyRent: rent });
     }
 
-    componentDidUpdate(){
-        let rent = this.state.holdings.filter(holding => holding.investor_id === 4).map(holding => holding.amount).reduce((acc, amount) => acc + amount, 0)
+    componentDidUpdate() {
+        let rent = this.state.holdings
+            .filter(holding => holding.investor_id === 4)
+            .map(holding => holding.amount)
+            .reduce((acc, amount) => acc + amount, 0);
         // this.setState({monthlyRent: rent})
-        console.log("really dubmb thing",rent)
-
+        console.log("really dubmb thing", rent);
     }
     getRent = () => {
-        let rent = this.state.holdings.filter(holding => holding.investor_id === 4).map(holding => holding.amount).reduce((acc, amount) => acc + amount, 0)
-        return rent
-    }
+        let rent = this.state.holdings
+            .filter(holding => holding.investor_id === 4)
+            .map(holding => holding.amount)
+            .reduce((acc, amount) => acc + amount, 0);
+        return rent;
+    };
     // componentWillUnmount() {
     //     clearInterval(this.intervalID);
     //   }
@@ -251,7 +261,7 @@ class App extends React.Component {
                         path="/holdings"
                         exact
                         render={props =>
-                            !this.state.loggedIn ? (
+                            this.state.loggedIn ? (
                                 <Holdings
                                     {...props}
                                     cart={this.state.cart}

@@ -60,7 +60,7 @@ class Login extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const data = new FormData(event.target);
-        const name = data.get("name").toUpperCase();
+        const name = data.get("name").toUpperCase()
         const password = data.get("password");
         console.log(JSON.stringify({ investor: { name, password } }));
 

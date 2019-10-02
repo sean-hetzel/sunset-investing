@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import Footer from "./Footer";
-
 class Holdings extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             sideBarStatus: {
                 properties: "",
@@ -14,21 +13,18 @@ class Holdings extends Component {
                 holdings: "active"
             },
             sellAmount: 0,
-            holdings: [{totalPropertyRent: 0, yourShare: 0, yourPercentShare: 0, propertyPrice: 0, propertyAppreciation: 0}]
+            holdings: props.holdings
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
     handleChange(event) {
         console.log("sell cahnge:", event.target.value);
         this.setState({ sellAmount: event.target.value });
     }
-
     handleSubmit(event) {
         event.preventDefault();
     }
-
     sellProperty = holding => {
         const investor_id = holding.investor_id;
         const property_id = holding.property_id;
@@ -47,51 +43,22 @@ class Holdings extends Component {
             body: JSON.stringify({
                 holding: { investor_id, property_id, amount }
             })
-        }).then(response => response.json());
-    };
-    
-    getHoldings() {
-        let holding = {}
-        let totalPropertyRent = 0
-        let yourShare = 0
-        let yourPercentShare = 0
-        let propertyPrice = 0
-        let propertyAppreciation = 0
-        let monthlyRent = 0
-
-        this.props.holdings
-            .filter(holding => 
-                
-                    // holding.investor_id ===
-                    // this.props
-                    //     .loginState
-                    //     .investor.id
-                    holding.investor_id === 4
-                
-            )
-            .map(holding => {
-                let property = this.props.properties.filter(
-                    property => property.id === holding.property_id
-                );
-
-                monthlyRent += totalPropertyRent = Math.round(
-                    (holding.amount / property[0].price) * property[0].rent
-                )
-
-                // this.setState(yourShare += holding.amount)
-
-                // this.setState(yourPercentShare += Math.round(
-                //     (holding.amount / property[0].price) * 100
-                // ));
-
-                // this.setState(propertyPrice = property[0].price)
-
-                // this.setState(propertyAppreciation = property[0].next_year_appreciation)
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data)
+            this.state.holdings.forEach(each => {
+                if (each.id === holding.id) {
+                    each.amount = data.amount
+                    each.investor_id = data.investor_id
+                    each.property_id = data.property_id
+                }
             });
-            return monthlyRent
-    }
-
-
+            this.setState({
+                holdings: [...this.state.holdings]
+            })
+            console.log(this.state)
+        });
+    };
     render() {
         console.log("holdings props:", this.props);
         return (
@@ -203,15 +170,15 @@ class Holdings extends Component {
                                                             0
                                                         )
                                                     )} */}
-                                                    {this.props.holdings
+                                                    {this.state.holdings
                                                         .filter(holding => {
                                                             return (
-                                                                // holding.investor_id ===
-                                                                // this.props
-                                                                //     .loginState
-                                                                //     .investor.id
                                                                 holding.investor_id ===
-                                                                4
+                                                                this.props
+                                                                    .loginState
+                                                                    .investor.id
+                                                                // holding.investor_id ===
+                                                                // 3
                                                             );
                                                         })
                                                         .map(holding => {
@@ -339,5 +306,4 @@ class Holdings extends Component {
         );
     }
 }
-
 export default Holdings;

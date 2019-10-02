@@ -15,14 +15,14 @@ class DashBoard extends React.Component {
     }
 
         componentDidMount () {
-            const script = document.createElement("script");
+            // const script = document.createElement("script");
         
             // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
             // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
-            script.src = "vendor/chart.js/Chart.min.js";
-            script.async = true;
+            // script.src = "vendor/chart.js/Chart.min.js";
+            // script.async = true;
         
-            document.body.appendChild(script);
+            // document.body.appendChild(script);
 
             // "/Users/flatironschool/Development/sunset-investing/public/js/charts-home.js"
         
