@@ -22,6 +22,7 @@ class Home extends React.Component {
                     cart={this.props.cart}
                     loginState={this.props.loginState}
                     logout={this.props.logout}
+                    rent={this.props.rent}
                 />
                 <div className="d-flex align-items-stretch">
                     <SideBar sideBarStatus={this.state.sideBarStatus} />
@@ -59,14 +60,22 @@ class Home extends React.Component {
                             <h2 className="col-12 text-primary text-center">
                                 How it Works
                             </h2>
-                            <p style={{position: "absolute", marginLeft: "25%", width: "50em", marginTop: "4em"}} className="col-6 text-center">
+                            <p
+                                style={{
+                                    position: "absolute",
+                                    marginLeft: "25%",
+                                    width: "50em",
+                                    marginTop: "4em"
+                                }}
+                                className="col-6 text-center"
+                            >
                                 Business and stuff from Wikipedia: Once an
                                 investment property has been located, and
                                 preliminary due diligence (investigation and
                                 verification of the condition and status of the
                                 property) completed, the investor will have to
                                 negotiate a sale price and sale terms with the
-                                seller, then execute a contract for sale. 
+                                seller, then execute a contract for sale.
                             </p>
                             <img
                                 style={{ marginTop: "16em" }}

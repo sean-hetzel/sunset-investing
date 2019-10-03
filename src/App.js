@@ -26,14 +26,19 @@ import tempHouse3 from "./images/01-Palisades-Santee_Front-Elevation-Twilight_92
 import tempHouse4 from "./images/1-Solano-Artemis_Front-Elevation_1920.jpg";
 import tempHouse5 from "./images/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg";
 import tempHouse6 from "./images/14-025-03-Rear-Exterior-over-Fire-Pit.jpg";
+import tempHouse7 from "./images/genMid.5982972_1_0.jpg";
+import tempHouse8 from "./images/genMid.5982972_3_0.jpg";
+import tempHouse9 from "./images/genMid.5982972_5_0.jpg";
+import tempHouse10 from "./images/genMid.5982972_8_0.jpg";
+import tempHouse11 from "./images/genMid.5982972_19_0.jpg";
 import Restricted from "./components/Restricted.js";
 const tempHouseImages = {
-    1: [tempHouse1, tempHouse2],
-    2: [tempHouse3],
-    3: [tempHouse6],
-    4: [tempHouse4],
-    5: [tempHouse5],
-    6: [tempHouse2]
+    1: [tempHouse1, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
+    2: [tempHouse3, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
+    3: [tempHouse6, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
+    4: [tempHouse4, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
+    5: [tempHouse5, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
+    6: [tempHouse2, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11]
 };
 
 const BASE_URL = "http://localhost:3000/api/v1";
@@ -55,7 +60,8 @@ class App extends React.Component {
             time: new Date().getSeconds(),
             rent: 0,
             amount: 0,
-            monthlyRent: 0
+            monthlyRent: 0,
+            ownedHoldings: []
         };
     }
 
@@ -70,7 +76,7 @@ class App extends React.Component {
             );
         fetch(BASE_URL + HOLDINGS)
             .then(resp => resp.json())
-            .then(json => this.setState({ holdings: json }, console.log(json)));
+            .then(json => this.setState({ holdings: json, ownedHoldings: json }, console.log(json)));
         const token = localStorage.getItem("token");
         if (!token) {
             console.log("there is no token");
@@ -163,6 +169,13 @@ class App extends React.Component {
         }
     };
 
+    addToHoldigns = holding => {
+        if (!this.state.ownedHoldings.includes(holding)) {
+            console.log("owned holdings", holding);
+            this.setState({ ownedHoldings: [...this.state.ownedHoldings, holding] });
+        }
+    };
+
     clearCart = () => {
         this.setState({ cart: {} });
     };
@@ -189,6 +202,7 @@ class App extends React.Component {
                                 cart={this.state.cart}
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
+                                rent={this.state.rent}
                             />
                         )}
                     />
@@ -206,7 +220,7 @@ class App extends React.Component {
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
                                 handleFilter={this.handleFilter}
-                                time={this.state.rent}
+                                rent={this.state.rent}
                             />
                         )}
                     />
@@ -224,6 +238,8 @@ class App extends React.Component {
                                 investor={this.state.auth.investor}
                                 logout={this.logout}
                                 tempHouseImages={tempHouseImages}
+                                rent={this.state.rent}
+
                             />
                         )}
                     />
@@ -237,6 +253,8 @@ class App extends React.Component {
                                 cart={this.state.cart}
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
+                                rent={this.state.rent}
+
                             />
                         )}
                     />
@@ -251,6 +269,8 @@ class App extends React.Component {
                                     holdings={this.state.holdings}
                                     loginState={this.state.auth.investor}
                                     logout={this.logout}
+                                    rent={this.state.rent}
+
                                 />
                             ) : (
                                 <Redirect to="/rescricted" />
@@ -269,6 +289,8 @@ class App extends React.Component {
                                     properties={this.state.properties}
                                     loginState={this.state.auth.investor}
                                     logout={this.logout}
+                                    rent={this.state.rent}
+
                                 />
                             ) : (
                                 <Redirect to="/rescricted" />
@@ -287,6 +309,8 @@ class App extends React.Component {
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
                                 clearCart={this.clearCart}
+                                rent={this.state.rent}
+
                             />
                         )}
                     />

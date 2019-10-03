@@ -7,176 +7,196 @@ import Footer from "./Footer";
 // import "/Users/flatironschool/Development/sunset-investing/src/Chart.js"
 
 class DashBoard extends React.Component {
-    constructor(){
-        super()
+    constructor() {
+        super();
         this.state = {
             sideBarStatus: { properties: "", dashboard: "active", holdings: "" }
-        }
+        };
     }
 
-        componentDidMount () {
-            // const script = document.createElement("script");
-        
-            // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
-            // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
-            // script.src = "vendor/chart.js/Chart.min.js";
-            // script.async = true;
-        
-            // document.body.appendChild(script);
+    componentDidMount() {
+        // const script = document.createElement("script");
 
-            // "/Users/flatironschool/Development/sunset-investing/public/js/charts-home.js"
-        
-            const script3 = document.createElement("script");
-        
-            // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
-            // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
-            script3.src = "/js/charts-custom.js"
-            ;
-            script3.async = true;
-        
-            document.body.appendChild(script3);
+        // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+        // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+        // script.src = "vendor/chart.js/Chart.min.js";
+        // script.async = true;
+
+        // document.body.appendChild(script);
+
+        // "/Users/flatironschool/Development/sunset-investing/public/js/charts-home.js"
+
+        const script3 = document.createElement("script");
+
+        // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+        // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+        script3.src = "/js/charts-custom.js";
+        script3.async = true;
+
+        document.body.appendChild(script3);
         // "/js/charts-home.js"
-            const script2 = document.createElement("script");
-        
-            // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
-            // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
-            script2.src = "/js/front.js";
-            script2.async = true;
-        
-            document.body.appendChild(script2);
-        
-            
-          }
+        const script2 = document.createElement("script");
 
-    
+        // script.src = '/Users/flatironschool/Development/sunset-investing/public/js/forms-validation.js';
+        // script.src = '/Users/flatironschool/Development/sunset-investing/public/vendor/jquery-validation/jquery.validate.js';
+        script2.src = "/js/front.js";
+        script2.async = true;
+
+        document.body.appendChild(script2);
+    }
+
     render() {
-        console.log("State", this.state)
+        console.log("State", this.state);
         return (
             <>
-            <Header cart={this.props.cart} loginState={this.props.loginState} logout={this.props.logout}/>
-                            <div className="d-flex align-items-stretch">
-            <SideBar sideBarStatus={this.state.sideBarStatus}/>
-                <div className="page-content">
-                    {/* Page Header*/}
-                    <div className="page-header no-margin-bottom">
-                        <div className="container-fluid">
-                            <h2 className="h5 no-margin-bottom">DashBoard</h2>
+                <Header
+                    cart={this.props.cart}
+                    loginState={this.props.loginState}
+                    logout={this.props.logout}
+                    rent={this.props.rent}
+                />
+                <div className="d-flex align-items-stretch">
+                    <SideBar sideBarStatus={this.state.sideBarStatus} />
+                    <div className="page-content">
+                        {/* Page Header*/}
+                        <div className="page-header no-margin-bottom">
+                            <div className="container-fluid">
+                                <h2 className="h5 no-margin-bottom">
+                                    DashBoard
+                                </h2>
+                            </div>
                         </div>
-                    </div>
-                    {/* Breadcrumb*/}
-                    <div className="container-fluid">
-                        <ul className="breadcrumb">
-                            <li className="breadcrumb-item">
-                            <Link to="/">Home</Link>
-                            </li>
-                            <li className="breadcrumb-item active">DashBoard </li>
-                        </ul>
-                    </div>
-                    <section>
+                        {/* Breadcrumb*/}
                         <div className="container-fluid">
-                            <div className="row">
-                                <div className="col-lg-8">
-                                    <div className="line-chart block chart">
-                                        <div className="title">
-                                            <strong>Line Chart Example</strong>
-                                        </div>
-                                        <canvas id="lineChartCustom1" />
-                                    </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="lin-chart block chart">
-                                        <div className="title">
-                                            <strong>Line Chart Example</strong>
-                                        </div>
-                                        <div className="line-chart chart margin-bottom-sm">
-                                            <canvas id="lineChartCustom2" />
-                                        </div>
-                                        <div className="line-chart chart">
-                                            <canvas id="lineChartCustom3" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="chart block">
-                                        <div className="title">
-                                            {" "}
-                                            <strong>Bar Chart Example</strong>
-                                        </div>
-                                        <div className="bar-chart chart margin-bottom-sm">
-                                            <canvas id="barChartCustom1" />
-                                        </div>
-                                        <div className="bar-chart chart">
-                                            <canvas id="barChartCustom2" />
+                            <ul className="breadcrumb">
+                                <li className="breadcrumb-item">
+                                    <Link to="/">Home</Link>
+                                </li>
+                                <li className="breadcrumb-item active">
+                                    DashBoard{" "}
+                                </li>
+                            </ul>
+                        </div>
+                        <section>
+                            <div className="container-fluid">
+                                <div className="row">
+                                    <div className="col-lg-8">
+                                        <div className="line-chart block chart">
+                                            <div className="title">
+                                                <strong>
+                                                    Line Chart Example
+                                                </strong>
+                                            </div>
+                                            <canvas id="lineChartCustom1" />
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-lg-8">
-                                    <div className="bar-chart block chart">
-                                        <div className="title">
-                                            <strong>Bar Chart Example</strong>
-                                        </div>
-                                        <div className="bar-chart chart">
-                                            <canvas id="barChartCustom3" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <div className="pie-chart chart block">
-                                        <div className="title">
-                                            <strong>Pie Chart Example</strong>
-                                        </div>
-                                        <div className="pie-chart chart margin-bottom-sm">
-                                            <canvas id="pieChartCustom1" />
+                                    <div className="col-lg-4">
+                                        <div className="lin-chart block chart">
+                                            <div className="title">
+                                                <strong>
+                                                    Line Chart Example
+                                                </strong>
+                                            </div>
+                                            <div className="line-chart chart margin-bottom-sm">
+                                                <canvas id="lineChartCustom2" />
+                                            </div>
+                                            <div className="line-chart chart">
+                                                <canvas id="lineChartCustom3" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <div className="doughnut-chart chart block">
-                                        <div className="title">
-                                            <strong>Pie Chart Example</strong>
-                                        </div>
-                                        <div className="doughnut-chart chart margin-bottom-sm">
-                                            <canvas id="doughnutChartCustom1" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <div className="polar-chart chart block">
-                                        <div className="title">
-                                            <strong>Polar Chart Example</strong>
-                                        </div>
-                                        <div className="polar-chart chart margin-bottom-sm">
-                                            <canvas id="polarChartCustom" />
+                                    <div className="col-lg-4">
+                                        <div className="chart block">
+                                            <div className="title">
+                                                {" "}
+                                                <strong>
+                                                    Bar Chart Example
+                                                </strong>
+                                            </div>
+                                            <div className="bar-chart chart margin-bottom-sm">
+                                                <canvas id="barChartCustom1" />
+                                            </div>
+                                            <div className="bar-chart chart">
+                                                <canvas id="barChartCustom2" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <div className="radar-chart chart block">
-                                        <div className="title">
-                                            <strong>Radar Chart Example</strong>
+                                    <div className="col-lg-8">
+                                        <div className="bar-chart block chart">
+                                            <div className="title">
+                                                <strong>
+                                                    Bar Chart Example
+                                                </strong>
+                                            </div>
+                                            <div className="bar-chart chart">
+                                                <canvas id="barChartCustom3" />
+                                            </div>
                                         </div>
-                                        <div className="radar-chart chart margin-bottom-sm">
-                                            <canvas id="radarChartCustom" />
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="pie-chart chart block">
+                                            <div className="title">
+                                                <strong>
+                                                    Pie Chart Example
+                                                </strong>
+                                            </div>
+                                            <div className="pie-chart chart margin-bottom-sm">
+                                                <canvas id="pieChartCustom1" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="doughnut-chart chart block">
+                                            <div className="title">
+                                                <strong>
+                                                    Pie Chart Example
+                                                </strong>
+                                            </div>
+                                            <div className="doughnut-chart chart margin-bottom-sm">
+                                                <canvas id="doughnutChartCustom1" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="polar-chart chart block">
+                                            <div className="title">
+                                                <strong>
+                                                    Polar Chart Example
+                                                </strong>
+                                            </div>
+                                            <div className="polar-chart chart margin-bottom-sm">
+                                                <canvas id="polarChartCustom" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="radar-chart chart block">
+                                            <div className="title">
+                                                <strong>
+                                                    Radar Chart Example
+                                                </strong>
+                                            </div>
+                                            <div className="radar-chart chart margin-bottom-sm">
+                                                <canvas id="radarChartCustom" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <footer className="footer">
-                        <div className="footer__block block no-margin-bottom">
-                            <div className="container-fluid text-center">
-                                <p className="no-margin-bottom">
-                                    2019 © Your company.{" "}
-                                </p>
+                        </section>
+                        <footer className="footer">
+                            <div className="footer__block block no-margin-bottom">
+                                <div className="container-fluid text-center">
+                                    <p className="no-margin-bottom">
+                                        2019 © Your company.{" "}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </footer>
+                        </footer>
+                    </div>
+                    <Footer />
                 </div>
-                <Footer />
-</div>
             </>
-            
         );
     }
 }

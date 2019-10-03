@@ -14,7 +14,8 @@ class Profile extends React.Component {
     render() {
         return (
             <>
-            <Header cart={this.props.cart} loginState={this.props.loginState} logout={this.props.logout}/>
+            <Header cart={this.props.cart} loginState={this.props.loginState} logout={this.props.logout} rent={this.props.rent}
+/>
                             <div className="d-flex align-items-stretch">
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
                 <div className="page-content">

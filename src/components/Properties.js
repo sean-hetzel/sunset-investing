@@ -21,7 +21,7 @@ class Properties extends React.Component {
                     cart={this.props.cart}
                     loginState={this.props.loginState}
                     logout={this.props.logout}
-                    time={this.props.time}
+                    rent={this.props.rent}
                 />
                 <div className="d-flex align-items-stretch">
                     <SideBar sideBarStatus={this.state.sideBarStatus} />

@@ -44,6 +44,23 @@ class Cart extends React.Component {
                 body: JSON.stringify({
                     holding: { investor_id, property_id, amount }
                 })
+
+                // .then(response => response.json())
+                // .then(data => {
+                //     console.log(data);
+                //     this.state.holdings.forEach(each => {
+                //         if (each.id === holding.id) {
+                //             each.amount = data.amount;
+                //             each.investor_id = data.investor_id;
+                //             each.property_id = data.property_id;
+                //         }
+                //     });
+                //     this.setState({
+                //         holdings: [...this.state.holdings]
+                //     });
+                //     console.log(this.state);
+                // });
+
             });
         });
     };
@@ -61,6 +78,8 @@ class Cart extends React.Component {
                     cart={this.props.cart}
                     loginState={this.props.loginState}
                     logout={this.props.logout}
+                    rent={this.props.rent}
+
                 />
                 <div className="d-flex align-items-stretch">
                     <SideBar sideBarStatus={this.state.sideBarStatus} />

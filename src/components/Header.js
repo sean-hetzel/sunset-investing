@@ -51,7 +51,7 @@ export default class Header extends Component {
         <button className="sidebar-toggle"><i className="fa fa-long-arrow-left" /></button>
       </div>
       <div className="right-menu list-inline no-margin-bottom">   
-      <h4 className="list-inline-item text-primary font-weight-light">Total Rent ${this.props.time}.</h4>      
+      <h4 className="list-inline-item text-primary font-weight-light">Total Rent ${this.props.rent}.</h4>      
   <div className="list-inline-item"><Link to="/cart" className="nav-link">Cart <i className="icon-contract" />{(this.props.cart.length >= 1)?<span className="badge dashbg-2">{(this.props.cart.length)}</span>:<span></span>}</Link></div>
 
         {/* <div className="list-inline-item"><a href="fake_url" className="nav-link"><i className="icon-magnifying-glass-browser" /></a></div> */}

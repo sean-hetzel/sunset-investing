@@ -13,7 +13,8 @@ class Holdings extends Component {
                 holdings: "active"
             },
             sellAmount: 0,
-            holdings: props.holdings
+            holdings: props.holdings,
+            totalRent: 0
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,30 +44,35 @@ class Holdings extends Component {
             body: JSON.stringify({
                 holding: { investor_id, property_id, amount }
             })
-        }).then(response => response.json())
-        .then(data => {
-            console.log(data)
-            this.state.holdings.forEach(each => {
-                if (each.id === holding.id) {
-                    each.amount = data.amount
-                    each.investor_id = data.investor_id
-                    each.property_id = data.property_id
-                }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                this.state.holdings.forEach(each => {
+                    if (each.id === holding.id) {
+                        each.amount = data.amount;
+                        each.investor_id = data.investor_id;
+                        each.property_id = data.property_id;
+                    }
+                });
+                this.setState({
+                    holdings: [...this.state.holdings]
+                });
+                console.log(this.state);
             });
-            this.setState({
-                holdings: [...this.state.holdings]
-            })
-            console.log(this.state)
-        });
     };
     render() {
         console.log("holdings props:", this.props);
+        console.log("holdings state:", this.state);
+
+        // let rent = 0;
         return (
             <>
                 <Header
                     cart={this.props.cart}
                     loginState={this.props.loginState}
                     logout={this.props.logout}
+                    rent={this.props.rent}
                 />
                 <div className="d-flex align-items-stretch">
                     <SideBar sideBarStatus={this.state.sideBarStatus} />
@@ -116,60 +122,6 @@ class Holdings extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {/* {console.log(
-                                                        "because im batman",
-                                                        Object.values(
-                                                            this.props.holdings
-                                                        ).reduce(
-                                                            (
-                                                                unique,
-                                                                holding
-                                                            ) => {
-                                                                return unique.includes(
-                                                                    holding.id
-                                                                )
-                                                                    ? unique
-                                                                    : [
-                                                                          ...unique,
-                                                                          holding.id
-                                                                      ];
-                                                            },
-                                                            []
-                                                        )
-                                                    )} */}
-                                                    {/* {console.log(
-                                                        [
-                                                            {
-                                                                id: 10,
-                                                                name:
-                                                                    "Poe Dameron",
-                                                                years: 14
-                                                            },
-                                                            {
-                                                                id: 2,
-                                                                name:
-                                                                    "Temmin 'Snap' Wexley",
-                                                                years: 30
-                                                            },
-                                                            {
-                                                                id: 41,
-                                                                name:
-                                                                    "Tallissan Lintra",
-                                                                years: 16
-                                                            },
-                                                            {
-                                                                id: 99,
-                                                                name:
-                                                                    "Ello Asty",
-                                                                years: 22
-                                                            }
-                                                        ].reduce(
-                                                            (acc, pilot) =>
-                                                                acc +
-                                                                pilot.years,
-                                                            0
-                                                        )
-                                                    )} */}
                                                     {this.state.holdings
                                                         .filter(holding => {
                                                             return (
@@ -202,6 +154,17 @@ class Holdings extends Component {
                                                                                 property[0]
                                                                                     .rent
                                                                         ).toLocaleString()}
+                                                                        {/* *
+                                                                        {
+                                                                            (rent += Math.round(
+                                                                                (holding.amount /
+                                                                                    property[0]
+                                                                                        .price) *
+                                                                                    property[0]
+                                                                                        .rent
+                                                                            ))
+                                                                        } */}
+                                                                        {/* {this.setState({totalRent: rent})} */}
                                                                     </td>
                                                                     <td>
                                                                         $
@@ -302,6 +265,7 @@ class Holdings extends Component {
                     </div>
                     <Footer />
                 </div>
+                {/* {this.setState({ totalRent: rent })} */}
             </>
         );
     }
