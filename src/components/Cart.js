@@ -13,15 +13,18 @@ class Cart extends React.Component {
     constructor() {
         super();
         this.state = {
-            sideBarStatus: { properties: "", dashboard: "", holdings: "" }, orderTotal: 0
+            sideBarStatus: { properties: "", dashboard: "", holdings: "" },
+            orderTotal: 0
         };
     }
     componentDidMount() {
         // eslint-disable-next-line
         this.props.cart.map(purchase => {
             // eslint-disable-next-line
-            this.setState({orderTotal: this.state.orderTotal += parseInt(purchase.amount)})
-        })
+            this.setState({
+                orderTotal: (this.state.orderTotal += parseInt(purchase.amount))
+            });
+        });
     }
 
     makePurchase = () => {
@@ -29,12 +32,10 @@ class Cart extends React.Component {
         this.props.cart.map(purchase => {
             investor_id = purchase.investorId;
             property_id = purchase.property.id;
-            amount = purchase.amount;
-            console.log(
-                JSON.stringify({
-                    holding: { investor_id, property_id, amount }
-                })
-            );
+            amount = parseInt(purchase.amount);
+            let holdingHash = { amount, investor_id, property_id };
+            console.log("hi 1");
+            this.props.addHolding(holdingHash);
             fetch("http://localhost:3000/api/v1/holdings", {
                 method: "POST",
                 headers: {
@@ -45,6 +46,8 @@ class Cart extends React.Component {
                     holding: { investor_id, property_id, amount }
                 })
 
+                // .then(resp => resp.JSON()).then(data => {
+                // this.props.addToHoldings(data)})
                 // .then(response => response.json())
                 // .then(data => {
                 //     console.log(data);
@@ -60,7 +63,6 @@ class Cart extends React.Component {
                 //     });
                 //     console.log(this.state);
                 // });
-
             });
         });
     };
@@ -79,7 +81,6 @@ class Cart extends React.Component {
                     loginState={this.props.loginState}
                     logout={this.props.logout}
                     rent={this.props.rent}
-
                 />
                 <div className="d-flex align-items-stretch">
                     <SideBar sideBarStatus={this.state.sideBarStatus} />
@@ -115,7 +116,10 @@ class Cart extends React.Component {
                                             </Link>
                                         </div>
                                         <div className="col-md-6 col-lg-3">
-                                            <h4 className="card-title text-primary text-center text-uppercase">Order Total ${this.state.orderTotal.toLocaleString()}</h4>
+                                            <h4 className="card-title text-primary text-center text-uppercase">
+                                                Order Total $
+                                                {this.state.orderTotal.toLocaleString()}
+                                            </h4>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -123,16 +127,25 @@ class Cart extends React.Component {
                                             return (
                                                 <>
                                                     <div className="col-md-3">
-                                                        <div className="card property-card" style={{marginBottom: "0em"}}>
+                                                        <div
+                                                            className="card property-card"
+                                                            style={{
+                                                                marginBottom:
+                                                                    "0em"
+                                                            }}
+                                                        >
                                                             <p
                                                                 className="card-title text-primary text-center text-uppercase"
                                                                 style={{
-                                                                    paddingTop: "4px"
+                                                                    paddingTop:
+                                                                        "4px"
                                                                 }}
                                                             >
                                                                 Purchase Amount:{" "}
                                                                 $
-                                                                {parseInt(cartItem.amount).toLocaleString()}
+                                                                {parseInt(
+                                                                    cartItem.amount
+                                                                ).toLocaleString()}
                                                             </p>
                                                         </div>
                                                         <PropertyCard

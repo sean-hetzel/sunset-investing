@@ -33,12 +33,54 @@ import tempHouse10 from "./images/genMid.5982972_8_0.jpg";
 import tempHouse11 from "./images/genMid.5982972_19_0.jpg";
 import Restricted from "./components/Restricted.js";
 const tempHouseImages = {
-    1: [tempHouse1, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
-    2: [tempHouse3, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
-    3: [tempHouse6, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
-    4: [tempHouse4, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
-    5: [tempHouse5, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11],
-    6: [tempHouse2, tempHouse7, tempHouse8, tempHouse9, tempHouse10, tempHouse11]
+    1: [
+        tempHouse1,
+        tempHouse7,
+        tempHouse8,
+        tempHouse9,
+        tempHouse10,
+        tempHouse11
+    ],
+    2: [
+        tempHouse3,
+        tempHouse7,
+        tempHouse8,
+        tempHouse9,
+        tempHouse10,
+        tempHouse11
+    ],
+    3: [
+        tempHouse6,
+        tempHouse7,
+        tempHouse8,
+        tempHouse9,
+        tempHouse10,
+        tempHouse11
+    ],
+    4: [
+        tempHouse4,
+        tempHouse7,
+        tempHouse8,
+        tempHouse9,
+        tempHouse10,
+        tempHouse11
+    ],
+    5: [
+        tempHouse5,
+        tempHouse7,
+        tempHouse8,
+        tempHouse9,
+        tempHouse10,
+        tempHouse11
+    ],
+    6: [
+        tempHouse2,
+        tempHouse7,
+        tempHouse8,
+        tempHouse9,
+        tempHouse10,
+        tempHouse11
+    ]
 };
 
 const BASE_URL = "http://localhost:3000/api/v1";
@@ -60,8 +102,7 @@ class App extends React.Component {
             time: new Date().getSeconds(),
             rent: 0,
             amount: 0,
-            monthlyRent: 0,
-            ownedHoldings: []
+            monthlyRent: 0
         };
     }
 
@@ -76,7 +117,12 @@ class App extends React.Component {
             );
         fetch(BASE_URL + HOLDINGS)
             .then(resp => resp.json())
-            .then(json => this.setState({ holdings: json, ownedHoldings: json }, console.log(json)));
+            .then(json =>
+                this.setState(
+                    { holdings: json, ownedHoldings: json },
+                    console.log(json)
+                )
+            );
         const token = localStorage.getItem("token");
         if (!token) {
             console.log("there is no token");
@@ -169,15 +215,23 @@ class App extends React.Component {
         }
     };
 
-    addToHoldigns = holding => {
-        if (!this.state.ownedHoldings.includes(holding)) {
-            console.log("owned holdings", holding);
-            this.setState({ ownedHoldings: [...this.state.ownedHoldings, holding] });
+    addHolding = holding => {
+        console.log("hi 2");
+        if (!this.state.holdings.includes(holding)) {
+            console.log(
+                "owned holdings",
+                [...this.state.holdings],
+                "new holding",
+                holding
+            );
+            this.setState({
+                holdings: [...this.state.holdings, holding]
+            });
         }
     };
 
     clearCart = () => {
-        this.setState({ cart: {} });
+        this.setState({ cart: [] });
     };
 
     handleFilter = zone => {
@@ -239,7 +293,6 @@ class App extends React.Component {
                                 logout={this.logout}
                                 tempHouseImages={tempHouseImages}
                                 rent={this.state.rent}
-
                             />
                         )}
                     />
@@ -254,7 +307,6 @@ class App extends React.Component {
                                 loginState={this.state.auth.investor}
                                 logout={this.logout}
                                 rent={this.state.rent}
-
                             />
                         )}
                     />
@@ -270,7 +322,6 @@ class App extends React.Component {
                                     loginState={this.state.auth.investor}
                                     logout={this.logout}
                                     rent={this.state.rent}
-
                                 />
                             ) : (
                                 <Redirect to="/rescricted" />
@@ -290,7 +341,6 @@ class App extends React.Component {
                                     loginState={this.state.auth.investor}
                                     logout={this.logout}
                                     rent={this.state.rent}
-
                                 />
                             ) : (
                                 <Redirect to="/rescricted" />
@@ -310,7 +360,7 @@ class App extends React.Component {
                                 logout={this.logout}
                                 clearCart={this.clearCart}
                                 rent={this.state.rent}
-
+                                addHolding={holding => this.addHolding(holding)}
                             />
                         )}
                     />
@@ -324,6 +374,7 @@ class App extends React.Component {
                                     cart={this.state.cart}
                                     loginState={this.state.auth.investor}
                                     logout={this.logout}
+                                    rent={this.state.rent}
                                 />
                             ) : (
                                 <Redirect to="/rescricted" />
