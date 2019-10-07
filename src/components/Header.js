@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import logo from "/Users/flatironschool/Development/sunset-investing/src/images/sunset-investing-logo.png";
+import logo from "../images/sunset-investing-logo.png";
 function isEmpty(obj) {
   for(var key in obj) {
       if(obj.hasOwnProperty(key))
