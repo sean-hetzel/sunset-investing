@@ -5,19 +5,9 @@ import { Link } from "react-router-dom";
 // import createSimpleMap from "/Users/flatironschool/Development/sunset-investing/distribution-premium/js/components-map.js";
 import tempHouse1 from "/Users/flatironschool/Development/sunset-investing/src/images/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg";
 import SideBar from "./SideBar";
-import { createSimpleMap } from "/Users/flatironschool/Development/sunset-investing/src/components/GoogleMaps.js";
+// import { createSimpleMap } from "/Users/flatironschool/Development/sunset-investing/src/components/GoogleMaps.js";
 import Carousel from "./Carousel";
 import PercentageBar from "./PercentageBar";
-
-// coordinates for the center of the map and the marker
-// let lat = 40.732346;
-// let long = -74.0014247;
-// if using with other than default style, change the path to the colour letiant
-// of the marker. E.g. to img/map-marker-violet.png.
-// let markerImage = 'img/map-marker-default.png';
-// id of the map DOM element
-// let id = 'map-3';
-// let map;
 
 class Property extends React.Component {
     constructor() {
