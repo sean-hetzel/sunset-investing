@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 import SideBar from "./SideBar";
+import Footer from "./Footer";
 
 class Profile extends React.Component {
     constructor(){
@@ -12,6 +14,9 @@ class Profile extends React.Component {
     render() {
         return (
             <>
+            <Header cart={this.props.cart} loginState={this.props.loginState} logout={this.props.logout} rent={this.props.rent}
+/>
+                            <div className="d-flex align-items-stretch">
             <SideBar sideBarStatus={this.state.sideBarStatus}/>
                 <div className="page-content">
                     <div className="page-header no-margin-bottom">
@@ -34,7 +39,7 @@ class Profile extends React.Component {
     <div className="col-lg-4">
       <div className="card card-profile">
         <div style={{backgroundImage: 'url(img/photos/paul-morris-116514-unsplash.jpg)'}} className="card-header" />
-        <div className="card-body text-center"><img src="img/avatar-9.jpg" className="card-profile-img" />
+        <div className="card-body text-center"><img src="img/avatar-9.jpg" alt="avatar" className="card-profile-img" />
           <h4 className="mb-3 text-gray-light">Sarah Bluth</h4>
           <p className="mb-4">CEO of the Bluth Company</p>
           <button className="btn btn-outline-secondary"><span className="fa fa-twitter" /> Follow</button>
@@ -47,10 +52,10 @@ class Profile extends React.Component {
               <h5>Sarah Bluth</h5>
               <p className="text-muted mb-0">Coder</p>
               <ul className="social-links list-inline mb-0 mt-2">
-                <li className="list-inline-item"><a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="Nathan's Facebook"><i className="fa fa-facebook" /></a></li>
-                <li className="list-inline-item"><a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="@nathan_andrews"><i className="fa fa-twitter" /></a></li>
-                <li className="list-inline-item"><a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title={+42097555987}><i className="fa fa-phone" /></a></li>
-                <li className="list-inline-item"><a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="@nathan"><i className="fa fa-skype" /></a></li>
+                <li className="list-inline-item"><a href="/" data-toggle="tooltip" data-placement="top" title="Nathan's Facebook"><i className="fa fa-facebook" /></a></li>
+                <li className="list-inline-item"><a href="/" data-toggle="tooltip" data-placement="top" title="@nathan_andrews"><i className="fa fa-twitter" /></a></li>
+                <li className="list-inline-item"><a href="/" data-toggle="tooltip" data-placement="top" title={+42097555987}><i className="fa fa-phone" /></a></li>
+                <li className="list-inline-item"><a href="/" data-toggle="tooltip" data-placement="top" title="@nathan"><i className="fa fa-skype" /></a></li>
               </ul>
             </div>
           </div>
@@ -230,7 +235,8 @@ class Profile extends React.Component {
 </div>
   </section>
   </div>
-
+  <Footer />
+</div>
             </>
         );
     }

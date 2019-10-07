@@ -1589,8 +1589,13 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
   height: 100%;
   display: block;
   z-index: -1;
-  background: url(../img/bg.jpeg);
+  /* background: url(../img/bg.jpeg); */
+  /* background: url(../img/avi-waxman-pJk4RRS7urs-unsplash.jpg); */
+  /* background: url(../img/chris-tingom-BaDrWEr794Q-unsplash.jpg); */
+  /* background: url(../img/julian-howard-2YGrbLlbz6Y-unsplash.jpg); */
+  background: url(../img/clayton-cardinalli-YD6hjCbf6Ug-unsplash.jpg);
   background-size: cover;
+  background-position: center bottom;
   position: absolute;
   top: 0;
   right: 0;
