@@ -1,3 +1,34 @@
+# Sunset Investing v1
+
+Real estate investing platform where investors can buy/sell fractions of rental properties akin to buying stocks of companies. The advantages for buying just a fraction of rental properties are increased diversification and accessibility. You'll get a fraction of the rent and appreciation.
+
+`Not online yet`
+
+![Sunset Investing](sunset-investing-image.png)
+
+# Usage
+
+Users can:
+
+1. View rental properties for sale. 
+2. Create an account with Auth..
+3. Invest a fraction of rental properties.
+4. Sell fractions of their holdings.
+
+# Roadmap
+
+I'm not working on this anymore, but rather making a whole other second version v2 from scratch. This is so it can use a react compatible UI template instead. 
+
+# Support
+
+seanhetzel1@gmail.com
+
+# Contributing
+
+Contributions welcome
+
+# Installation:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
