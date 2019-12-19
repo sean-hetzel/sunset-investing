@@ -69,13 +69,13 @@ class Home extends React.Component {
                                 }}
                                 className="col-6 text-center"
                             >
-                                Business and stuff from Wikipedia: Once an
-                                investment property has been located, and
-                                preliminary due diligence (investigation and
-                                verification of the condition and status of the
-                                property) completed, the investor will have to
-                                negotiate a sale price and sale terms with the
-                                seller, then execute a contract for sale.
+                                Real estate investing platform where investors
+                                can buy/sell fractions of rental properties akin
+                                to buying stocks of companies. The advantages
+                                for buying just a fraction of rental properties
+                                are increased diversification and accessibility.
+                                You'll get a fraction of the rent and
+                                appreciation.
                             </p>
                             <img
                                 style={{ marginTop: "16em" }}

@@ -2,7 +2,7 @@
 
 Real estate investing platform where investors can buy/sell fractions of rental properties akin to buying stocks of companies. The advantages for buying just a fraction of rental properties are increased diversification and accessibility. You'll get a fraction of the rent and appreciation.
 
-`Not online yet`
+https://sean-hetzel.github.io/sunset-investing/
 
 ![Sunset Investing](sunset-investing-image.png)
 
