@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/sunset-investing/static/js/main.9d38337d.chunk.js",
-    "main.js.map": "/sunset-investing/static/js/main.9d38337d.chunk.js.map",
+    "main.js": "/sunset-investing/static/js/main.819fd3d1.chunk.js",
+    "main.js.map": "/sunset-investing/static/js/main.819fd3d1.chunk.js.map",
     "runtime-main.js": "/sunset-investing/static/js/runtime-main.e7dfc401.js",
     "runtime-main.js.map": "/sunset-investing/static/js/runtime-main.e7dfc401.js.map",
     "static/js/2.322a62c3.chunk.js": "/sunset-investing/static/js/2.322a62c3.chunk.js",
     "static/js/2.322a62c3.chunk.js.map": "/sunset-investing/static/js/2.322a62c3.chunk.js.map",
     "index.html": "/sunset-investing/index.html",
-    "precache-manifest.e3863c3db65881447a29070aa4193a4f.js": "/sunset-investing/precache-manifest.e3863c3db65881447a29070aa4193a4f.js",
+    "precache-manifest.4cf16ddd6f9adc9bf799608d22f5f603.js": "/sunset-investing/precache-manifest.4cf16ddd6f9adc9bf799608d22f5f603.js",
     "service-worker.js": "/sunset-investing/service-worker.js",
     "static/js/2.322a62c3.chunk.js.LICENSE": "/sunset-investing/static/js/2.322a62c3.chunk.js.LICENSE",
     "static/media/01-Palisades-Santee_Front-Elevation-Twilight_920.jpg": "/sunset-investing/static/media/01-Palisades-Santee_Front-Elevation-Twilight_920.060becc0.jpg",
@@ -28,6 +28,6 @@
   "entrypoints": [
     "static/js/runtime-main.e7dfc401.js",
     "static/js/2.322a62c3.chunk.js",
-    "static/js/main.9d38337d.chunk.js"
+    "static/js/main.819fd3d1.chunk.js"
   ]
 }
