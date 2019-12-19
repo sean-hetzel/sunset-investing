@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.js": "/static/js/main.adedcccf.chunk.js",
+    "main.js.map": "/static/js/main.adedcccf.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f3fef628.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f3fef628.js.map",
+    "static/js/2.d9ae8340.chunk.js": "/static/js/2.d9ae8340.chunk.js",
+    "static/js/2.d9ae8340.chunk.js.map": "/static/js/2.d9ae8340.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.dc99a766331b7696e9e2070cfb61c03c.js": "/precache-manifest.dc99a766331b7696e9e2070cfb61c03c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/js/2.d9ae8340.chunk.js.LICENSE": "/static/js/2.d9ae8340.chunk.js.LICENSE",
+    "static/media/01-Palisades-Santee_Front-Elevation-Twilight_920.jpg": "/static/media/01-Palisades-Santee_Front-Elevation-Twilight_920.060becc0.jpg",
+    "static/media/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.jpg": "/static/media/07-Canyon-Oaks-Sage_Front-Elevation_CC_920.7db686fa.jpg",
+    "static/media/1-Alara-Ariel-Elite_Front-Elevation_1920.jpg": "/static/media/1-Alara-Ariel-Elite_Front-Elevation_1920.8a67ebb6.jpg",
+    "static/media/1-Estrella-Altamira_Front-Elevation_920.jpg": "/static/media/1-Estrella-Altamira_Front-Elevation_920.29cb3658.jpg",
+    "static/media/1-Solano-Artemis_Front-Elevation_1920.jpg": "/static/media/1-Solano-Artemis_Front-Elevation_1920.f264a39b.jpg",
+    "static/media/14-025-03-Rear-Exterior-over-Fire-Pit.jpg": "/static/media/14-025-03-Rear-Exterior-over-Fire-Pit.98331cec.jpg",
+    "static/media/chris-tingom-BaDrWEr794Q-unsplash.jpg": "/static/media/chris-tingom-BaDrWEr794Q-unsplash.8c102b7a.jpg",
+    "static/media/genMid.5982972_19_0.jpg": "/static/media/genMid.5982972_19_0.1c949185.jpg",
+    "static/media/genMid.5982972_1_0.jpg": "/static/media/genMid.5982972_1_0.e686894b.jpg",
+    "static/media/genMid.5982972_3_0.jpg": "/static/media/genMid.5982972_3_0.9d0053ab.jpg",
+    "static/media/genMid.5982972_5_0.jpg": "/static/media/genMid.5982972_5_0.cdd01c04.jpg",
+    "static/media/genMid.5982972_8_0.jpg": "/static/media/genMid.5982972_8_0.fdb56c7a.jpg",
+    "static/media/its-free-real-estate.gif": "/static/media/its-free-real-estate.4036c4d4.gif",
+    "static/media/sunset-investing-logo-white.png": "/static/media/sunset-investing-logo-white.9ea9dcc9.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f3fef628.js",
+    "static/js/2.d9ae8340.chunk.js",
+    "static/js/main.adedcccf.chunk.js"
+  ]
+}

@@ -1,0 +1,43 @@
+
+/*
+* ==========================================================
+*     TABLES
+* ==========================================================
+*/
+
+.table {
+    margin-bottom: 0;
+}
+
+.table td,
+.table th {
+    border-color: $gray-800;
+}
+
+.table thead th {
+    border: none;
+}
+
+.table-striped tbody tr {
+    transition: all 0.3s;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: darken($bgDark, 2%);
+    &:hover {
+        background-color: darken($bgDark, 3%)
+    }
+}
+
+.table-bordered {
+    td,
+    th {
+        border-color: $gray-800;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    section.tables {
+        padding: 0;
+    }
+}
