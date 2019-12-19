@@ -22,6 +22,7 @@ class Cart extends React.Component {
         this.props.cart.map(purchase => {
             // eslint-disable-next-line
             this.setState({
+                // eslint-disable-next-line
                 orderTotal: (this.state.orderTotal += parseInt(purchase.amount))
             });
         });

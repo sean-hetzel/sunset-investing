@@ -83,7 +83,8 @@ const tempHouseImages = {
     ]
 };
 
-const BASE_URL = "http://localhost:3000/api/v1";
+// const BASE_URL = "http://localhost:3000/api/v1";
+const BASE_URL = "https://morning-garden-63256.herokuapp.com/api/v1"
 const PROPERTIES = "/properties";
 const HOLDINGS = "/holdings";
 
