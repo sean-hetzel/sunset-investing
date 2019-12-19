@@ -15,6 +15,14 @@ class Home extends React.Component {
             sideBarStatus: { properties: "", dashboard: "", holdings: "" }
         };
     }
+
+    componentDidMount() {
+        // just to let visitor know this site is a work in progress
+        window.alert(
+            "Sorry for the alert but I wanna let you know THIS SITE IS UNFINISHED! It is very buggy and I am no longer working on it. Instead, I am working on Sunset Investing V2. Version 2 will use a different UI template and will use Redux and will be a lot better (duh). Thanks! :) \n\n\n                                   ⬆️‼️🏜️🌵🏡🌆🏘️🌅🌴‼️⬆️"
+        );
+    }
+
     render() {
         return (
             <>
