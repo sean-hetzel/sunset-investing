@@ -1,8 +1,6 @@
-// import $ from 'jquery'
-// import 'jquery-validation'
 import React from "react";
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Route,
     Switch,
     Redirect
