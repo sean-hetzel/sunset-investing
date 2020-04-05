@@ -42,3 +42,13 @@ a:hover {
   background-color: red;
   border-color: red;
 }
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      color: yellow;
+    }
+  }

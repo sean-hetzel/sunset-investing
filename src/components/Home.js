@@ -12,16 +12,16 @@ class Home extends React.Component {
     constructor() {
         super();
         this.state = {
-            sideBarStatus: { properties: "", dashboard: "", holdings: "" }
+            sideBarStatus: { properties: "", dashboard: "", holdings: "" },
         };
     }
 
-    componentDidMount() {
-        // just to let visitor know this site is a work in progress
-        window.alert(
-            "Sorry for the alert but I wanna let you know THIS SITE IS UNFINISHED! It is very buggy and I am no longer working on it. Instead, I am working on Sunset Investing V2. Version 2 will use a different UI template and will use Redux and will be a lot better (duh). Thanks! :) \n\n\n                                   ⬆️‼️🏜️🌵🏡🌆🏘️🌅🌴‼️⬆️"
-        );
-    }
+    // componentDidMount() {
+    //     // just to let visitor know this site is a work in progress
+    //     window.alert(
+    //         "Sorry for the alert but I wanna let you know THIS SITE IS UNFINISHED! It is very buggy and I am no longer working on it. Instead, I am working on Sunset Investing V2. Version 2 will use a different UI template and will use Redux and will be a lot better (duh). Thanks! :) \n\n\n                                   ⬆️‼️🏜️🌵🏡🌆🏘️🌅🌴‼️⬆️"
+    //     );
+    // }
 
     render() {
         return (
@@ -56,11 +56,33 @@ class Home extends React.Component {
                         ></div><br></br> */}
                             {/* <a style={{backgroundColor: 'black', color: 'white', textDecoration: 'none', padding: '4px 6px', fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif', fontSize: 12, fontWeight: 'bold', lineHeight: '1.2', display: 'inline-block', borderRadius: 3}} href="https://unsplash.com/@aviosly?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Avi Waxman"><span style={{display: 'inline-block', padding: '2px 3px'}}><svg xmlns="http://www.w3.org/2000/svg" style={{height: 12, width: 'auto', position: 'relative', verticalAlign: 'middle', top: '-2px', fill: 'white'}} viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" /></svg></span><span style={{display: 'inline-block', padding: '2px 3px'}}>Avi Waxman</span></a>
 <a style={{backgroundColor: 'black', color: 'white', textDecoration: 'none', padding: '4px 6px', fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif', fontSize: 12, fontWeight: 'bold', lineHeight: '1.2', display: 'inline-block', borderRadius: 3}} href="https://unsplash.com/@aviosly?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Avi Waxman"><span style={{display: 'inline-block', padding: '2px 3px'}}><svg xmlns="http://www.w3.org/2000/svg" style={{height: 12, width: 'auto', position: 'relative', verticalAlign: 'middle', top: '-2px', fill: 'white'}} viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" /></svg></span><span style={{display: 'inline-block', padding: '2px 3px'}}>Avi Waxman</span></a> */}
+                            <h4 className="col-12 text-center blink_me">
+                                <span role="img" aria-label="pointing right">
+                                    👉
+                                </span>
+                                THIS SITE IS UNFINISHED! It is very buggy and I
+                                am no longer working on it. Instead, I am
+                                working on Sunset Investing V2. Version 2 will
+                                use a different UI template and will use Redux,
+                                Node, S3, D3, Google Maps and will be a lot
+                                better (duh). Thanks! :)
+                                <span role="img" aria-label="pointing left">
+                                    👈
+                                </span>
+                                <br></br>
+                                <br></br>
+                                <span
+                                    role="img"
+                                    aria-label="pretty desert sunset stuff"
+                                >
+                                    🏜️🌵🏡🌆🏘️🌅🌴
+                                </span>
+                            </h4>
                             <h1
                                 className="col-12 text-primary text-center"
                                 style={{
-                                    marginTop: "4em",
-                                    marginBottom: "2em"
+                                    marginTop: "2em",
+                                    marginBottom: "2em",
                                 }}
                             >
                                 Real Estate Investing. For The Modern Age.
@@ -73,7 +95,7 @@ class Home extends React.Component {
                                     position: "absolute",
                                     marginLeft: "25%",
                                     width: "50em",
-                                    marginTop: "4em"
+                                    marginTop: "4em",
                                 }}
                                 className="col-6 text-center"
                             >
@@ -103,7 +125,7 @@ class Home extends React.Component {
                                     fontWeight: "bold",
                                     lineHeight: "1.2",
                                     display: "inline-block",
-                                    borderRadius: 3
+                                    borderRadius: 3,
                                 }}
                                 href="https://unsplash.com/@christingom?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge"
                                 target="_blank"
@@ -113,7 +135,7 @@ class Home extends React.Component {
                                 <span
                                     style={{
                                         display: "inline-block",
-                                        padding: "2px 3px"
+                                        padding: "2px 3px",
                                     }}
                                 >
                                     <svg
@@ -124,7 +146,7 @@ class Home extends React.Component {
                                             position: "relative",
                                             verticalAlign: "middle",
                                             top: "-2px",
-                                            fill: "white"
+                                            fill: "white",
                                         }}
                                         viewBox="0 0 32 32"
                                     >
@@ -135,7 +157,7 @@ class Home extends React.Component {
                                 <span
                                     style={{
                                         display: "inline-block",
-                                        padding: "2px 3px"
+                                        padding: "2px 3px",
                                     }}
                                 >
                                     Chris Tingom
