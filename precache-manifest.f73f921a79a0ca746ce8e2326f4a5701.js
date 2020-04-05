@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "09daef8aebdfda5fb50bba974dda243a",
+    "revision": "2fb027e78ff3a3d84ded9e48b431909f",
     "url": "/sunset-investing/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sunset-investing/static/js/2.322a62c3.chunk.js.LICENSE"
   },
   {
-    "revision": "0b452c7e8da3e4b35e1b",
-    "url": "/sunset-investing/static/js/main.7049870c.chunk.js"
+    "revision": "3fc0b5fb5ba5a0582c6a",
+    "url": "/sunset-investing/static/js/main.cb528be4.chunk.js"
   },
   {
     "revision": "a6691b4760c47a3b6deb",
